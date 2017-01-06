@@ -1,0 +1,48 @@
+
+.statistical {
+	padding:15px 0px;
+	margin-bottom: 73px;
+	text-align:center;
+	background-color:#fff;
+	li {
+    list-style-type: none;
+}
+
+	.title-st {
+		color: #008cd8;
+		text-align:center;
+		text-transform:uppercase;
+		font-weight:600;
+		width: 100%;
+    	float: left;
+		i {
+			  margin-right: 10px;
+    		font-size: 30px;
+		}
+	}
+	.stat-circle {
+		margin: 10px 0px;
+		height:160px;
+		width:160px;
+		display:inline-block;
+		border-radius: 80px;
+   		 background-color: #008cd8;
+   		 .content {
+   		 	text-align:center;
+   		 	
+   			 color: #fff;
+   			 padding-top:50px;
+   			 text-transform: uppercase;
+   		 	.count {
+   		 		font-size: 29px;
+   		 		i {
+				  margin-right: 5px;
+    				font-size: 30px;
+				}
+				a {
+				    font-size: 28px;
+				}
+   		 	}
+   		 }
+	}
+}

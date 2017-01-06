@@ -1,0 +1,41 @@
+.main-content {
+	.bg {
+		background-color:#fff;
+	}
+	.salary {
+		padding-top:50px;
+		padding-bottom:50px;
+		.sl-title {
+			h3 {
+				text-transform: uppercase;
+				color:#008cd8;
+				font-weight: 600;
+			}
+
+		}
+		.sl-content {
+			text-align:center;
+			.sl-skill {
+				height:60px;
+				background-color: #008cd8;
+				margin:20px 0;
+				cursor: pointer;
+				border-radius: 5px;
+				&:hover {
+					background-color: #1f6797;
+				}
+				a {
+					text-decoration: none;
+					color:#fff;
+					line-height:60px;
+					font-size:18px;
+					text-transform: uppercase;
+					i {
+						padding-right: 10px;
+						font-size: 30px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,105 @@
+.register {
+	margin-bottom:50px;
+	.resume-title  {
+		color:#008cd8;
+	   
+	    i {
+	    	padding-right:10px;
+	    }
+
+	}
+	 .tt-text {
+	    	padding-left:15px;
+	    	padding-right:15px;
+	    	padding-bottom: 15px;
+    		border-bottom: 1px solid #ccc;
+    		color:#484848;
+    		@media(max-width:320px){
+    			padding-left:0;
+    			padding-right:0;
+    		}
+	    }
+	.fr-input {
+		margin: 5px 0px;
+	    input {
+	    	height: 40px;
+    		padding-left: 35px;
+    		font-size:18px;
+    		border-left: 3px solid #008cd8;
+	    }
+	    select {
+	    	padding-left:35px;
+	    	color:#999999;
+	    	font-size:18px;
+	    	border-left: 3px solid #008cd8;
+	    	
+	    }
+    	i {
+    		position: absolute;
+		    top: 10px;
+		    left: 22px;  
+		    display: block;
+		    color: #008cd8;
+		    font-size: 20px;
+    	}
+	}
+	.txt-lb {
+		padding-top:10px;
+		color: #666666;
+	    font-size: 18px;
+	    font-weight: 500;
+	}
+		.form-control {
+					height: 40px;
+					&:focus {
+						background: #ecf0f1;
+					}
+	}
+	.btn-dn {
+		width:100%;
+		height:40px;
+		font-size:18px;
+		margin-bottom:15px;
+	}
+			
+}
+.register label.control-label.col-sm-3 {
+    text-align: left;
+}
+.register .form-register {
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid #eee;
+	    input {
+		    border-left: 2px solid #008cd8 !important;
+		        padding-left: 32px !important;
+		}
+		i.fa {
+		    position: absolute;
+		    font-size: 20px;
+		    padding: 8px;
+		    color: #008cd8;
+		}
+		i.fa.fa-phone-square {
+		    padding: 0px !important;
+		}
+		button.btn.btn-primary {
+		    width: 100%;
+		   
+		}
+}
+button.btn-dn.btn.btn-primary.sms {
+    width: 49%;
+}
+button.btn-dn.btn.btn-primary.email {
+    width: 50%;
+}
+@media only screen and (max-width: 600px) {
+    button.btn-dn.btn.btn-primary.sms {
+    width: 100%;
+}
+button.btn-dn.btn.btn-primary.email {
+    width: 100%;
+}
+}

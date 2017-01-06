@@ -1,0 +1,74 @@
+.testimonial {
+	background-color:#fff;
+	margin-bottom: 60px;
+	.tt-title {
+		text-align:center;
+		color: #008cd8;
+   		text-transform: capitalize;
+   		font-size:25px;
+   		h3 {
+   			font-weight:600;
+   			font-size:30px;
+   		}
+		i {
+			padding-right:10px;
+		}
+	}
+	.row .click {
+		.tm-des {
+			overflow:visible;
+			max-height:none;
+		}
+	}
+	.tm-content {
+		text-align:center;
+		position:relative;
+		padding-top:20px;
+		.tm-img {
+			width:150px;
+			height:150px;
+			border-radius:50%;
+			overflow:hidden;
+			display: inline-block;
+			text-align:center;
+			img {
+				width:100%;
+			}
+		}
+		.tm-infor {
+			
+			font-size:16px;
+			color:#666666;
+			padding-top:25px;
+			.tm-name {
+				text-transform:uppercase;
+			}
+			.tm-job {
+
+				padding: 10px 15px;
+				text-transform:capitalize;
+			}
+		}
+		.tm-des {
+			    max-height: 80px;
+    			overflow: hidden;
+    			position:relative;
+   				span {
+   					font-size: 16px;
+				    color: #999999;
+				    line-height: 30px;
+   				}
+		}
+		.icon-down {
+			    position: absolute;
+			    bottom: -40px;
+			    left: 0;
+			    right: 0;
+			    i  {
+			    	font-size: 30px;
+    				cursor: pointer;
+			    }
+
+		}
+	}
+}

@@ -1,0 +1,145 @@
+.search-filters input.input-lg {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding-left: 40px; }
+.search-filters select.input-lg {
+  height: 46px;
+  line-height: 46px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding-left: 40px; }
+
+.input-write::before {
+  background: url(/www/Caribe/wp/wp-content/themes/yuna/images/sprite_icn_large.png) no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: table;
+  background-size: 200px auto;
+  background-position: -25px -103px;
+  top: 7px;
+  float: left;
+  content: " ";
+  left: 10px;
+  z-index: 100; }
+
+.select-exp::before {
+  background: url(/www/Caribe/wp/wp-content/themes/yuna/images/sprite_icn_large.png) -76px 0px no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: table;
+  background-size: 200px auto;
+  top: 7px;
+  float: left;
+  content: " ";
+  left: 10px;
+  margin-right: 12px;
+  z-index: 100; }
+
+.select-job::before {
+  background: url(/www/Caribe/wp/wp-content/themes/yuna/images/sprite_icn_large.png) no-repeat;
+  content: " ";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: table;
+  background-size: 200px auto;
+  background-position: 0 0;
+  top: 7px;
+  float: left;
+  z-index: 100;
+  left: 10px; }
+
+.select-address::before {
+  background: url(/www/Caribe/wp/wp-content/themes/yuna/images/sprite_icn_large.png) no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: table;
+  background-size: 200px auto;
+  background-position: -26px 0;
+  top: 7px;
+  float: left;
+  content: " ";
+  left: 10px;
+  margin-right: 12px;
+  z-index: 100; }
+
+.select-salary::before {
+  background: url(/www/Caribe/wp/wp-content/themes/yuna/images/sprite_icn_large.png) -50px 0px no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: table;
+  background-size: 200px auto;
+  top: 7px;
+  float: left;
+  content: " ";
+  left: 10px;
+  margin-right: 12px;
+  z-index: 100; }
+
+.select-sex::before {
+  background: url(/www/Caribe/wp/wp-content/themes/yuna/images/sprite_icn_large.png) -126px 0px no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: table;
+  background-size: 200px auto;
+  top: 7px;
+  float: left;
+  content: " ";
+  left: 10px;
+  margin-right: 12px;
+  z-index: 100; }
+
+.select-typejob::before {
+  background: url(/www/Caribe/wp/wp-content/themes/yuna/images/sprite_icn_large.png) -150px 0px no-repeat;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: table;
+  background-size: 200px auto;
+  top: 7px;
+  float: left;
+  content: " ";
+  left: 10px;
+  margin-right: 12px;
+  z-index: 100; }
+
+.sidebar-widget-bottom-line {
+  position: relative; }
+
+span.search-filters-title {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: solid 1px #ecf0f1;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 20px; }
+  span.search-filters-title h3.search-select2 {
+    margin-top: 0px;
+    font-size: 20px; }
+
+form.search-filters i.fa {
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  font-size: 20px; }
+
+.search-filters {
+  border: 1px solid #f5f5f5;
+  padding: 12px; }
+
+.single-job input.select2-search__field, .single-resume input.select2-search__field, .page-id-3173 input.select2-search__field, page-id-3176 input.select2-search__field, page-id-3186 input.select2-search__field, .page-id-571 input.select2-search__field {
+  display: none; }
+
+.single-job .sidebar-widget-bottom-line.select-wrapper, .single-resume .sidebar-widget-bottom-line.select-wrapper, .page-id-3173 .sidebar-widget-bottom-line.select-wrapper, page-id-3176 .sidebar-widget-bottom-line.select-wrapper, page-id-3186 .sidebar-widget-bottom-line.select-wrapper, .page-id-571 .sidebar-widget-bottom-line.select-wrapper {
+  margin-bottom: 20px;
+  height: 40px; }
+
+/*# sourceMappingURL=search-filters.css.map */

@@ -1,0 +1,103 @@
+#sidebar {
+	.sb-title {
+		text-align:center;
+		 margin-right: 10px;
+    	border-bottom: 1px solid #ecf0f1;
+    	padding-bottom:10px;
+    	text-transform: uppercase;
+		>h3 {
+			font-size: 20px;
+   			 font-weight: 400;
+		}
+    	i {
+    		color:#FFEB3B;
+    		padding-right:5px;
+
+    	}
+	}
+    .carousel {
+        
+            .carouse-prev {
+                position: absolute;
+                top: 0;
+                z-index: 100;
+                line-height: 250px;
+                img {
+                    width:100%;
+                    cursor: pointer;
+                }
+            }
+            .carouse-next {
+                position:absolute;
+                top:0;
+                right:0;
+                line-height:250px;
+                z-index: 100;
+                  img {
+                    width:100%;
+                    cursor: pointer;
+                }
+
+            }
+           
+        
+    }
+     .box-item-job{
+                display:inline-block;
+                margin-left:50px;
+                 border: 3px solid #e74c3c;
+                border-radius: 10px;
+                    text-transform: uppercase;
+
+                .box-left {
+                    width: 40%;
+                    display: inline-block;
+                  
+                    color: #e74c3c;
+                    text-align: center;
+                   float: left;
+                    font-size: 14px;
+                    padding-top: 10px;
+                    span {
+                        padding-left:10px;
+                    }
+                }
+                .box-right {
+                        width: 60%;
+                        float:right;
+                        height: 51px;
+                        background: #e74c3c;
+                        color: #fff;
+                        text-align: center;
+                     
+                        line-height: 50px;
+                        font-size: 16px;
+                        span{
+
+                            text-align:center;
+                        }
+                }
+            }
+            .box-title {
+                text-align:center;
+                .title {
+                    white-space: nowrap;
+                     text-overflow: ellipsis;
+                   padding:15px;
+                    margin:0;
+                    color: #2980b9;
+                    font-size: 22px;
+                    overflow:hidden;
+
+                }
+                .title-job {
+                    color: #999999;
+                    i {
+                        padding-right:5px;
+                    }
+                    .title-company {
+                        padding-top:10px;
+                    }
+                }
+            }
+}

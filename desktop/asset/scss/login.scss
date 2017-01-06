@@ -1,0 +1,53 @@
+.login {
+	color:#484848;
+	background: #fff;
+	.resume-title {
+		color:#008cd8;
+	    padding: 15px;
+		
+		border-bottom: 1px solid #ccc;
+		i {
+			padding-right:10px;
+			font-size:30px;
+		}
+	}
+	.lg-text {
+		padding:15px;
+		span {
+			line-height: 24px;
+		    font-weight: 400;
+		    color: #484848;
+		    font-size: 16px;
+		}
+	}
+	.lg-form {
+		padding:0 15px;
+		.form-group {
+			.label-text {
+				text-align: left;
+				color:#484848;
+			}
+			
+				.form-control {
+					height: 40px;
+					&:focus {
+						background: #ecf0f1;
+					}
+				}
+			
+			.checkbox{
+				font-size:16px;
+				.txt-r {
+					float:right;
+					font-size: 16px;
+				}
+			}
+			.btn-dn {
+				  
+				    height: 40px;
+				    font-size: 20px;
+
+			}
+		}
+	}
+}

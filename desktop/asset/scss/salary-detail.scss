@@ -1,0 +1,45 @@
+.main-content {
+	.background-white {
+		background-color:#fff;
+	}
+	.salary-detail {
+		padding:80px 0;
+		.text-center {
+			padding:15px;
+			font-size: 16px;
+			h1 {
+				color: #008cd8;
+				font-size: 25px;
+				text-transform: uppercase;
+			}
+		}
+		@media(max-width:768px){
+		.clearfix1 {
+				clear: both;
+			}
+		}
+			.box-content {
+				text-align:center;
+			}
+			.box-content {
+				.star {
+					color: #dcab29;
+					cursor: pointer;
+					i {
+						font-size: 36px;
+						padding:0 10px;
+					}
+				}
+				.padding15 {
+					padding:15px 0;
+				}
+				.padding10 {
+					padding:10px;
+					span {
+						font-size: 16px;
+						color: #484848;
+					}
+				}
+			}
+	}
+}

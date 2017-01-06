@@ -1,0 +1,128 @@
+.list-job {
+.title {
+	a:hover{
+	text-decoration:none;
+	}
+	
+}
+	.bg-fff {
+		background:#fff;
+	}
+	a {text-decoration: none;}
+	h1 {
+		color: #008cd8;
+		font-size:25px;
+		font-weight: 600;
+		text-transform: capitalize;
+		margin-bottom: 0;
+		i {
+			padding-right: 10px;
+		}
+	}
+	.lst-box-job {
+		height: 200px;
+		margin-bottom: 15px;
+   		 margin-top: 10px;
+    	overflow: hidden;
+		.lst-title {
+			&:hover {
+				a {
+					color:#1f6797;
+				}
+			}
+			a {
+				color:#4f5357;
+				font-size:16px;
+				text-transform: uppercase;
+				font-weight: 600;
+			}
+		}
+		.box-infor {
+			.box-img {
+				width:215px;
+				height: 150px;
+				display: inline-block;
+				float:left;
+				img {
+					width:100%;
+				}
+			}
+			.content {
+				padding-left:240px;
+				.post {
+					font-size: 13px;
+
+					padding:10px;
+					a {
+						color:#4f5357;
+					}
+					&:first-child{
+						padding-left:0;
+					}
+					i {
+						padding-right:5px;
+					}
+				}
+				.text-ct {
+					margin-top:10px;
+					color: #636363;
+   					line-height: 1.65em;
+   					font-size: 16px;
+				}
+				.text-left {
+					padding-top:15px;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+	.input-search {
+		padding-top:20px;
+		.form-search .input-group .btn-search {
+		    height: 45px;
+		    background-color: #008cd8;
+		}
+		 .form-search .input-group input {
+   			 height: 45px;
+		}
+		.form-search .input-group .btn-search i {
+		    font-size: 20px;
+		    color: #fff;
+		}
+
+	}
+	
+		.category-menu {
+			padding-top:20px;
+			.menu-title {
+				padding-left:0;
+				.title {
+					height: 45px;
+				    line-height: 36px;
+				    background: #008cd8;
+				    text-transform: uppercase;
+				    color: #fff;
+				    padding-left: 10px;
+				    font-size: 16px;
+
+				}
+				li {
+					list-style-type: none;
+					padding-top:5px;
+					line-height:45px;
+				    height:45px;
+   					 text-transform: uppercase;
+				     background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0,#FFF),color-stop(1,#F6F6F6));
+				  	padding-left:25px;
+				  	a {
+				  		 color: #484848;
+				  		 font-weight: 600;
+				  		 &:hover {
+							color: #1f6797;
+							font-weight: 600;
+				  		 }
+				  	}
+				  }
+			}
+		}
+}

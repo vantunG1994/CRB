@@ -1,0 +1,138 @@
+.main-content {
+	    background-color: #ecf0f1;
+}
+.content-bg {
+	background-color:#fff;
+}
+.listting_content {
+	padding: 30px 0;
+	 cursor: pointer;
+	 border-bottom:1px solid #ccc;
+	 &:hover {
+		    	.logo {
+		    		transform: scale(1.1);
+		    	}
+		    }
+	.logo {
+		transition:  all ease .3s;
+		width:50px;
+		height:50px;
+		border-radius:50%;
+		overflow: hidden;
+		display:inline-block;
+		img {
+			width:100%;
+		}
+	}
+	.infor_job {
+		padding-left: 10px;
+		text-transform: capitalize;
+		display:inline-block;
+		.title {
+			font-size: 20px;
+			color: $linkTitle;
+			padding-top:10px;
+			margin:0;
+    		
+			.job {
+				padding-left:5px;
+				color: $titleJob;
+    			font-size: 16px;
+    			padding-left:5px;
+   				
+			}
+		}
+		.address {
+			padding-top:5px;
+			font-size: 13px;
+			color:#333;
+			i {
+				padding-right:5px;
+			}
+		}
+		.job {
+			font-size: 13px;
+   			 padding-bottom: 5px;
+   			 padding-top:5px;
+   			 text-transform: capitalize;
+   			 	color:#333;
+   			 i {
+   			 	padding-right:5px;
+   			 }
+		}
+	}
+	.view-right {
+			float:right;
+			height: 70px;
+			width:200px;
+			border:3px solid #008cd8;
+			border-radius:5%;
+			margin-right: 15px;
+			
+			transition: all .3s;
+
+			.fl-right {
+				width:49%;
+				
+				float: left;
+				
+				text-align: center;
+				.experience {
+					color: #008cd8;
+					font-size: 16px;
+					line-height: 70px;
+				}
+				.exp {
+					display: none;
+				}
+			}
+			.fl-right1 {
+				width:50%;
+				float:right;
+				height: 65px;
+				background-color:#008cd8;
+				text-align:center;
+				.job-offers {
+					color: #fff;
+					font-size: 16px;
+					line-height: 70px;
+				}
+				.icon {
+					display: none;
+				}
+			}
+			&:hover {
+				border:3px solid #1f6797;
+				transform: scale(0.8);
+				.fl-right {
+					width:64%;
+					.experience {
+						display: none;
+
+					}
+					.exp {
+						color: #1f6797;
+						font-size: 20px;
+						line-height: 70px;
+						display:block;
+						text-transform: uppercase;
+					}
+				}
+				.fl-right1 {
+					width:35%;
+					background-color:#1f6797;
+					.job-offers {
+						display: none;
+					}
+					.icon {
+						font-size: 30px;
+						display: block;
+						line-height: 70px;
+						color: #fff;
+
+					}
+				}
+			}
+
+		}
+}

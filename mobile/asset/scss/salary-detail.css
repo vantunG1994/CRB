@@ -1,0 +1,37 @@
+.main-content .background-white {
+  background-color: #fff; }
+.main-content .salary-detail {
+  padding: 40px 0; }
+  .main-content .salary-detail .text-center {
+    padding: 15px;
+    font-size: 16px; }
+    .main-content .salary-detail .text-center h1 {
+      color: #008cd8;
+      font-size: 25px;
+      text-transform: uppercase; }
+  @media (max-width: 768px) {
+    .main-content .salary-detail .clearfix1 {
+      clear: both; } }
+  .main-content .salary-detail .box-content {
+    text-align: center; }
+  .main-content .salary-detail .box-content .star {
+    color: #dcab29;
+    cursor: pointer; }
+    .main-content .salary-detail .box-content .star i {
+      font-size: 36px;
+      padding: 0 10px; }
+      @media (max-width: 375px) {
+        .main-content .salary-detail .box-content .star i {
+          padding: 0 5px; } }
+  .main-content .salary-detail .box-content .padding15 {
+    padding: 15px 0; }
+  .main-content .salary-detail .box-content .padding10 {
+    padding: 10px; }
+    @media (max-width: 768px) {
+      .main-content .salary-detail .box-content .padding10 {
+        padding: 5px; } }
+    .main-content .salary-detail .box-content .padding10 span {
+      font-size: 16px;
+      color: #484848; }
+
+/*# sourceMappingURL=salary-detail.css.map */

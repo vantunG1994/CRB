@@ -1,0 +1,219 @@
+.coverImageHolder {
+   
+   		 #header-cover-image {
+		    width: 100%;
+		    float: left;
+		    overflow: hidden;
+		    float: left;
+		    width: 100%;
+		    height: 330px;
+		    z-index: -1;
+
+			.title-text {
+			    float: right;
+			    position: inherit;
+			    margin-top: 1%;
+			    margin-bottom: 1%;
+			    color: #faf9f4;
+			    font-weight: bold;
+			    font-size: 22px;
+			    z-index: 6;
+			}
+			.tab-wrapper{
+			 	margin-top: 53px;
+            }
+            .tab-wrapper ul{
+                overflow: hidden;
+                margin: 0px;
+                width: 100%;
+                height: 100%;
+                
+            }
+            li.recruitment {
+			    margin-left: 30px;
+			    i {
+			    	padding-right:5px;
+			    }
+			}
+            li.candidates {
+			    margin-right: 30px;
+			    i {
+			    	padding-right:5px;
+			    }
+			}
+            .tab-wrapper ul li{
+                float: left;
+                width: -webkit-calc(30%);
+   				width: calc(30%); 
+   				
+            }
+            .tab-wrapper ul li.active{
+                background: #fff;
+                border-radius: 5px 5px 0 0;
+
+            }
+            .tab-wrapper ul li.active a{
+                color: #2980b9;
+            }
+            .tab-wrapper ul li a{
+                color: #484848;
+                font-size: 20px;
+                text-transform: uppercase;
+                text-decoration: none;
+                display: block;
+                border-radius: 5px 5px 0 0;
+                padding-top: 12px;
+    			padding-bottom: 12px;
+                background-color: rgba(255,255,255,0.6);
+    			text-align: center;
+            }
+			.tab-content  {
+				position: absolute;
+			    width: 100%;
+			    height: 60%;
+			    border: 30px solid #fff;
+			    background: #fff;
+			    border-radius: 10px;
+					
+
+			    	h3.resume-section-subtitle {
+				    	text-align: center;
+				    	margin-top: 0px;
+				    	margin-bottom: 30px;
+					}
+					.search-select {
+					    width: 100%;
+					    float: left;
+					    padding-top: 33px;
+					    border-top: 1px solid #ccc;
+					}
+						.search-home {
+						    	input#fullName {
+								    width: 100%;
+								    height:40px;
+								    border: 1px solid #ccc;
+    								border-radius: 3px;
+    								padding-left: 15%;
+								}
+								select {
+								    width: 100%;
+								  
+								    border: 1px solid #ccc;
+    								border-radius: 3px;
+    								padding-left: 15%;
+    								font-size: 16px;
+    								font-weight: 600;
+    								color: #555;
+    								
+								}
+								
+								button.btn.btn-primary.btn-lg {
+								    width: 100%;
+								    height: 40px;
+
+								   
+								}
+								i.fa.fa-pencil-square-o, i.fa.fa-map-marker ,i.fa.fa-cog {
+								    position: absolute;
+								    padding-left: 7px;
+								    padding-top: 8px;
+								    font-size: 22px;
+								    color: #555;
+								}
+						}
+
+					
+			}
+
+				
+		}	
+}
+
+		.tab-wrapper-list{
+			 	margin-top:  -51px;
+            }
+            .tab-wrapper-list ul{
+                overflow: hidden;
+                margin: 0px;
+                width: 100%;
+            }
+            
+            .tab-wrapper-list ul li{
+                float: left;
+                width: -webkit-calc(30%);
+   				width: calc(30%); 
+            }
+            .tab-wrapper-list ul li.active{
+                background: #fff;
+                border-radius: 5px 5px 0 0;
+
+            }
+            .tab-wrapper-list ul li.active a{
+                color: #2980b9;
+            }
+            .tab-wrapper-list ul li a{
+                color: #484848;
+                font-size: 20px;
+                text-transform: uppercase;
+                text-decoration: none;
+                display: block;
+                border-radius: 5px 5px 0 0;
+                padding-top: 15px;
+    			padding-bottom: 15px;
+                background-color: rgba(255,255,255,0.6);
+    			text-align: center;
+
+            }		
+				.tab-list {
+    				li {
+    					list-style-type: none;
+    				}
+    			}
+    			.tab {
+    				li {
+    					list-style-type: none;
+    				}
+    			}
+			
+			li.list-resum {
+			    margin-right: 35px;
+			    i {
+			    	padding-right:5px;
+			    }
+			}
+			li.list-job {
+			    margin-right: 35px;
+			    i {
+			    	padding-right:5px;
+			    }
+			}
+			li.list-company {
+				i {
+					padding-right:5px;
+				}
+			}
+			.cover {
+			    opacity: 0.7;
+    			position: relative;
+			    	img.bgImg {
+				    	z-index: -999;
+					    min-height: 100%;
+					    min-width: 1024px;
+					    width: 100%;
+					    height: auto;
+					    position: absolute;
+					    top: 0;
+					    left: 0;
+					    margin-top: -11%;
+
+					}
+			}
+			.coverImageHolder {
+			    width: 100%;
+			    float: left;
+			    overflow: hidden;
+			    background: #000;
+			    float: left;
+			    width: 100%;
+			    z-index: -1;
+			}

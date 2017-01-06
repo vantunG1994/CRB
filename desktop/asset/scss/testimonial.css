@@ -1,0 +1,56 @@
+.testimonial {
+  background-color: #fff;
+  margin-bottom: 60px; }
+  .testimonial .tt-title {
+    text-align: center;
+    color: #008cd8;
+    text-transform: capitalize;
+    font-size: 25px; }
+    .testimonial .tt-title h3 {
+      font-weight: 600;
+      font-size: 30px; }
+    .testimonial .tt-title i {
+      padding-right: 10px; }
+  .testimonial .row .click .tm-des {
+    overflow: visible;
+    max-height: none; }
+  .testimonial .tm-content {
+    text-align: center;
+    position: relative;
+    padding-top: 20px; }
+    .testimonial .tm-content .tm-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-block;
+      text-align: center; }
+      .testimonial .tm-content .tm-img img {
+        width: 100%; }
+    .testimonial .tm-content .tm-infor {
+      font-size: 16px;
+      color: #666666;
+      padding-top: 25px; }
+      .testimonial .tm-content .tm-infor .tm-name {
+        text-transform: uppercase; }
+      .testimonial .tm-content .tm-infor .tm-job {
+        padding: 10px 15px;
+        text-transform: capitalize; }
+    .testimonial .tm-content .tm-des {
+      max-height: 80px;
+      overflow: hidden;
+      position: relative; }
+      .testimonial .tm-content .tm-des span {
+        font-size: 16px;
+        color: #999999;
+        line-height: 30px; }
+    .testimonial .tm-content .icon-down {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0; }
+      .testimonial .tm-content .icon-down i {
+        font-size: 30px;
+        cursor: pointer; }
+
+/*# sourceMappingURL=testimonial.css.map */

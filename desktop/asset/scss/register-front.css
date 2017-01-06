@@ -1,0 +1,47 @@
+.register-front {
+  padding-bottom: 20px; }
+  .register-front .remove-padding-15 {
+    padding-left: 0;
+    padding-right: 0; }
+  .register-front .pd-r-15 {
+    padding-right: 15px; }
+  .register-front .pd-l-15 {
+    padding-left: 15px; }
+  .register-front .rg-employer {
+    color: #2980b9;
+    background-color: #fff; }
+    .register-front .rg-employer h3 {
+      padding-left: 40px;
+      font-size: 30px;
+      padding-top: 15px; }
+      .register-front .rg-employer h3 i {
+        font-size: 34px;
+        padding-right: 5px; }
+    .register-front .rg-employer .rg-infor {
+      padding: 20px 30px; }
+      @media (max-width: 1024px) {
+        .register-front .rg-employer .rg-infor .title-home {
+          font-size: 20px; } }
+      .register-front .rg-employer .rg-infor .title-home {
+        color: #484848;
+        font-size: 24px; }
+    .register-front .rg-employer .btn-register {
+      padding-left: 30px;
+      padding-bottom: 15px; }
+      .register-front .rg-employer .btn-register .btn-rg {
+        background-color: #008cd8;
+        font-size: 20px;
+        padding: 20px;
+        text-transform: uppercase; }
+        .register-front .rg-employer .btn-register .btn-rg i {
+          padding-right: 5px; }
+        .register-front .rg-employer .btn-register .btn-rg:hover {
+          background-color: #1f6797; }
+  .register-front .rg-uv h3 {
+    color: #16a085; }
+  .register-front .rg-uv .rg-employer .btn-register .btn-rg {
+    background-color: #16a085; }
+    .register-front .rg-uv .rg-employer .btn-register .btn-rg:hover {
+      background-color: #128C74; }
+
+/*# sourceMappingURL=register-front.css.map */

@@ -1,0 +1,47 @@
+.main-content {
+	.bg {
+		background-color:#fff;
+	}
+	.salary {
+		.pd-bt20px{
+		padding-bottom:20px;
+		}
+		.sl-title {
+			h3 {
+				text-transform: uppercase;
+				color:#008cd8;
+				font-weight: 600;
+			}
+			p {
+				padding-left:15px;
+				padding-right:15px;
+			}
+
+		}
+		.sl-content {
+			text-align:center;
+			.sl-skill {
+				height:60px;
+				background-color: #008cd8;
+				box-shadow: 0 3px 0 #1f6797;
+				margin:15px 0;
+				cursor: pointer;
+				border-radius: 10px;
+				&:hover {
+					background-color: #1f6797;
+				}
+				a {
+					text-decoration: none;
+					color:#fff;
+					line-height:60px;
+					font-size:18px;
+					text-transform: uppercase;
+					i {
+						padding-right: 10px;
+						font-size: 30px;
+					}
+				}
+			}
+		}
+	}
+}
