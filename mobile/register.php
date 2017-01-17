@@ -18,7 +18,6 @@
 							</div>
 							<div class="clearfix"></div>
 						</div>
-
 						<div class="form-group">
 							<div class="col-md-3  col-xs-12">
 								<label class="txt-lb" for="">Email :</label>
@@ -26,49 +25,47 @@
 							<div class="col-md-6  col-xs-12 fr-input ">
 								<input type="email" class="form-control" placeholder="Nhập Email của bạn">
 								<i class="fa fa-at"></i>
-							</div><div class="clearfix"></div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-3  col-xs-12">
-								<label class="txt-lb" for="">Mật khẩu :</label>
+								</div><div class="clearfix"></div>
 							</div>
-							<div class="col-md-6  col-xs-12 fr-input">
-								<input type="password" class="form-control" placeholder="Nhập số điện thoại của bạn">
-								<i class="fa fa-key" aria-hidden="true"></i>
-								<div class="clearfix"></div>
-							</div><div class="clearfix"></div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-3  col-xs-12">
-								<label class="txt-lb" for="">Lặp lại mật khẩu :</label>
+							<div class="form-group">
+								<div class="col-md-3  col-xs-12">
+									<label class="txt-lb" for="">Mật khẩu :</label>
+								</div>
+								<div class="col-md-6  col-xs-12 fr-input">
+									<input type="password" class="form-control" placeholder="Nhập số điện thoại của bạn">
+									<i class="fa fa-key" aria-hidden="true"></i>
+									<div class="clearfix"></div>
+									</div><div class="clearfix"></div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-3  col-xs-12">
+										<label class="txt-lb" for="">Lặp lại mật khẩu :</label>
+									</div>
+									<div class="col-md-6  col-xs-12 fr-input">
+										<input type="password" class="form-control" placeholder="Nhập lại mật khẩu">
+										<i class="fa fa-key" aria-hidden="true"></i>
+										</div><div class="clearfix"></div>
+									</div>
+									<div class="form-group">
+										<div class="col-md-3  col-xs-12">
+											<label class="txt-lb" for="">Kiểu tài khoản :</label>
+										</div>
+										<div class="col-md-6  col-xs-12 fr-input ">
+											<select class="form-control" id="sel1">
+												<option>Ứng viên</option>
+												<option>Nhà tuyển dụng</option>
+											</select>
+											<i class="fa fa-user" aria-hidden="true"></i>
+											</div><div class="clearfix"></div>
+										</div>
+										<div class="form-group">
+											<div class=" col-md-6 col-md-offset-3 col-xs-12">
+												<button type="submit" class=" btn-dn btn btn-primary">Đăng Ký</button>
+											</div>
+										</div>
+									</form>
+								</div>
 							</div>
-							<div class="col-md-6  col-xs-12 fr-input">
-								<input type="password" class="form-control" placeholder="Nhập lại mật khẩu">
-								<i class="fa fa-key" aria-hidden="true"></i>
-							</div><div class="clearfix"></div>
-						</div>
-						<div class="form-group">
-							<div class="col-md-3  col-xs-12">
-								<label class="txt-lb" for="">Kiểu tài khoản :</label>
-							</div>
-							<div class="col-md-6  col-xs-12 fr-input ">
-								<select class="form-control" id="sel1">
-								    <option>Ứng viên</option>
-								    <option>Nhà tuyển dụng</option>
-								  </select>
-								  <i class="fa fa-user" aria-hidden="true"></i>
-							</div><div class="clearfix"></div>
-						</div>
-						<div class="form-group">
-						<div class=" col-md-6 col-md-offset-3 col-xs-12">
-							<button type="submit" class=" btn-dn btn btn-primary">Đăng Ký</button>
 						</div>
 					</div>
-					</form>
 				</div>
-			</div>
-		</div>
-	</div>
-</div>

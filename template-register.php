@@ -14,8 +14,8 @@ window.location.href="<?php echo $profile; ?>"
 }
 ?>
 <style>
-    #err_pass, #err_pass1, #err_email, #err {
-    color:red;
+#err_pass, #err_pass1, #err_email, #err {
+color:red;
 }
 </style>
 <div class="main-contnet">
@@ -41,59 +41,44 @@ window.location.href="<?php echo $profile; ?>"
                                     global $current_user,$wpdb;
                                     if($_POST['userName']=="" ||$_POST['email']=="" ||$_POST['pwd1']=="" )
                                     {
-                                        $err= "Vui lòng nhập đầy đủ thông tin";
+                                    $err= "Vui lòng nhập đầy đủ thông tin";
                                     }
                                     else{
-                                        if($_POST['pwd1'] !=$_POST['pwd2'])
-                                        {
-                                            $err= "Mật khẩu không trùng khớp";
-
-                                        }
-                                        else{
-                                            $userdata = array(
-                                                'user_login'  =>  $_POST['userName'],
-                                                'user_email'    =>  $_POST['email'],
-                                                'user_pass'   =>  $_POST['pwd1']
-                                            );
-
-                                            $user_id = wp_insert_user( $userdata ) ;
-                                            update_user_meta($user_id, 'account_type', $_POST['account_type']);
-
-                                            if (  is_wp_error( $user_id ) ) {
-                                                $err= "SĐT hoặc email đã tồn tại.Vui lòng kiểm tra lại";
-                                            }
-                                            else{
-                                                $phone_activation_code = rand(11111,99999);
-                                                $email_activation_code = md5(rand(11111,99999));
-
-                                                update_user_meta($td_user_id, 'user_phone_activation_code', $phone_activation_code);
-                                                update_user_meta($td_user_id, 'user_email_activation_code', $email_activation_code);
-
-
-                                                $sms_data=array();
-                                                $sms_data['phone']=$username;
-                                                $sms_data['message']='Ma kich hoat tai khoan MangViecLam.com cua ban la '.$phone_activation_code.'     ';
-
-                                                add_queue('sms',$sms_data);
-
-                                                $email_data=array();
-                                                $email_data['from'] = 'no-reply@mangvieclam.com';
-                                                $email_data['to'] = $email;
-                                                $email_data['subject'] = 'Đăng ký tài khoản MangViecLam.com thành công';
-                                                $email_data['body'] = 'Tài khoản '.$username.' của bạn tại MangViecLam.com đã được khởi tạo. 
-                                                 <br /><br /> Thông tin đăng nhập:<br /> Username: '.$username.'<br /> Password: '.$password.'<br />';
-
-                                                add_queue('email',$email_data);
-
-                                                $success="Đăng ký thành công";
-
-
-                                            }
-                                        }
-
-
+                                    if($_POST['pwd1'] !=$_POST['pwd2'])
+                                    {
+                                    $err= "Mật khẩu không trùng khớp";
+                                    }
+                                    else{
+                                    $userdata = array(
+                                    'user_login'  =>  $_POST['userName'],
+                                    'user_email'    =>  $_POST['email'],
+                                    'user_pass'   =>  $_POST['pwd1']
+                                    );
+                                    $user_id = wp_insert_user( $userdata ) ;
+                                    update_user_meta($user_id, 'account_type', $_POST['account_type']);
+                                    if (  is_wp_error( $user_id ) ) {
+                                    $err= "SĐT hoặc email đã tồn tại.Vui lòng kiểm tra lại";
+                                    }
+                                    else{
+                                    $phone_activation_code = rand(11111,99999);
+                                    $email_activation_code = md5(rand(11111,99999));
+                                    update_user_meta($td_user_id, 'user_phone_activation_code', $phone_activation_code);
+                                    update_user_meta($td_user_id, 'user_email_activation_code', $email_activation_code);
+                                    $sms_data=array();
+                                    $sms_data['phone']=$username;
+                                    $sms_data['message']='Ma kich hoat tai khoan MangViecLam.com cua ban la '.$phone_activation_code.'     ';
+                                    add_queue('sms',$sms_data);
+                                    $email_data=array();
+                                    $email_data['from'] = 'no-reply@mangvieclam.com';
+                                    $email_data['to'] = $email;
+                                    $email_data['subject'] = 'Đăng ký tài khoản MangViecLam.com thành công';
+                                    $email_data['body'] = 'Tài khoản '.$username.' của bạn tại MangViecLam.com đã được khởi tạo.
+                                    <br /><br /> Thông tin đăng nhập:<br /> Username: '.$username.'<br /> Password: '.$password.'<br />';
+                                    add_queue('email',$email_data);
+                                    $success="Đăng ký thành công";
+                                    }
+                                    }
                                     }}
-
                                     ?>
                                     <!--display error/success message-->
                                     <div id="message">
@@ -115,9 +100,8 @@ window.location.href="<?php echo $profile; ?>"
                                             <label class="control-label  col-sm-3" for="userName">Số điện thoại:</label>
                                             <div class="col-sm-9">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
-
                                                 <input type="number" class="form-control" name="userName" id="userName" placeholder="Nhập số điện thoại của bạn" onblur="return kt_sdt()" >
-                                                  <span id="err"></span>
+                                                <span id="err"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -148,13 +132,13 @@ window.location.href="<?php echo $profile; ?>"
                                         </div>
                                         <div class="form-group">
                                             
-                                                <label class="control-label col-sm-3" for="">Kiểu tài khoản :</label>
+                                            <label class="control-label col-sm-3" for="">Kiểu tài khoản :</label>
                                             
                                             <div class="col-sm-9">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                <select class="form-control" name="account_type" id="sel1">
-                                                    <option value="job-offer">Ứng viên</option>
-                                                    <option value="job-seeker">Nhà tuyển dụng</option>
+                                                <select class="form-control select2" name="account_type" id="sel1">
+                                                    <option value="job-offer" <?php selected( "job-offer", $_GET['account-type'] ); ?>>Nhà tuyển dụng</option>
+                                                    <option value="job-seeker" <?php selected( "job-seeker", $_GET['account-type'] ); ?>>Ứng viên</option>
                                                 </select>
                                                 
                                                 </div><div class="clearfix"></div>

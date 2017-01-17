@@ -30,7 +30,7 @@
 							</span>
 							<div class="text-ct">
 								<span>
-									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…	
+									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…
 								</span>
 							</div>
 							<div class="text-center"><a href="">Xem thêm</a></div>
@@ -38,7 +38,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class=" col-md-8 col-sm-12 col-xs-12">
 				<div class="lst-box-job">
 					<div class="lst-title">
@@ -67,7 +66,7 @@
 							</span>
 							<div class="text-ct">
 								<span>
-									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…	
+									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…
 								</span>
 							</div>
 							<div class="text-center"><a href="">Xem thêm</a></div>
@@ -104,7 +103,7 @@
 							</span>
 							<div class="text-ct">
 								<span>
-									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…	
+									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…
 								</span>
 							</div>
 							<div class="text-center"><a href="">Xem thêm</a></div>
@@ -140,41 +139,39 @@
 							</span>
 							<div class="text-ct">
 								<span>
-									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…	
+									Không phải lúc nào bạn cũng được tuyển dụng dù bạn đã thể hiện rất xuất sắc trong cuộc phỏng vấn. Không ai…
 								</span>
 							</div>
 							<div class="text-center"><a href="">Xem thêm</a></div>
 						</div>
 					</div>
 				</div>
-
 			</div>
-
 			<div class="col-md-4 col-sm-12 col-xs-12">
-					<div class="input-search">
-						<form action="" class="form-search">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Tìm Kiếm ">
-								<span class="input-group-btn">
-									<button class="btn btn-default btn-search" type="button"><i class="fa fa-search"></i></button>
-								</span>
-							</div>
-						</form>
-					</div>
-					<div class="category-menu">
-						<ul class="menu-title">
-							<li class="title">Chuyên mục</li>
-							<li><a href="">Bí quyết tìm việc</a></li>
-							<li><a href="">Bí quyết tuyển dụng</a></li>
-							<li><a href="">Chưa được phân loại</a></li>
-							<li><a href="">Eduacation</a></li>
-							<li><a href="">Kinh nghiệm làm việc</a></li>
-							<li><a href="">Phỏng vấn xin việc</a></li>
-							<li><a href="">Quản lý nhận sự</a></li>
-							<li><a href="">Thông tin kinh doanh</a></li>
-						</ul>
-					</div>
+				<div class="input-search">
+					<form action="" class="form-search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Tìm Kiếm ">
+							<span class="input-group-btn">
+								<button class="btn btn-default btn-search" type="button"><i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</form>
 				</div>
+				<div class="category-menu">
+					<ul class="menu-title">
+						<li class="title">Chuyên mục</li>
+						<li><a href="">Bí quyết tìm việc</a></li>
+						<li><a href="">Bí quyết tuyển dụng</a></li>
+						<li><a href="">Chưa được phân loại</a></li>
+						<li><a href="">Eduacation</a></li>
+						<li><a href="">Kinh nghiệm làm việc</a></li>
+						<li><a href="">Phỏng vấn xin việc</a></li>
+						<li><a href="">Quản lý nhận sự</a></li>
+						<li><a href="">Thông tin kinh doanh</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

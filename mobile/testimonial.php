@@ -74,11 +74,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="carouse-prev" data-type="icon">
-					<img src="<?php echo get_template_directory_uri();?>/mobile/asset/images/prev.png" alt="prev">
-				</div>
-				<div class="carouse-next" data-type="icon">
-					<img src="<?php echo get_template_directory_uri();?>/mobile/asset/images/next.png" alt="next">
-				</div>
+			
 		</div>
 	</div>

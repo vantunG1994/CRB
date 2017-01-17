@@ -132,13 +132,14 @@
   bottom: 0;
   left: 0;
   background: #008cd8;
-  height: 50px;
+  height: 48px;
   width: 100%;
   border-top: 1px solid;
   border-color: #2f8baf;
   z-index: 1000; }
   .bottom-navigation .nav-active {
     background-color: #0e73ab; }
+
   .bottom-navigation .nav-item {
     width: 19%;
     display: inline-block;
@@ -154,5 +155,9 @@
       display: block;
       color: #fff;
       margin-top: 5px; }
+       .nav-item:hover {
+    background-color: #1f6797;
+}
+    
 
 /*# sourceMappingURL=yuna.css.map */

@@ -597,13 +597,12 @@
             </div>
           </div>
           <div class="divider"></div>
-                <div class="button">
-                  <p>
-                    <button type="button" class="btn btn-default color-button">+ Thêm yêu cầu về kỹ năng cho tin tuyển dụng</button>
-                    <button type="button" class="btn btn-default color-button">+ Thêm yêu cầu về kỹ năng cho tin tuyển dụng</button>
-                  </p>
-                </div>
-
+          <div class="button">
+            <p>
+              <button type="button" class="btn btn-default color-button">+ Thêm yêu cầu về kỹ năng cho tin tuyển dụng</button>
+              <button type="button" class="btn btn-default color-button">+ Thêm yêu cầu về kỹ năng cho tin tuyển dụng</button>
+            </p>
+          </div>
           <div class="Skills-needed">
             <div class="title-top">
               <h1 class="resume-section-title"><i class="fa fa-bar-chart-o"></i>  Kỹ năng cần thiết</h1>
@@ -776,10 +775,10 @@
                 </span>
                 <div class="divider" ></div>
                 <div class="button">
-                <p>
-                  <button type="button" class="btn btn-primary">Lưu nháp</button>
-                  <button type="button" class="btn btn-default color-button">Gửi tin tuyển dụng để xem xét</button>
-                </p>
+                  <p>
+                    <button type="button" class="btn btn-primary">Lưu nháp</button>
+                    <button type="button" class="btn btn-default color-button">Gửi tin tuyển dụng để xem xét</button>
+                  </p>
                 </div>
                 
               </div>

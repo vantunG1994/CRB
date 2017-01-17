@@ -213,43 +213,43 @@ function filter_pagetitle($title) {
 
             if($salary==2500000)
             {
-                $salary_name="1-3 triệu";
+                $salary_name=" 1-3 triệu";
             }
             if($salary==4000000)
             {
-                $salary_name="3-5 triệu";
+                $salary_name=" 3-5 triệu";
             }
             if($salary==6000000)
             {
-                $salary_name="5-7 triệu";
+                $salary_name=" 5-7 triệu";
             }
             if($salary==8500000)
             {
-                $salary_name="7-10 triệu";
+                $salary_name=" 7-10 triệu";
             }
             if($salary==11000000)
             {
-                $salary_name="10-12 triệu";
+                $salary_name=" 10-12 triệu";
             }
             if($salary==13500000)
             {
-                $salary_name="12-15 triệu";
+                $salary_name=" 12-15 triệu";
             }
             if($salary==17500000)
             {
-                $salary_name="15-20 triệu";
+                $salary_name=" 15-20 triệu";
             }
             if($salary==22500000)
             {
-                $salary_name="20-25 triệu";
+                $salary_name=" 20-25 triệu";
             }
             if($salary==27500000)
             {
-                $salary_name="25-30 triệu";
+                $salary_name=" 25-30 triệu";
             }
             if($salary==30000000)
             {
-                $salary_name="30 triệu trở lên";
+                $salary_name=" 30 triệu trở lên";
             }
 
 
@@ -260,7 +260,7 @@ function filter_pagetitle($title) {
 
 
         }
-        $title= "Tuyển dụng ".$job_type." ".$location." ".$salary_name." ".$page."  ";
+        $title= "Tuyển dụng ".$job_type.$location.$salary_name.$page;
 
 
     }
@@ -303,43 +303,43 @@ function filter_pagetitle($title) {
 
                 if($salary==2500000)
                 {
-                    $salary_name="1-3 triệu";
+                    $salary_name=" 1-3 triệu";
                 }
                 if($salary==4000000)
                 {
-                    $salary_name="3-5 triệu";
+                    $salary_name=" 3-5 triệu";
                 }
                 if($salary==6000000)
                 {
-                    $salary_name="5-7 triệu";
+                    $salary_name=" 5-7 triệu";
                 }
                 if($salary==8500000)
                 {
-                    $salary_name="7-10 triệu";
+                    $salary_name=" 7-10 triệu";
                 }
                 if($salary==11000000)
                 {
-                    $salary_name="10-12 triệu";
+                    $salary_name=" 10-12 triệu";
                 }
                 if($salary==13500000)
                 {
-                    $salary_name="12-15 triệu";
+                    $salary_name=" 12-15 triệu";
                 }
                 if($salary==17500000)
                 {
-                    $salary_name="15-20 triệu";
+                    $salary_name=" 15-20 triệu";
                 }
                 if($salary==22500000)
                 {
-                    $salary_name="20-25 triệu";
+                    $salary_name=" 20-25 triệu";
                 }
                 if($salary==27500000)
                 {
-                    $salary_name="25-30 triệu";
+                    $salary_name=" 25-30 triệu";
                 }
                 if($salary==30000000)
                 {
-                    $salary_name="30 triệu trở lên";
+                    $salary_name=" 30 triệu trở lên";
                 }
 
 
@@ -367,7 +367,7 @@ function filter_pagetitle($title) {
 
         }
 
-        $title= $name." ".$job_type." ".$location." ".$salary_name." ".$page."  ";
+        $title= $name.$job_type.$location.$salary_name.$page;
 
 
     }
@@ -490,7 +490,6 @@ function add_meta_tags() {
         $meta_description=$wpjobus_resume_prof_title.','.$wpjobus_resume_fullname;
         $metakeywords = $wpjobus_resume_fullname.','.$wpjobus_resume_prof_title.','.get_option( 'blogname' ).",".get_option( 'blogdescription' );
 
-        echo '<meta name="description" content="' . $meta_description . '" />' . "\n";
         echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
 
     }
@@ -501,7 +500,6 @@ function add_meta_tags() {
         $meta_description=$wpjobus_job_fullname.' '.$wpjobus_company_fullname;
         $metakeywords = $wpjobus_job_fullname.','.$wpjobus_company_fullname.','.get_option( 'blogname' ).",".get_option( 'blogdescription' );
 
-        echo '<meta name="description" content="' . $meta_description . '" />' . "\n";
         echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
 
     }
@@ -510,7 +508,6 @@ function add_meta_tags() {
         $meta_description=$wpjobus_company_fullname;
         $metakeywords = $wpjobus_company_fullname.','.get_option( 'blogname' ).",".get_option( 'blogdescription' );
 
-        echo '<meta name="description" content="' . $meta_description . '" />' . "\n";
         echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
 
     }
@@ -1010,7 +1007,7 @@ function WPJobus_track_post_views ($td_post_id) {
     wpb_set_post_views($td_post_id);
 }
 
-
+add_action( 'wp_head', 'WPJobus_track_post_views');
 function wpb_get_post_views($postID){
     $count_key = 'wpb_post_views_count';
     $count = get_post_meta($postID, $count_key, true);
@@ -1256,3 +1253,29 @@ function save_crb_wp2es($post_id){
     }
 }
 add_action('save_post', 'save_crb_wp2es');
+add_action( 'admin_menu', 'user_award' );
+
+function user_award()
+{
+
+    add_menu_page(
+        'User Award',
+        'User Award',
+        'manage_options',
+        'user-award',
+        'user_award_action'
+    );
+
+
+}
+function user_award_action() {
+    require get_template_directory() . '/inc/user-award.php';
+}
+add_filter( 'pre_option_category_base', 'mysite_change_category_base' );
+function mysite_change_category_base( $value ) {
+
+    // let's change our category slug to rantings
+    // this will change the permalink to http://wpdreamer.com/rantings/wordpress/
+    return 'c';
+
+}

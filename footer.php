@@ -14,6 +14,9 @@
  <?php  } ?>
  <script>
      jQuery(document).ready(function($) {
+         document.addEventListener('gesturestart', function (e) {
+             e.preventDefault();
+         });
 
          // Show the login dialog box on click
          $('a#show_login').on('click', function(e){
@@ -52,20 +55,24 @@
      });
  </script>
 <script src ="<?php echo THEMATER_URL;?>/js/jquery-2.1.4.js"></script>
-<script src ="<?php echo THEMATER_URL;?>/js/owl.carousel.min.js"></script>
+<!--<script src ="--><?php //echo THEMATER_URL;?><!--/js/owl.carousel.min.js"></script>-->
+<script src ="<?php echo THEMATER_URL;?>/js/owl.carousel.js"></script>
 <script src ="<?php echo THEMATER_URL;?>/js/bootstrap.min.js"></script>
-<script src="<?php echo THEMATER_URL; ?>/js/menu-mobile.js"></script> 
+<script src="<?php echo THEMATER_URL; ?>/js/menu-mobile.js"></script>
 <script src="<?php echo get_template_directory_uri();?>/desktop/asset/js/sidebar.js"></script>
 <script src="<?php echo get_template_directory_uri();?>/mobile/asset/js/footer.js"></script>
 <script src="<?php echo get_template_directory_uri();?>/desktop/asset/js/search_top_home.js"></script>
 <script src="<?php echo get_template_directory_uri();?>/desktop/asset/js/salary.js"></script>
 <script src="<?php echo THEMATER_URL; ?>/js/select2.min.js"></script>
 <script src="<?php echo THEMATER_URL; ?>/js/sweetalert2.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBNZXONYcFfKjdvRGfvrPzrfSi2aDeFos&libraries=places&callback=initMap" async defer></script>
 
  
 
 
-<?php wp_footer(); ?>
+<?php wp_footer();
+
+?>
 
 </body>
 </html>

@@ -22,8 +22,8 @@
     .statistical .stat-circle .content {
       text-align: center;
       color: #fff;
-      padding-top: 50px;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      padding-top: 50px; }
       .statistical .stat-circle .content .count {
         font-size: 27px; }
         .statistical .stat-circle .content .count i {
@@ -36,6 +36,6 @@
       .statistical .stat-circle .content {
         padding-top: 30px; }
         .statistical .stat-circle .content .count {
-          font-size: 25px; } }
+          font-size: 18px; } }
 
 /*# sourceMappingURL=statistical.css.map */

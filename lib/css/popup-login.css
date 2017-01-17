@@ -14,11 +14,12 @@
 .single-company #popup-login form#login, .single-resume #popup-login form#login, .single-job #popup-login form#login {
   text-align: center; }
 .single-company #popup-login input#password, .single-company #popup-login input#username, .single-resume #popup-login input#password, .single-resume #popup-login input#username, .single-job #popup-login input#password, .single-job #popup-login input#username {
-  width: 65%;
+  width: 100%;
   height: 40px;
+  padding-left: 8px;
   border: 1px solid #eee;
   margin-bottom: 15px;
-  border-left: 2px solid #428bca;
+  border-left: 2px solid #16a085;
   border-radius: 5px; }
 .single-company #popup-login label, .single-resume #popup-login label, .single-job #popup-login label {
   padding: 9px;
@@ -34,7 +35,7 @@
   border-radius: 3px;
   background: #428bca; }
 
-.page-id-1100265 {
+.page-id-2782 {
   /*.select2-container {
       width: auto !important;
   }
@@ -44,30 +45,30 @@
   span.select2.select2-container.select2-container--default.select2-container--below {
       width: 100% !important;
   }*/ }
-  .page-id-1100265 section#popup-login {
+  .page-id-2782 section#popup-login {
     width: 100%;
     /* margin-top: 30px; */
     z-index: 3;
     position: fixed;
-    top: 30px;
+    top: 0px;
     width: 100%;
     height: 100%;
-    z-index: 200;
+    z-index: 99999;
     display: none;
     background-color: rgba(0, 0, 0, 0.5); }
-    .page-id-1100265 section#popup-login .resume-skills {
+    .page-id-2782 section#popup-login .resume-skills {
       margin-top: 25%; }
-      .page-id-1100265 section#popup-login .resume-skills #close-popup-login {
+      .page-id-2782 section#popup-login .resume-skills #close-popup-login {
         float: right; }
-  .page-id-1100265 .full {
+  .page-id-2782 .full {
     text-align: center; }
-  .page-id-1100265 a#set-cookie_accept {
+  .page-id-2782 a#set-cookie_accept {
     padding: 10px !important;
     width: 65%;
     margin-bottom: 20px;
     text-align: center;
     font-size: 16px !important; }
-  .page-id-1100265 input#phone-popup {
+  .page-id-2782 input#phone-popup {
     width: 100%;
     height: 38px;
     border: 1px solid #aaa;
@@ -76,24 +77,24 @@
     padding-left: 10px;
     margin-bottom: 20px;
     text-align: center; }
-  .page-id-1100265 #popup-login .one_half.first {
+  .page-id-2782 #popup-login .one_half.first {
     width: 100%; }
-  .page-id-1100265 #popup-login .full {
+  .page-id-2782 #popup-login .full {
     margin-bottom: 20px; }
-  .page-id-1100265 #popup-login .select-popup {
+  .page-id-2782 #popup-login .select-popup {
     margin-bottom: 20px; }
-  .page-id-1100265 #popup-login span.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
+  .page-id-2782 #popup-login span.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
     margin-bottom: 0px;
     width: 100% !important; }
-  .page-id-1100265 span#select2-lxev-container {
+  .page-id-2782 span#select2-lxev-container {
     float: left;
     padding-left: 10px !important; }
-  .page-id-1100265 span#select2-oyrl-container {
+  .page-id-2782 span#select2-oyrl-container {
     float: left;
     padding-left: 10px !important; }
-  .page-id-1100265 h3.resume-section-subtitle {
+  .page-id-2782 #popup-login h3.resume-section-subtitle {
     font-size: 16px; }
-  .page-id-1100265 .full {
+  .page-id-2782 .full {
     padding: 0px; }
 
 /*@media(max-width: 618px){
@@ -107,3 +108,44 @@
 }*/
 
 /*# sourceMappingURL=popup-login.css.map */
+.select-popup  .select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-left: 5px !important;
+    text-align: left;
+}
+.page-id-2782 #popup-login .resume-skills {
+    border-radius: 4px;
+}
+.page-id-2782 #popup-login .phone-popup i.fa,.page-id-2782 #popup-login .select-popup i.fa {
+    position: absolute;
+    z-index: 1;
+    font-size: 23px;
+    padding: 7px;
+    color: #999;
+}
+.page-id-2782 #popup-login span.select2-selection.select2-selection--single {
+    padding-left: 33px;
+}
+.page-id-2782 #popup-login h3.resume-section-subtitle {
+    color: black;
+}
+.page-id-2782 #popup-login  i.fa.fa-times {
+    font-size: 28px;
+}
+.single-job a#close-popup-login {
+    float: right;
+    font-size: 22px;
+}
+#login i.fa.fa-user,#login i.fa.fa-unlock-alt {
+    position: absolute;
+    font-size: 21px;
+    padding: 8px;
+    color: #333;
+    color: #999999;
+}
+#login input#password {
+    padding-left: 26px !important;
+}
+#login input#username {
+    padding-left: 28px !important;
+}

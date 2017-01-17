@@ -1,23 +1,20 @@
-
-
 <section id="page" style="padding-top: 0;">
 	<section id="page-title">
-	<div class="container">
-		<h1 style="color: #0090f1;" class="page-title">Bảng giá dịch vụ Mạng Việc Làm</h1>
-	</div>
-</section>
+		<div class="container">
+			<h1 style="color: #0090f1;text-align: center;" class="page-title">Bảng giá dịch vụ Mạng Việc Làm</h1>
+		</div>
+	</section>
 	<div class="container">
 		<div class="full">
 			
-			<p style="font-size: 16px !important; font-weight: bold; text-align: center; ">Bảng giá gói</p>
-			<p style="font-size: 26px !important; font-weight: bold; text-align: center; color: #008cd8;">VIP Xem Hồ Sơ</p>
+			<p style="font-size: 26px !important; font-weight: bold; text-align: center; color: #008cd8;">Bảng Giá Gói VIP Xem Hồ Sơ</p>
 			<p><img class="aligncenter size-full " src="https://mangvieclam.com/wp-content/uploads/2016/12/tinh-nang-goi-xem-ho-so.jpg" alt="tinh-nang-goi-xem-ho-so" width="100%" /> <img class="aligncenter size-full wp-image-2261229" src="https://mangvieclam.com/wp-content/uploads/2016/12/uu-dai-thang-12.jpg" alt="uu-dai-thang-12" width="100%" srcset="https://mangvieclam.com/wp-content/uploads/2016/12/uu-dai-thang-12-300x151.jpg 300w, https://mangvieclam.com/wp-content/uploads/2016/12/uu-dai-thang-12-768x387.jpg 768w, https://mangvieclam.com/wp-content/uploads/2016/12/uu-dai-thang-12-1024x516.jpg 1024w, https://mangvieclam.com/wp-content/uploads/2016/12/uu-dai-thang-12.jpg 1140w" sizes="(max-width: 1140px) 100vw, 1140px" /></p>
 			<p>&nbsp;</p>
 			<div style="text-align: center;">
 				<div style="border-top: 5px solid #008cd8 !important; display: inline-table !important; /*! */ width: 290px !important; border: 1px solid #e1e1e1; margin-bottom: 20px;">
 					<p style="text-align: center; padding: 10px 0 0 0; margin: 0 0 5px 0;"><span style="font-size: 16px !important; text-align: center; font-weight: bold;">Bảng Giá</span></p>
 					<p style="font-size: 26px !important; font-weight: bold; text-transform: capitalize; text-align: center; color: #008cd8; margin: 0 0 18px 0;">VIP 1</p>
-					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 12</p>
+					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 1</p>
 					<table width="100%">
 						<tbody>
 							<tr>
@@ -51,7 +48,7 @@
 				<div style="border-top: 5px solid #008cd8 !important; display: inline-table !important; /*! */ width: 290px !important; border: 1px solid #e1e1e1; margin-bottom: 20px;">
 					<p style="text-align: center; padding: 10px 0 0 0; margin: 0 0 5px 0;"><span style="font-size: 16px !important; text-align: center; font-weight: bold;">Bảng Giá</span></p>
 					<p style="font-size: 26px !important; font-weight: bold; text-transform: capitalize; text-align: center; color: #008cd8; margin: 0 0 18px 0;">VIP 2</p>
-					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 12</p>
+					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 1</p>
 					<table width="100%">
 						<tbody>
 							<tr>
@@ -85,7 +82,7 @@
 				<div style="border-top: 5px solid #008cd8 !important; display: inline-table !important; /*! */ width: 290px !important; border: 1px solid #e1e1e1; margin-bottom: 20px;">
 					<p style="text-align: center; padding: 10px 0 0 0; margin: 0 0 5px 0;"><span style="font-size: 16px !important; text-align: center; font-weight: bold;">Bảng Giá</span></p>
 					<p style="font-size: 26px !important; font-weight: bold; text-transform: capitalize; text-align: center; color: #008cd8; margin: 0 0 18px 0;">VIP 3</p>
-					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 12</p>
+					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 1</p>
 					<table width="100%">
 						<tbody>
 							<tr>
@@ -119,7 +116,7 @@
 				<div style="border-top: 5px solid #008cd8 !important; display: inline-table !important; /*! */ width: 290px !important; border: 1px solid #e1e1e1; margin-bottom: 20px;">
 					<p style="text-align: center; padding: 10px 0 0 0; margin: 0 0 5px 0;"><span style="font-size: 16px !important; text-align: center; font-weight: bold;">Bảng Giá</span></p>
 					<p style="font-size: 26px !important; font-weight: bold; text-transform: capitalize; text-align: center; color: #008cd8; margin: 0 0 18px 0;">VIP 4</p>
-					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 12</p>
+					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 1</p>
 					<table width="100%">
 						<tbody>
 							<tr>
@@ -153,7 +150,7 @@
 				<div style="border-top: 5px solid #008cd8 !important; display: inline-table !important; /*! */ width: 290px !important; border: 1px solid #e1e1e1; margin-bottom: 20px;">
 					<p style="text-align: center; padding: 10px 0 0 0; margin: 0 0 5px 0;"><span style="font-size: 16px !important; text-align: center; font-weight: bold;">Bảng Giá</span></p>
 					<p style="font-size: 26px !important; font-weight: bold; text-transform: capitalize; text-align: center; color: #008cd8; margin: 0 0 18px 0;">VIP 5</p>
-					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 12</p>
+					<p style="text-align: center;  margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 1</p>
 					<table width="100%">
 						<tbody>
 							<tr>
@@ -240,7 +237,7 @@
 				<div style="border-top: 5px solid #008cd8 !important; display: inline-table !important; /*! */ width: 290px !important; border: 1px solid #e1e1e1; margin-bottom: 20px;">
 					<p style="text-align: center; padding: 10px 0 0 0; margin: 0 0 5px 0;"><span style="font-size: 16px !important; text-align: center; font-weight: bold;">Bảng Giá</span></p>
 					<p style="font-size: 26px !important; font-weight: bold; text-transform: capitalize; text-align: center; color: #008cd8; margin: 0 0 18px 0;">TIN ĐẶC BIỆT</p>
-					<p style="text-align: right; padding: 0 35px 0 0; margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 12</p>
+					<p style="text-align: center; margin: 0; font-weight: bold; color: #f24d00;">Ưu Đãi Tháng 1</p>
 					<table width="100%">
 						<tbody>
 							<tr>

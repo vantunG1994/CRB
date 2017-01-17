@@ -2,35 +2,31 @@
 /**
  * Template name: Salary
  */
-//if ( !is_user_logged_in() ) {
-//    ?>
-    <!--    <style>-->
-    <!--        #popup-login{-->
-    <!--            display: block !important;-->
-    <!--        }-->
-    <!--    </style>-->
-    <!---->
-    <!--    --><?php
-//
-////    $login = home_url('/')."login";
-////    wp_redirect( $login ); exit;
-//
-//}
-?>
-<?php
-global $post;
-//if($post->ID==1100198) {
-    ?>
-    <!--    <script src=" --><?php //echo get_template_directory_uri();?><!--/js/jquery.min.js"></script>-->
-    <!--    <script src=" --><?php //echo get_template_directory_uri();?><!--/js/jquery-ui.min.js"></script>-->   
-    <?php
 
 ?>
 <?php
+global $post;
 get_header(); ?>
 
     <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
     <div class="main-content content_salary">
+        <?php
+        if(DEVICE != 'mobile') {
+            ?>
+            <style>
+                div.stars {
+                    width: 270px !important;
+                    display: inline-block !important;
+                    float: none !important;
+                }
+
+                tr.check_star td {
+                    width: 25% !important;
+                }
+            </style>
+            <?php
+        }
+        ?>
 
             <div class="container bg-fff">
 
@@ -44,30 +40,24 @@ get_header(); ?>
                             <div class="chose_group">
                            <div class="row">
                                <div class="sl-title text-center">
-                                    <h3>CHỌN THẾ MẠNH</h3>
+                                    <h3>CHỌN THẾ MẠNH </h3>
                                      <p>Hãy lựa chọn chuyên ngành của bạn để thực hiện để đánh giá mức lương phù hợp.</p>
                                </div>  
                             </div>
                             <div class="row">
                                 <div class="sl-content">
                                  <?php
+                                 $arrayIcon = array(
+                                                '0' => 'fa-tablet',
+                                                '1' => 'fa-apple',
+                                                '2' => 'fa-connectdevelop',
+                                                '3' => 'fa-cogs',
+                                                '4' => 'fa-tasks'
+                                            );
                                     global $wpdb, $current_user;
 
                                     $group_managers = $wpdb->get_results("SELECT * FROM group_manager");
-                                    $arrayicon = array(
-                                        '0' => 'fa fa-mobile',
-                                        '1' => 'fa fa fa-apple',
-                                        '2' => 'fa fa-connectdevelop',
-                                        '3' => 'fa fa-cogs',
-                                        '4' => 'fa fa fa-tasks'
-                                    );
-                                    $arrayclass = array(
-                                        '0' => 'fa',
-                                        '1' => 'fa1',
-                                        '2' => 'fa2',
-                                        '3' => 'fa3',
-                                        '4' => 'fa4',
-                                    );
+
                                     foreach ($group_managers as $key => $name_group) {
                                        
                                     ?>
@@ -77,7 +67,7 @@ get_header(); ?>
                                            if (($key_class) == $key) {
                                                echo $list_lass;
                                            }
-                                       } ?>" id="<?php echo $key; ?>" href="<?php echo home_url() . "/du-tinh-luong/?group=" . $name_group->ID_group ?>"><i class="fa <?php foreach ($arrayicon as $key1 => $list) {
+                                       } ?>" id="<?php echo $key; ?>" href="<?php echo home_url() . "/du-tinh-luong/?group=" . $name_group->ID_group ?>"><i class="fa <?php foreach ($arrayIcon as $key1 => $list) {
                                             if (($key1) == $key) {
                                                 echo $list;
                                             }
@@ -303,6 +293,9 @@ if(DEVICE != 'mobile')
 else{
     ?>
     <style>
+        a.button-ag-full {
+            width: 100% !important;
+        }
        
     </style>
     <?php

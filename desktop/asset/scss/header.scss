@@ -20,20 +20,15 @@
     	}
     }
 }
-.darkHeader{
-		position: fixed;
-    	top: 0;
-	    width: 100%;
-	    z-index: 10000;
-	    transition: all 0.2s ease;
-	}
-	
+
 .wrap-header {
 	    background-color: #262626;
+		position: relative;
 	    .header {
 	    	
 	    	img {
 				width:100%;
+				margin-bottom: 0px;
 	    	}
 	    }
 	    .form-search {
@@ -139,7 +134,6 @@
 	    }
 	    .main-menu {
 	    	margin-bottom: -15px;
-    		margin-top: 10px;
 	    	.menu {
 	    		position:relative;
 	    		padding-left: 0;
@@ -231,5 +225,108 @@
 
 	    }
 }
+.text-left a {
+    color: white;
+}
 
-	
+.searchwp-live-search-result p {
+padding: 5px;
+border-bottom: solid 1px gainsboro;
+}
+.listting_job .logo img, .listting_company .logo img  {
+padding-left: 5px;
+}
+ul.sub-menu-pack{
+text-align: left;
+position: absolute;
+top: 100%;
+z-index: 1000;
+min-width: 75px;
+list-style: none;
+font-size: 13px;
+float: none;
+padding:10px;
+margin-left: 48%;
+-webkit-box-shadow: none;
+box-shadow: none;
+border: 0;
+border-radius: 0;
+background: 0 0;
+display: none;
+background: #2a6496;
+border-top: 1px solid rgba(0,0,0,.1);
+border-bottom-left-radius: 2px;
+border-bottom-right-radius: 2px;
+}
+#show-menu-package:hover ul {display: block !important;}
+/*===========================================*/
+.wrap-header .main-menu .menu .sub-menu > .item-sub.menu-blog-content {
+    width: 100%;
+    display: inline-block;
+    padding: 5px;
+    float: left;
+    padding-left: 33px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}	
+
+.wrap-header .main-menu .menu .sub-menu-1.menu-blog {
+    width: 266px;
+    padding: 0px;
+    height: 72px;
+    list-style-type: none;
+    padding-top: 0px !important;
+}
+li.item-sub.menu-blog-content {
+    height: 36px;
+    border-bottom: 1px solid #eee;
+}
+ul.sub-menu1 {
+    position: absolute;
+    left: 266px;
+    padding: 0px;
+    top: 0;
+    background: #008cd8;
+    display: none;
+    width: 266px;
+    list-style-type: none;
+    padding-top: 0px !important;
+}
+ul.sub-menu2 {
+    position: absolute;
+    left: 266px;
+    padding: 0px;
+    background: #008cd8;
+    display: none;
+    width: 266px;
+    top: 36px;
+    list-style-type: none;
+    padding-top: 0px !important;
+}
+
+.main-menu ul.sub-menu.sub-menu-1.menu-blog li.item-sub.menu-blog-content:hover .sub-menu1{
+	    display: block;
+}
+.main-menu ul.sub-menu.sub-menu-1.menu-blog li.item-sub.menu-blog-content:hover .sub-menu2{
+	    display: block;
+}
+li.item-sub.menu-blog-content {
+    padding: 5px;
+    padding-left: 33px;
+}
+li.item-sub.menu-blog-content:hover {
+    background: #1f6797;
+    color: white;
+}
+li.item-sub.menu-blog-content a:hover {
+   
+    color: white !important;
+}
+.wrap-header .main-menu .menu .sub-menu > .item-sub.menu-blog-content:hover a {
+    color: #ffffff;
+}
+ul.sub-menu2 li.item-sub.menu-blog-content ,ul.sub-menu1 li.item-sub.menu-blog-content {
+    height: 36px;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+}

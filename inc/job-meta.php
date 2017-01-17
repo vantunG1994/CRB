@@ -1187,7 +1187,7 @@ function update_wpjobus_job_settings ( $td_post_id ) {
     $id_company=$kq_company->ID;
     if($id_company!="")
     {
-        update_post_meta($td_post_id, 'job_company', wp_kses($id_company, $td_allowed));
+//        update_post_meta($td_post_id, 'job_company', wp_kses($id_company, $td_allowed));
     }
 
 

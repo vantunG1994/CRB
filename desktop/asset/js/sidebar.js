@@ -333,23 +333,25 @@ function mycarousel(id,itemdestop,itemtable,itemmobile,dots,autoplay){
 	try{
 		$(id).find(".carousel").each(function(){
 			var owl=$(this).find(".carousel-items").owlCarousel({
-				items:1,
-				loop:true,
-				dots:dots,
-				autoplay:autoplay,
+                items: 1,
+
+                itemsDesktop : [1000,1], // 2 items between 1000px and 901px
+
+                itemsDesktopSmall : [900,1], // betweem 900px and 601px
+
+                itemsTablet: [700,1], // 2 items between 600 and 480
+
+                itemsMobile : [479,1] , // 1 item between 479 and 0
+
+                navigation: true,
+
+                navigationText: ["<img src='/wp-content/themes/mangvieclam789/img/prev.png'>","<img src='/wp-content/themes/mangvieclam789/img/next.png'>"],
+
+                autoPlay: 5000,
+
                 paginationNumbers:true,
-				smartSpeed:1000,
-				responsive:{
-			        0:{
-			            items:itemmobile,
-			        },
-			        768:{
-			            items:itemtable,
-			        },
-			        1200:{
-			            items:itemdestop,
-			        }
-			    }
+
+                scrollPerPage : true
 			});
 			$(this).find(".carouse-prev").click(function(){
 				$(this).parents(".carousel").find(".owl-prev").click();
@@ -379,7 +381,7 @@ function scrolltotop(){
             }, 800);
             return false;
         });
-        
+
         $('#back-to-top').tooltip('show');
 
 }

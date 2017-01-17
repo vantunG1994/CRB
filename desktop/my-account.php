@@ -1,9 +1,9 @@
 <?php
-            global $current_user,$wpdb;
-            $key = 'account_type';
-            $single = true;
-            $td_user_id = $current_user->ID;
-            $user_account_type = get_user_meta( $td_user_id, $key, $single );
+global $current_user,$wpdb;
+$key = 'account_type';
+$single = true;
+$td_user_id = $current_user->ID;
+$user_account_type = get_user_meta( $td_user_id, $key, $single );
 $user_phone_activation_code = get_user_meta($current_user->ID, 'user_phone_activation_code', true)?:0;
 $user_phone_activation_time = get_user_meta($current_user->ID, 'user_phone_activation_time', true)?:0;
 $time = time();
@@ -139,6 +139,12 @@ $name_vip=$package->name;
                             <li><a class="lst-setting" id="my-account-job-single-title-1205377" href="<?php echo get_permalink($comp_id);?>"><i class="fa fa-user"></i>Hồ sơ của bạn đang đăng công khai</a></li>
                             <?php
                             }
+                            }
+                            $check_resume_award_num = $wpdb->get_var( 'SELECT id FROM crb_resume_award WHERE user_id ='.$current_user->ID.' ' );
+                            if($check_resume_award_num !=""){
+                            ?>
+                            <li><a class="my-account-header-subscriptions-link" href=""><i class="fa fa-mobile" aria-hidden="true"></i> Mã dự thưởng nhận Iphone7 của bạn là <b><?php echo $check_resume_award_num ?></b></a></li>
+                            <?php
                             }}
                             else{
                             ?>
@@ -428,60 +434,55 @@ $name_vip=$package->name;
                                     </div>
                                 </div>
                             </div>
-
-
-                            <div id="menu4" class="tab-pane fade">         
-                            <div id="show_post_package " class="full" >
-                                
-                                <h1 class="resume-section-title" style="margin-bottom: 0;"><i class="fa fa-star-o" aria-hidden="true"></i>Đăng ký gói tin VIP</h1>
-                                <div class="full"><p style="margin-top: 0;">Lựa chọn các gói tin VIP của chúng tôi để được hưởng những quyền lợi đặc biệt.</p></div>
-                                <div class="table">
-                                 <?php
-                                    $balance = get_user_meta($current_user->ID, 'user_cash', true);
-
-                                    foreach ( $post_vip as $package )
-                                    {
-                                    $description=$package->service_benefit;
-                                    $description=json_decode($description, true);
-
-                                    ?>
-                                    <div class="plan popular" id="Diamond">
-                                        <div class="noidung_banggia">
-                                            <div class="price">
-                                                <span class="dollar"></span>
-                                                <p class="name_package"><?php echo $package->name?></p>
-
-                                                <p class="price-list-stars">
-                                                    <img src="/wp-content/themes/mangvieclam789/img/5star.png" alt="">
-                                                </p>
-                                                <span class="slash"></span>
-                                                <span class="month"></span>
-                                            </div>
-                                            <ul>
-                                                <li>Thời hạn sử dụng<span><?php echo $description["duration"];?> ngày</span></li>
-  <?php
-                                                if($description["discount_percent"]!=0){
+                            <div id="menu4" class="tab-pane fade">
+                                <div id="show_post_package " class="full" >
+                                    
+                                    <h1 class="resume-section-title" style="margin-bottom: 0;"><i class="fa fa-star-o" aria-hidden="true"></i>Đăng ký gói tin VIP</h1>
+                                    <div class="full"><p style="margin-top: 0;">Lựa chọn các gói tin VIP của chúng tôi để được hưởng những quyền lợi đặc biệt.</p></div>
+                                    <div class="table">
+                                        <?php
+                                        $balance = get_user_meta($current_user->ID, 'user_cash', true);
+                                        foreach ( $post_vip as $package )
+                                        {
+                                        $description=$package->service_benefit;
+                                        $description=json_decode($description, true);
+                                        ?>
+                                        <div class="plan popular" id="Diamond">
+                                            <div class="noidung_banggia">
+                                                <div class="price">
+                                                    <span class="dollar"></span>
+                                                    <p class="name_package"><?php echo $package->name?></p>
+                                                    <p class="price-list-stars">
+                                                        <img src="/wp-content/themes/mangvieclam789/img/5star.png" alt="">
+                                                    </p>
+                                                    <span class="slash"></span>
+                                                    <span class="month"></span>
+                                                </div>
+                                                <ul>
+                                                    <li>Thời hạn sử dụng<span><?php echo $description["duration"];?> ngày</span></li>
+                                                    <?php
+                                                    if($description["discount_percent"]!=0){
                                                     $price_vip=($package->price *$description["discount_percent"])/100;
                                                     ?>
                                                     <li>Giảm giá<span><?php  echo $description["discount_percent"];?>%</span></li>
                                                     <li>Giá<span class="price_none" style="text-decoration:line-through;color: lightgray;"><?php echo format_gia( $package->price); ?></span> <span class="price_sale"><?php echo format_gia($price_vip); ?></span></li>
-                                                <?php }else { ?>
+                                                    <?php }else { ?>
                                                     <li>Giá<span class="price_vip"><?php echo format_gia($package->price); ?></span></li>
-                                                <?php
-                                                }
+                                                    <?php
+                                                    }
                                                 ?>                                            </ul>
-                                            <p></p>
+                                                <p></p>
+                                            </div>
+                                            <div class="buton">
+                                                <a onclick="pay_ment()" class="button sign-up" id="add_vip_<?php echo $package->package_id;?>" href="<?php echo home_url("/") ?>my-account/?vip_star=<?php echo $package->package_id;?>">Gửi yêu cầu</a>
+                                            </div>
                                         </div>
-                                        <div class="buton">
-                                           <a onclick="pay_ment()" class="button sign-up" id="add_vip_<?php echo $package->package_id;?>" href="<?php echo home_url("/") ?>my-account/?vip_star=<?php echo $package->package_id;?>">Gửi yêu cầu</a>
-                                        </div>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
-                                    <?php
-                                    }
-                                     ?>
                                 </div>
                             </div>
-                        </div>
                             <script>
                             $(document).ready(function(){
                             $(".nav-tabs a").click(function(){
@@ -544,10 +545,6 @@ $name_vip=$package->name;
                             $td_result_company_status[] = $value->post_status;
                             $company_id = $td_result_company[$key];
                             $wpjobus_company_fullname = $value->post_title;
-
-
-
-
                             ?>
                             <?php
                             if(get_post_status($td_result_company[$key]) == 'pending') {
@@ -565,13 +562,12 @@ $name_vip=$package->name;
                                 <td class="text-center"><?php echo sw_human_time_diff($company_id);?></td>
                                 <td class="text-center"><?php echo $status; ?></td>
                                 <td class="text-center">  <?php
-                            if (wpb_get_post_views($company_id) == 0) {
-                                echo '1';
-                            } else {
-                                echo wpb_get_post_views($company_id);
-                            }
-
-                            ?></td>
+                                    if (wpb_get_post_views($company_id) == 0) {
+                                    echo '1';
+                                    } else {
+                                    echo wpb_get_post_views($company_id);
+                                    }
+                                ?></td>
                                 <td class="text-center">
                                     <a href="<?php $edit_comp = home_url('/')."edit-company/?company_id=".$td_result_company[$key]; echo $edit_comp; ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     <a onclick='return confirm("Bạn có chắc chắn xoá hồ sơ này?")' class="delete_post" id="<?php echo $td_result_company[$key];?>" href='#'><i class="fa fa-trash-o"></i></a>
@@ -688,12 +684,11 @@ $name_vip=$package->name;
                                 <td class="text-center"><?php echo $status; ?></td>
                                 <td class="text-center"> <?php
                                     if (wpb_get_post_views($td_result_job[$key]) == 0) {
-                                        echo '1';
+                                    echo '1';
                                     } else {
-                                        echo wpb_get_post_views($td_result_job[$key]);
+                                    echo wpb_get_post_views($td_result_job[$key]);
                                     }
-
-                            ?></td>
+                                ?></td>
                                 <td class="text-center">
                                     <a href="<?php $edit_job = home_url('/')."edit-job/?job_id=".$td_result_job[$key]; echo $edit_job; ?>"><i class="fa fa-pencil-square-o"></i></a>
                                     <a onclick='return confirm("Bạn có chắc muốn xoá tin đăng này?")'  class="delete_post" id="<?php echo $td_result_job[$key];?>" href='#'><i class="fa fa-trash-o"></i></a>
@@ -908,7 +903,7 @@ $name_vip=$package->name;
     cancelButtonClass: 'btn btn-danger',
     buttonsStyling: false
     }).then(function () {
-     $("#menu2").addClass('active');
+    $("#menu2").addClass('active');
     $("#menu2").addClass('in');
     $("#menu2").show();
     }, function (dismiss) {

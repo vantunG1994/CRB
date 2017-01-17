@@ -33,7 +33,7 @@
 		}
 		.title {
 			font-size: 18px;
-			color: $linkTitle;
+			
 			padding-top:10px;
 			margin:0;
 			font-weight:600;
@@ -41,7 +41,7 @@
     		
 			.job {
 				padding-left:5px;
-				color: $titleJob;
+				
     			font-size: 16px;
     			padding-left:5px;
    				
@@ -49,18 +49,18 @@
 		}
 	}
 	.view-right {
-			float:right;
-			height: 70px;
-			width:200px;
-			border-radius:5%;
-			transition: all .3s;
-			border:3px solid #2980b9;
-			text-align: center;
-			transition: all .3s;
+			float: right;
+		    height: 64px;
+		    width: 200px;
+		    border-radius: 5%;
+		    transition: all .3s;
+		    border: 2px solid #008cd8;
+		    text-align: center;
+		    transition: all .3s;
 			.box1 {
 				width:114px;
 				float:left;
-				height: 65px;
+				height: 61px;
 				.exp {
 						color: #008cd8;
     					font-size: 16px;
@@ -77,16 +77,16 @@
 						display: none;
 						span {
 							color: #008cd8;
-	    					font-size: 16px;
-	    					
-	    					display: block;
+						    font-size: 16px;
+						    line-height: 19px;
+						    display: block;
 						}
 					}
 			}
 			.box2 {
 				width:80px;
 				float:right;
-				height: 65px;
+				    height: 60px;
 				 background-color: #008cd8;
 				 .icon {
 				 		font-size: 30px;

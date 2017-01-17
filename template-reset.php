@@ -25,7 +25,7 @@ get_header(); ?>
                             </div>
                             <div class="col-md-6 col-xs-12 fr-input">
                                 <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                <input type="text" name="userPhone" id="userPhone" value="" class="input-phone" placeholder="Nhập số điện thoại của bạn" />
+                                <input type="text" name="userPhone" id="userPhone" value="" class="input-phone " placeholder="Nhập số điện thoại của bạn" />
                             </div>
                             <div class="clearfix"></div>
                         </div>
@@ -38,14 +38,14 @@ get_header(); ?>
                                 <p style="color: #008cd8 !important;font-weight: bold !important;">Hoặc gọi tổng đài (08) 222222.36  bấm phím 6 để được cấp lại mật khẩu mới.</p>
                             </div>
                         </div>
-                      
-                        </form>
-                    </div>
+                        
+                    </form>
+                    <p class="error" style="color: crimson;"></p>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
 <?php get_footer(); ?>
 <?php
 if(isset($_POST['submit_phone']))

@@ -1,0 +1,121 @@
+.main-content {
+	    background-color: #ecf0f1;
+}
+.content-bg {
+	background-color:#fff;
+}
+.listting_content {
+	padding: 10px 0;
+	 cursor: pointer;
+	 border-bottom:1px solid #ccc;
+	 &:hover {
+		    	.logo {
+		    		transform: scale(1.1);
+		    	}
+		    }
+	.title {
+		color: #0087cf;
+	    font-weight: 600;
+	    margin-bottom: 3px;
+	    overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+		.job {
+			color:#666666;
+			padding-left:10px;
+			font-size: 13px;
+		}
+	}	    
+	.logo {
+		transition: all ease .3s;
+	    width: 80px;
+	    height: 80px;
+	    border-radius: 10%;
+	    overflow: hidden;
+	    float: left;
+	    margin-right: 10px;
+		
+		img {
+			width:100%;
+		}
+	}
+	.infor_job {
+		padding-left: 10px;
+		text-transform: capitalize;
+		overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+		i {
+			padding-right:5px;
+		}
+		.title {
+			font-size: 20px;
+			color: #0087cf;
+			padding-top:10px;
+			font-size: 13px;
+			margin:0;
+    		
+			.job {
+				padding-left:5px;
+				color: $titleJob;
+    			font-size: 16px;
+    			padding-left:5px;
+   				
+			}
+		}
+		.address {
+			padding-top:5px;
+			font-size: 13px;
+			color:#333;
+			
+		}
+		.job {
+			font-size: 13px;
+   			 padding-bottom: 5px;
+   			 padding-top:5px;
+   			 text-transform: capitalize;
+   			 	color:#333;
+   			 
+
+		}
+		.salary1 {
+			span {
+				color: #5d9617;
+    			font-weight: 600;	
+			}
+		}
+	}
+	
+}
+.page-numbers.current, .page-numbers:hover {
+    background-color: #e5e5e5;
+    text-decoration: none;
+}
+.page-numbers.current {
+  background-color: #e5e5e5;
+    text-decoration: none;
+}
+a.page-numbers,.page-numbers.current {
+    display: inline-block;
+    padding: 5px 12px !important;
+    background-color: #fff;
+    border: solid 1px #e5e5e5;
+    margin: 0 2px;
+    margin-top: 30px;
+   text-decoration: none;
+ 
+}
+.paginate_links_filters {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.col-md-8.listting {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+.col-md-4.listting {
+    width: 100%;
+    float: left;
+}

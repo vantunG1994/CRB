@@ -17,21 +17,24 @@
 	}
     .carousel {
         
-            .carouse-prev {
+            .owl-prev {
                 position: absolute;
                 top: 0;
+                left: 0px;
                 z-index: 100;
-                line-height: 250px;
+                background: none;
+                line-height: 200px;
                 img {
                     width:100%;
                     cursor: pointer;
                 }
             }
-            .carouse-next {
+            .owl-next {
                 position:absolute;
                 top:0;
-                right:0;
-                line-height:250px;
+                right: 0px;
+                background: none;
+                line-height:200px;
                 z-index: 100;
                   img {
                     width:100%;
@@ -39,12 +42,26 @@
                 }
 
             }
+            .owl-pagination {
+                .owl-numbers {
+                    cursor: pointer;
+                }
+            }
+           
            
         
     }
-     .box-item-job{
+    .sidebar-content {
+         .box-img {
+            width:100%;
+            height:200px;
+            img {
+                width:100%;
+                height:100%;
+            }
+        }
+        .box-item-job{
                 display:inline-block;
-                margin-left:50px;
                  border: 3px solid #e74c3c;
                 border-radius: 10px;
                     text-transform: uppercase;
@@ -100,4 +117,15 @@
                     }
                 }
             }
+
+    }
+
+     
 }
+ .owl-wrapper-outer {
+                overflow: hidden;
+            }
+            section#sidebar {
+            width: 100%;
+            float: left;
+        }

@@ -201,10 +201,10 @@ a:hover, a:focus {
     padding-bottom: 5px;
 }
 
-.list-job .post-wrap .entry img {
-    width:100%;
-    height: 150px;
-}
+ .list-job .post-wrap .entry img {
+     height: 100%;
+     width: 100%;
+ }
 .list-job .post-wrap .entry .txt-content {
     padding-top:15px;
 }
@@ -213,10 +213,14 @@ a:hover, a:focus {
 }
 
 /*====================== SINGLE ====================================*/
-.list-job-detail {}
-.list-job-detail img {
-    width:100%;
-}
+ #comments img{
+      width:100%;
+      max-width:50px;
+  }
+ li#comment-6 {
+     width: 100%;
+     float: left;
+ }
 .list-job-detail .postmeta-primary {
     padding-top:20px;
     line-height: 20px;
@@ -246,3 +250,46 @@ a:hover, a:focus {
     margin-bottom: 30px;
     transition: all 0.2s ease;
 }
+
+
+
+/* ====================================== INDEX =========================================== */
+
+#back-to-top i {
+	font-size: 18px;
+	color: #fff;
+}
+.darkHeader {
+	position: fixed;
+    top: 0;
+	width: 100%;
+	z-index: 10000;
+	transition: all 0.2s ease;
+}
+/* ====================================== Menu Mobile =========================================== */
+#wapper-menu .search-input {
+   
+}
+#wapper-menu .box-menu .search-input .demo2  input {
+    display: block;
+}
+#wapper-menu .box-menu .search-input input {
+    color: #303030;    
+    height: 52px;
+}
+
+/* =======================  sidebar =====================================*/
+@media(max-width: 425px){
+    #sidebar .box-item-job {
+        margin-left: 0px;
+       
+    }
+}
+#wapper-menu .search-input {
+    line-height: 60px;
+    display: none;
+}
+#wapper-menu .wtf .search-input {
+    display: block;
+}
+

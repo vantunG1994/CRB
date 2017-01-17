@@ -19,11 +19,11 @@
 						<span>
 							"Sau một thời gian sử dụng dịch vụ của MangViecLam.com thì tôi cảm thấy rất hài lòng, việc đăng tin vô cùng đơn giản, tin đăng tuyển vô cùng hiệu quả, đội ngũ nhân viên chăm sóc khách hàng nhiệt tình, hỗ trợ tận tâm"
 						</span>
-					
+						
 					</div>
-						<div class="icon-down">
-							<i class="fa fa-chevron-circle-down icon-click" aria-hidden="true"></i>
-						</div>
+					<div class="icon-down">
+						<i class="fa fa-chevron-circle-down icon-click" aria-hidden="true"></i>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-3 col-sm-6 col-xs-12">

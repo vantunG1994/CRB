@@ -36,6 +36,7 @@ function dvd_action_javascript() {
     ?>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
+            $( ".meta_tags" ).before( "<span>Tag <i class='fa fa-tag'></i>:</span>" );
             jQuery(".add_testimonial").click(function() {
                 var numItems = jQuery('.row_testimonial').length;
                 $.ajax({
@@ -158,12 +159,13 @@ function dvd_action_javascript() {
         jQuery(document).ready(function($) {
             jQuery(".add_benefit").click(function() {
                 var numItems = jQuery('.row_benefit').length;
+                var row_benefit=numItems-1;
                 $.ajax({
                     type : 'POST',
                     data : {'action' : 'add_benefit', 'data' :numItems},
                     url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
                     success : function (resp){
-                        jQuery(".job_benefits").html(resp);
+                        jQuery("#row_benefit-1").append(resp);
 
                     }
                 });
@@ -193,7 +195,7 @@ function dvd_action_javascript() {
                     data : {'action' : 'add_skill', 'data' :numItems},
                     url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
                     success : function (resp){
-                        jQuery(".job_skills").html(resp);
+                        jQuery("#row_skill-1").append(resp);
 
                     }
                 });
@@ -208,7 +210,7 @@ function dvd_action_javascript() {
                     data : {'action' : 'add_language', 'data' :numItems},
                     url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
                     success : function (resp){
-                        jQuery(".job_languages").html(resp);
+                        jQuery("#row_language-1").append(resp);
 
                     }
                 });
@@ -450,13 +452,13 @@ function dvd_action_javascript() {
 
     <script>
         jQuery(document).ready(function ($) {
-            $(".up_pass_user").click(function () {
-                var id = $("#user_name").val();
+            jQuery(".up_pass_user").click(function () {
+                var id = jQuery("#user_name").val();
                 var url = window.location.href + "&user_pass=" + id;
                 location.href = url;
             });
-            $(".activation_user").click(function () {
-                var id = $("#user_name").val();
+            jQuery(".activation_user").click(function () {
+                var id = jQuery("#user_name").val();
                 var url = window.location.href + "&activation_user=" + id;
                 location.href = url;
             });
@@ -1003,19 +1005,17 @@ function add_language()
     $language = $_POST["data"];
     $num_language = $language + 1;
 
-    for ($i = 0; $i < $num_language; $i++) {
-
         ?>
-        <div class="row_language">
+        <div class="row_language" id="<?php echo $num_language;?>">
             <div class="col-xs-6">
                 <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title">
-                      <h3>Ngoại ngữ <?php echo $i+1;?>:</h3>
+                      <h3>Ngoại ngữ <?php echo $num_language;?>:</h3>
                     </span>
                     <span class="three_fifth">
                       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      <input type='text' id="wpjobus_job_languages[<?php echo $i; ?>][0]" class="resume_lang_title" name='wpjobus_job_languages[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_job_languages[$i][0])) echo $wpjobus_job_languages[$i][0]; ?>' placeholder="" />
+                      <input type='text' id="wpjobus_job_languages[<?php echo $num_language; ?>][0]" class="resume_lang_title" name='wpjobus_job_languages[<?php echo $num_language; ?>][0]' style="width: 100%; float: left;" value='' placeholder="" />
                     </span>
                   </span>
                     <span class="information-input">
@@ -1024,12 +1024,12 @@ function add_language()
                     </span>
                     <span class="three_fifth">
                       <i class="fa fa-bullhorn"></i>
-                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_speaking" name="wpjobus_job_languages[<?php echo $i; ?>][2]" id="wpjobus_job_languages[<?php echo $i; ?>][2]" style="width: 100%; margin-right: 10px;">
-                        <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
-                        <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
-                        <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
-                        <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
-                        <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_speaking" name="wpjobus_job_languages[<?php echo $num_language; ?>][2]" id="wpjobus_job_languages[<?php echo $num_language; ?>][2]" style="width: 100%; margin-right: 10px;">
+                        <option value='Level 1'><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+                        <option value='Level 2'><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+                        <option value='Level 3'><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+                        <option value='Level 4'><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+                        <option value='Level 5'><?php _e( 'Level 5', 'themesdojo' ); ?></option>
                       </select>
                     </span>
                   </span>
@@ -1073,7 +1073,7 @@ function add_language()
         </div>
 
         <?php
-    }
+
     die();
 }
 add_action('wp_ajax_add_skill', 'add_skill');
@@ -1084,18 +1084,17 @@ function add_skill()
     $skill = $_POST["data"];
     $num_skill = $skill + 1;
 
-    for ($i = 0; $i < $num_skill; $i++) {
 
         ?>
         <div class="row_skill">
             <div class="col-md-6">
                 <div class="Skills-needed-1">
                   <span class="label-title">
-                    <h3>Kĩ năng <?php echo $i+1;?> :</h3>
+                    <h3>Kĩ năng <?php echo $num_skill;?> :</h3>
                   </span>
                     <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
-                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_skills[$i][0])) echo $wpjobus_job_skills[$i][0]; ?>" placeholder="" vk_1ffd1="subscribed">
+                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $num_skill; ?>][0]' value="" placeholder="" vk_1ffd1="subscribed">
                   </span>
                     <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                 </div>
@@ -1107,7 +1106,7 @@ function add_skill()
                   </span>
                     <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
-                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][1]' value="<?php if (!empty($wpjobus_job_skills[$i][1])) echo $wpjobus_job_skills[$i][1]; ?>" placeholder="70%" vk_1ffd1="subscribed">
+                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $num_skill; ?>][1]' value="" placeholder="70%" vk_1ffd1="subscribed">
                   </span>
                     <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                 </div>
@@ -1115,7 +1114,7 @@ function add_skill()
         </div>
 
         <?php
-    }
+
     die();
 }
 add_action('wp_ajax_add_benefit', 'add_benefit');
@@ -1126,39 +1125,36 @@ function add_benefit()
     $benefit = $_POST["data"];
     $num_benefit = $benefit + 1;
 
-    for ($i = 0; $i < $num_benefit; $i++) {
-
         ?>
-        <div class="row_benefit">
-            <div class="col-md-6">
-                <div class="price-welfare-1">
+    <div class="row_benefit" id="<?php echo $num_benefit; ?>">
+        <div class="col-md-6">
+            <div class="price-welfare-1">
                 <span class="label-title">
-                  <h3>Tên phúc lợi <?php echo $i+1;?>:</h3>
+                  <h3>Tên phúc lợi <?php echo $num_benefit;?>:</h3>
                 </span>
-                    <span class="price-welfare-day">
+                <span class="price-welfare-day">
                   <i class="fa fa-gift" aria-hidden="true"></i>
-                  <input class="input-lg" type="text"  name='wpjobus_job_benefits[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_benefits[$i][0])) echo $wpjobus_job_benefits[$i][0]; ?>" placeholder="Nhập phúc lợi" vk_1ffd1="subscribed">
+                  <input class="input-lg" type="text"  name='wpjobus_job_benefits[<?php echo $num_benefit; ?>][0]' value="" placeholder="Nhập phúc lợi" vk_1ffd1="subscribed">
                 </span>
-                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
-                </div>
+                <p id="error" style="color: red;display:none;font-size: 16px;"></p>
             </div>
-            <div class="col-md-6">
-                <div class="price-welfare-1">
+        </div>
+        <div class="col-md-6">
+            <div class="price-welfare-1">
                 <span class="label-title">
                   <h3>Mô tả phúc lợi:</h3>
                 </span>
-                    <span class="price-welfare-day">
-                  <textarea row="20"  name='wpjobus_job_benefits[<?php echo $i; ?>][1]'  placeholder="Nhập nội dung mô tả">
-                  <?php
-                  if (!empty($wpjobus_job_benefits[$i][1])) echo $wpjobus_job_benefits[$i][1]; ?>
+                <span class="price-welfare-day">
+                  <textarea row="20"  name='wpjobus_job_benefits[<?php echo $num_benefit; ?>][1]'  placeholder="Nhập nội dung mô tả">
                   </textarea>
                 </span>
-                </div>
             </div>
-
         </div>
+
+    </div>
+
         <?php
-    }
+
     die();
 }
 add_action('wp_ajax_add_resume_portfolio', 'add_resume_portfolio');
@@ -2216,7 +2212,6 @@ function search_action_javascript() {
     <script>
         jQuery(document).ready(function($) {
             $("#search_fulltext").keyup(function() {
-                $( ".search_top_mobile" ).after( "<div style=' background-color: whitesmoke; display:none;position: absolute;margin-top:10%;width: 100%;' class='searchwp-live-search-result'></div>");
                 var keyword= $(this).val();
                 if(keyword.length>3)
                 {
@@ -2226,7 +2221,6 @@ function search_action_javascript() {
                         url: '<?php echo admin_url( "admin-ajax.php" ); ?>',
                         success: function (resp) {
                             $('.searchwp-live-search-result').show();
-
                             $(".searchwp-live-search-result").html(resp);
 
                         }
@@ -3582,7 +3576,7 @@ function search_action() {
 
     $args=array(
         's'      => $keyword,
-        'posts_per_page' => '10',
+        'posts_per_page' => '7',
         'post_type'        => 'job',
         'orderby'          => 'date',
         'order'            => 'DESC',
@@ -3600,9 +3594,7 @@ function search_action() {
                 <?php $post_type = get_post_type_object(get_post_type()); ?>
 
                 <p><a href="<?php echo esc_url(get_permalink()); ?>">
-                        <?php the_title(); ?> (<?php echo esc_html($post_type->labels->singular_name); ?>) &raquo;
-                    </a></p>
-                <hr style="height:0;border-top: 1px solid rgba(0, 0, 0, 0.1);">
+                        <?php the_title(); ?> (<?php echo esc_html($post_type->labels->singular_name); ?>) &raquo;</a></p>
 
             <?php
 

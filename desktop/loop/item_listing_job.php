@@ -5,18 +5,33 @@ $company_id=$td_job_company;
 $wpjobus_company_profile_picture = esc_url(get_post_meta($td_job_company, 'wpjobus_company_profile_picture', true));
 
 if ($wpjobus_company_profile_picture == "") {
-    $wpjobus_company_profile_picture = home_url() . "/wp-content/themes/mangvieclam789/images/mang-viec-lam.png";
+    $wpjobus_company_profile_picture = home_url() . "/wp-content/themes/CRB/images/logo mvl 60x60.png";
 }
 $wpjobus_job_remuneration = $list["wpjobus_job_remuneration"];
 $job_remuneration = format_gia($wpjobus_job_remuneration);
 $id_company = $list["job_company"];
 $wpjobus_company_fullname = get_post_meta($id_company, 'wpjobus_company_fullname',true);
 $job_industry = $list["job_industry"];
-if($job_industry !="") {
+$companylink = get_permalink($company_id);
+if(format_gia($list['wpjobus_job_remuneration'])=="Thoả thuận")
+{
+    $style="font-size:12px;";
+}
+else{
+    $style="";
+}
+$dictrict = esc_attr(get_post_meta($company_id, 'job_dictrict', true));
+if($dictrict !="")
+{
+    $dictrict=" - ".$dictrict;
+}
+$td_job_expired=get_post_meta($company_id, 'wpjobus_job_expired', true);
+$td_job_expired = date('d/m/Y ', strtotime($td_job_expired));
+if($job_industry !="" && $companylink !="") {
     ?>
 
     <div class="listting_job">
-        <a href="<?php $companylink = get_permalink($company_id);echo $companylink; ?>">
+        <a href="<?php echo $companylink; ?>">
 
             <div class="col-md-1 removepd15">
                 <div class="logo">
@@ -42,7 +57,7 @@ if($job_industry !="") {
                         if($list['job_location']!="") {
                             ?>
                             <div class="address"><span><i class="fa fa-map-marker"
-                                                          style=""></i> <?php echo $list['job_location'] ?></span></div>
+                                                          style=""></i> <?php echo $list['job_location'].$dictrict; ?></span></div>
                             <?php
                         }
                             ?>
@@ -69,7 +84,7 @@ if($job_industry !="") {
                     <div class="box1">
                         <div class="exp">
                             <span>Hạn Nộp</span>
-                            <span><?php echo get_post_meta($company_id, 'wpjobus_job_expired', true); ?></span>
+                            <span><?php echo $td_job_expired; ?></span>
                         </div>
                         <div class="view-1">
                             <span>Xem</span>
@@ -77,7 +92,7 @@ if($job_industry !="") {
                         </div>
                     </div>
                     <div class="box2">
-                        <span class="job-offers"><?php echo $job_remuneration; ?></span>
+                        <span class="job-offers" style="<?php echo $style;?>"><?php echo $job_remuneration; ?></span>
                         <span class="icon"><i class="fa fa-eye"></i></span>
                     </div>
 

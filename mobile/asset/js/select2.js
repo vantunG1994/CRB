@@ -1,6 +1,7 @@
 
     jQuery(document).ready(function($) {
         
+        
         jQuery(".user_industy_list").select2({
 
             placeholder: "Lựa chọn ngành nghề ",
@@ -53,13 +54,20 @@
 
         jQuery(".job_list_industry").select2({
             placeholder: "Ngành nghề ",
+            dropdownAutoWidth : true,
             minimumResultsForSearch: Infinity
-
         });
 
+    
+  
+
+                    
+                 
         jQuery(".job_list_location").select2({
 
             placeholder: "Khu vực",
+            dropdownAutoWidth : true,
+       
             minimumResultsForSearch: Infinity
 
         });

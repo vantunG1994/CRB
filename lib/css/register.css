@@ -82,5 +82,34 @@ button.btn-dn.btn.btn-primary.email {
 
   button.btn-dn.btn.btn-primary.email {
     width: 100%; } }
+input.input-submit-phone {
+  font-size: 18px;
+  color: white;
+  background: #428bca;
+  border: 1px;
+  border-radius: 4px;
+  padding: 5px;
+  width: 49%; }
+
+.form-register input#userPhone {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #eee;
+  border-left: 2px solid #008cd8;
+  border-radius: 4px;
+  padding-left: 33px; }
+.form-register i.fa.fa-phone-square {
+  position: absolute;
+  padding: 8px;
+  font-size: 25px;
+  color: #008cd8; }
+.form-register .form-group {
+  margin-top: 20px; }
+
+.page-id-1032 h1.resume-title.text-center {
+  font-size: 30px;
+  margin: 0px;
+  margin-top: 10px;
+  color: #428bca; }
 
 /*# sourceMappingURL=register.css.map */

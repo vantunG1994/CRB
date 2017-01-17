@@ -22,17 +22,15 @@
                     <option value="">Lựa chọn ngành nghề</option>
                     <?php
 
-                    global $redux_demo;
-                    for ($i = 0; $i <count($redux_demo['resume-industries']); $i++) {
-                        $name = createSlug($redux_demo['resume-industries'][$i]);
-                        if($sub_string==$name) {
-                            $selected = 'selected="selected"';
-                        }else{$selected="";}
+                    global $wpdb;
+                    $job_field=$wpdb->get_results('select * from job_field ');
+                    $job_province=$wpdb->get_results('select * from job_province ');
+                        foreach ($job_field as $industry) {
+                            ?>
+                            <option  <?php selected( $td_job_industry,$industry->name ); ?> value="<?php echo $industry->name; ?>"><?php echo $industry->name; ?></option>
+                            <?php
+                        }
                         ?>
-                        <option value="<?php echo $redux_demo['resume-industries'][$i]; ?>"><?php echo $redux_demo['resume-industries'][$i]; ?></option>
-                    <?php
-                    }
-                    ?>
 
                 </select>
             </td>
@@ -43,12 +41,12 @@
                 <select class=""  name="resume_location_new" id="" style="width: 100%; margin-bottom: 0;">
                     <option value="">Lựa chọn khu vực</option>
                     <?php
-                    global $redux_demo, $td_job_location;
-                    for ($i = 0; $i < count($redux_demo['resume-locations']); $i++) {
+                    foreach ($job_province as $categories) {
+
                         ?>
-                        <option
-                            value='<?php echo $redux_demo['resume-locations'][$i]; ?>'><?php echo $redux_demo['resume-locations'][$i]; ?></option>
-                    <?php
+                        <option value="<?php echo  $categories->name; ?>"><?php echo $categories->name; ?></option>
+
+                        <?php
                     }
                     ?>
                 </select>

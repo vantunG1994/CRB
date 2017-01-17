@@ -10,30 +10,40 @@
   #sidebar .sb-title i {
     color: #FFEB3B;
     padding-right: 5px; }
-#sidebar .carousel .carouse-prev {
+#sidebar .carousel .owl-prev {
   position: absolute;
   top: 0;
+  left: 0px;
   z-index: 100;
-  line-height: 250px; }
-  #sidebar .carousel .carouse-prev img {
+  background: none;
+  line-height: 200px; }
+  #sidebar .carousel .owl-prev img {
     width: 100%;
     cursor: pointer; }
-#sidebar .carousel .carouse-next {
+#sidebar .carousel .owl-next {
   position: absolute;
   top: 0;
-  right: 0;
-  line-height: 250px;
+  right: 0px;
+  background: none;
+  line-height: 200px;
   z-index: 100; }
-  #sidebar .carousel .carouse-next img {
+  #sidebar .carousel .owl-next img {
     width: 100%;
     cursor: pointer; }
-#sidebar .box-item-job {
+#sidebar .carousel .owl-pagination .owl-numbers {
+  cursor: pointer; }
+#sidebar .sidebar-content .box-img {
+  width: 100%;
+  height: 200px; }
+  #sidebar .sidebar-content .box-img img {
+    width: 100%;
+    height: 100%; }
+#sidebar .sidebar-content .box-item-job {
   display: inline-block;
-  margin-left: 50px;
   border: 3px solid #e74c3c;
   border-radius: 10px;
   text-transform: uppercase; }
-  #sidebar .box-item-job .box-left {
+  #sidebar .sidebar-content .box-item-job .box-left {
     width: 40%;
     display: inline-block;
     color: #e74c3c;
@@ -41,9 +51,9 @@
     float: left;
     font-size: 14px;
     padding-top: 10px; }
-    #sidebar .box-item-job .box-left span {
+    #sidebar .sidebar-content .box-item-job .box-left span {
       padding-left: 10px; }
-  #sidebar .box-item-job .box-right {
+  #sidebar .sidebar-content .box-item-job .box-right {
     width: 60%;
     float: right;
     height: 51px;
@@ -52,11 +62,11 @@
     text-align: center;
     line-height: 50px;
     font-size: 16px; }
-    #sidebar .box-item-job .box-right span {
+    #sidebar .sidebar-content .box-item-job .box-right span {
       text-align: center; }
-#sidebar .box-title {
+#sidebar .sidebar-content .box-title {
   text-align: center; }
-  #sidebar .box-title .title {
+  #sidebar .sidebar-content .box-title .title {
     white-space: nowrap;
     text-overflow: ellipsis;
     padding: 15px;
@@ -64,11 +74,18 @@
     color: #2980b9;
     font-size: 22px;
     overflow: hidden; }
-  #sidebar .box-title .title-job {
+  #sidebar .sidebar-content .box-title .title-job {
     color: #999999; }
-    #sidebar .box-title .title-job i {
+    #sidebar .sidebar-content .box-title .title-job i {
       padding-right: 5px; }
-    #sidebar .box-title .title-job .title-company {
+    #sidebar .sidebar-content .box-title .title-job .title-company {
       padding-top: 10px; }
+
+.owl-wrapper-outer {
+  overflow: hidden; }
+
+section#sidebar {
+  width: 100%;
+  float: left; }
 
 /*# sourceMappingURL=sidebar.css.map */

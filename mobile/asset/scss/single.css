@@ -111,7 +111,8 @@ span.cover-resume-breadcrumbs {
   float: left;
   height: auto;
   background: white;
-  padding: 20px; }
+  padding: 20px;
+  padding-bottom: 0px; }
   .resume-skills h3 {
     margin-top: 0px;
     color: #16a085;
@@ -657,7 +658,6 @@ h3.resume-section-title {
   height: auto;
   float: left;
   background: white;
-  margin-top: 30px;
   padding: 20px; }
   .information h2.resume-section-title {
     color: #16a085;
@@ -805,7 +805,7 @@ h3.info-details {
   .info-candidate .resume-experience-years-block .experience-period {
     float: right;
     margin-right: 2px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     font-family: "Custom Font" !important;
     text-transform: uppercase;
@@ -845,7 +845,7 @@ h3.info-details {
   .info-candidate .resume-expect-revenue-block .experience-period {
     float: right;
     margin-right: 5px;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     font-family: "Custom Font" !important;
     text-transform: uppercase;
@@ -1158,5 +1158,9 @@ ul.links {
   padding: 0px; }
 
 /*---------------------------------*/
+span.main-skills-item-bar-color.animate {
+  float: left;
+  height: 16px;
+  border-radius: 8px; }
 
 /*# sourceMappingURL=single.css.map */

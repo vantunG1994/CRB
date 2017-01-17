@@ -33,7 +33,7 @@
 	    border-radius: 10%;
 	    overflow: hidden;
 	    float: left;
-	    margin-right: 10px;
+	   
 		
 		img {
 			width:100%;
@@ -42,6 +42,9 @@
 	.infor_job {
 		padding-left: 10px;
 		text-transform: capitalize;
+		overflow: hidden;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
 		i {
 			padding-right:5px;
 		}

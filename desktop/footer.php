@@ -1,3 +1,39 @@
+<style>
+.support-icon-right {
+background: #2980B8;
+position: fixed;
+left: 0;
+bottom: 0;
+z-index: 99999;
+overflow: hidden;
+width: 200px;
+border-radius: 0 5px 0 0;
+color: #fff!important;
+box-shadow: 0 0 7px rgba(0,0,0,0.4);
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+-ms-transition: all 0.3s;
+-o-transition: all 0.3s;
+transition: all 0.3s;
+}
+.support-icon-right a {
+text-transform: uppercase;
+font-weight: bold;
+font-size: 12px!important;
+font-family: Arial;
+color: #fff!important;
+margin: 0!important;
+background-color: #2980B8;
+cursor: pointer;
+text-align: center;
+line-height: 30px;
+display: block;
+position: relative;
+}
+</style>
+<div class="support-icon-right">
+    <a href="http://m.me/mangvieclamcom" target="_blank" rel="nofollow"><i class="fa fa-comments-o" aria-hidden="true"></i> Live Chat</a>
+</div>
 <section id ="footer_yuna">
     <div class="container">
         <div class="row">
@@ -20,11 +56,11 @@
                 <div class="box-title"><h3>Thông tin chung</h3></div>
                 <div class="list-item">
                     <div class="host-news">
-                        <a href="#"><h3>GIỚI THIỆU</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Bang-gia-mangvieclam.docx" target="_blank" download="Bang gia - mangvieclam"><h3>BẢNG GIÁ</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Quy-che-hoat-đong-mangvieclam.pdf" target="_blank" type="application/octet-stream" download="Quy che hoat đong - mangvieclam"><h3>QUY CHẾ HOẠT ĐỘNG</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Chinh-sach-bao-mat-thong-tin-mangvieclam.com_.docx" download="chinh sach bao mat - mangvieclam"><h3>CHÍNH SÁCH BẢO MẬT</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Quy-trinh-ho-tro-giai-quyet-khieu-nai-mangvieclam.com_.docx" target="_blank" type="application/octet-stream" download="Quy trinh ha tro giai quyet khieu nai - mangvieclam"><h3>giải quyết tranh chấp</h3></a>
+                        <a href="<?php echo home_url();?>/gioi-thieu"><h3>GIỚI THIỆU</h3></a>
+                        <a href="<?php echo home_url();?>/bang-gia"><h3>BẢNG GIÁ</h3></a>
+                        <a id="downloadLink" href="/wp-content/themes/CRB/file/Quy che hoat dong - mangvieclam.pdf" target="_blank" type="application/octet-stream" download="Quy che hoat dong - mangvieclam.pdf"><h3>QUY CHẾ HOẠT ĐỘNG</h3></a>
+                        <a id="downloadLink" href="/wp-content/themes/CRB/file/Chinh sach bao mat thong tin - mangvieclam.com.docx" target="_blank" type="application/octet-stream" download="Chinh sach bao mat thong tin - mangvieclam.com.docx"><h3>CHÍNH SÁCH BẢO MẬT</h3></a>
+                        <a id="downloadLink" href="/wp-content/themes/CRB/file/Quy trình ho tro giai quyet khieu nai - mangvieclam.com.docx" target="_blank" type="application/octet-stream" download="Quy trình ho tro giai quyet khieu nai - mangvieclam.com.docx"><h3>GIẢI QUYẾT TRANH CHẤP</h3></a>
                     </div>
                 </div>
             </div>
@@ -78,7 +114,7 @@
                 </div>
             </div>
             <div class="row padding-bottom30">
-                <div class="col-lg-4 col-xs-12">
+                <div class="col-md-4 col-xs-12">
                     <div class="ft-list-item">
                         <div>
                             <span>Product of Caribbean Technology Co., Ltd 3838 Beverly Blvd, Los Angeles, CA 90048, USA</span>
@@ -90,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-xs-12">
+            <div class="col-md-4 col-xs-12">
                 <div class="ft-list-item">
                     <div>
                         <span>Đại diện tại Việt Nam: Công ty Công nghệ Caribe</span>
@@ -105,7 +141,7 @@
                     <div>ĐKKD: 0313311934, Ngày cấp: 18/06/2015</div>
                 </div>
             </div>
-            <div class="col-lg-4 col-xs-12">
+            <div class="col-md-4 col-xs-12">
                 <div class="ft-list-item">
                     <div class="ft-right"><span><img src="<?php  echo THEMATER_URL; ?>/images/alexa_icon.png">Top 20 website lớn nhất Việt Nam</span></div>
                     <div class="ft-right"><a href=""><span><img src="<?php  echo THEMATER_URL; ?>/images/facebook_icon.png">Fanpage Mạng Việc Làm</span></a></div>
@@ -115,4 +151,3 @@
     </div>
     </section><!-- footer_yuna_1 -->
     <script src="<?php echo get_template_directory_uri();?>/desktop/asset/js/select2.js"></script>
-

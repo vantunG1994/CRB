@@ -1,7 +1,6 @@
 <?php
 global $wpdb,$post;
 $upload_dir = wp_upload_dir();
-
 $job_field=$wpdb->get_results('select * from job_field ');
 $job_province=$wpdb->get_results('select * from job_province ');
 if(isset($_GET['job_id']) !="") {
@@ -73,7 +72,7 @@ input#file {
 border: none;
 }
 #userNameError, #err_email, #error_address, #err_postContent, #err_number {
-  color:red;
+color:red;
 }
 </style>
 <div class="main-content">
@@ -378,17 +377,12 @@ border: none;
                   <span class="three_fifth select-wrapper" ><i class="fa fa-building"></i>
                     <select class="input-lg" name="job_company" id="job_company" style="width: 100%;">
                       <?php
-
                       foreach ($companies as $company) {
-
-                          $comp_id = $company->ID;
-
-                          $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
-                          ?>
-
-                          <option value='<?php echo $comp_id; ?>' <?php global $td_job_company;
-                          selected($td_job_company, $comp_id); ?>><?php echo $wpjobus_company_fullname; ?></option>
-
+                      $comp_id = $company->ID;
+                      $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
+                      ?>
+                      <option value='<?php echo $comp_id; ?>' <?php global $td_job_company;
+                      selected($td_job_company, $comp_id); ?>><?php echo $wpjobus_company_fullname; ?></option>
                       <?php }
                       ?>
                     </select>
@@ -561,49 +555,47 @@ border: none;
         </div>
         <div class="welfare" id="result_benefit">
           <h4 class="resume-section-subtitle" >Phúc lợi</h4>
-            <div class="job_benefits">
-          <?php
-          $wpjobus_job_benefits = get_post_meta($job_id, 'wpjobus_job_benefits',true);
-          $wpjobus_job_benefits_count=(count($wpjobus_job_benefits));
-          for ($i = 0; $i < $wpjobus_job_benefits_count ; $i++) {
-          ?>
-          <div class="row_benefit">
-            <div class="col-md-6">
-              <div class="price-welfare-1">
-                <span class="label-title">
-                  <h3>Tên phúc lợi <?php echo $i+1;?>:</h3>
-                </span>
-                <span class="price-welfare-day">
-                  <i class="fa fa-gift" aria-hidden="true"></i>
-                  <input class="input-lg" type="text"  name='wpjobus_job_benefits[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_benefits[$i][0])) echo $wpjobus_job_benefits[$i][0]; ?>" placeholder="Nhập phúc lợi" vk_1ffd1="subscribed">
-                </span>
-                <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+          <div class="job_benefits">
+            <?php
+            $wpjobus_job_benefits = get_post_meta($job_id, 'wpjobus_job_benefits',true);
+            $wpjobus_job_benefits_count=(count($wpjobus_job_benefits));
+            for ($i = 0; $i < $wpjobus_job_benefits_count ; $i++) {
+            ?>
+            <div class="row_benefit" id="row_benefit-<?php echo $i+1; ?>">
+              <div class="col-md-6">
+                <div class="price-welfare-1">
+                  <span class="label-title">
+                    <h3>Tên phúc lợi <?php echo $i+1;?>:</h3>
+                  </span>
+                  <span class="price-welfare-day">
+                    <i class="fa fa-gift" aria-hidden="true"></i>
+                    <input class="input-lg" type="text"  name='wpjobus_job_benefits[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_benefits[$i][0])) echo $wpjobus_job_benefits[$i][0]; ?>" placeholder="Nhập phúc lợi" vk_1ffd1="subscribed">
+                  </span>
+                  <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="price-welfare-1">
+                  <span class="label-title">
+                    <h3>Mô tả phúc lợi:</h3>
+                  </span>
+                  <span class="price-welfare-day">
+                    <textarea row="20"  name='wpjobus_job_benefits[<?php echo $i; ?>][1]'  placeholder="Nhập nội dung mô tả">
+                    <?php
+                    if (!empty($wpjobus_job_benefits[$i][1])) echo $wpjobus_job_benefits[$i][1]; ?>
+                    </textarea>
+                  </span>
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="price-welfare-1">
-                <span class="label-title">
-                  <h3>Mô tả phúc lợi:</h3>
-                </span>
-                <span class="price-welfare-day">
-                  <textarea row="20"  name='wpjobus_job_benefits[<?php echo $i; ?>][1]'  placeholder="Nhập nội dung mô tả">
-                  <?php
-                  if (!empty($wpjobus_job_benefits[$i][1])) echo $wpjobus_job_benefits[$i][1]; ?>
-                  </textarea>
-                </span>
-              </div>
-            </div>
-
+            <?php
+            }
+            ?>
           </div>
-
-              <?php
-          }
-          ?>
-            </div>
-            <div class="delete-add">
-                <button type="button" class="delete_benefit"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
-                <button type="button" class="add_benefit"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách phúc lợi</button>
-            </div>
+          <div class="delete-add">
+            <button type="button" class="delete_benefit"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+            <button type="button" class="add_benefit"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách phúc lợi</button>
+          </div>
         </div>
         <div class="divider"></div>
         <div class="contact">
@@ -617,32 +609,25 @@ border: none;
                 <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title" >
-                           <?php
-
-                           foreach ($companies as $company) {
-
-                               $comp_id = $company->ID;
-
-                               $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
-                               $wpjobus_company_address = esc_attr(get_post_meta($comp_id, 'wpjobus_company_address',true));
-                               $wpjobus_company_phone = esc_attr(get_post_meta($comp_id, 'wpjobus_company_phone',true));
-                               $wpjobus_company_website = esc_url(get_post_meta($comp_id, 'wpjobus_company_website',true));
-                               $wpjobus_company_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_email',true));
-                               $wpjobus_company_publish_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_publish_email',true));
-                               $wpjobus_company_facebook = esc_url(get_post_meta($comp_id, 'wpjobus_company_facebook',true));
-                               $wpjobus_company_linkedin = esc_url(get_post_meta($comp_id, 'wpjobus_company_linkedin',true));
-                               $wpjobus_company_twitter = esc_url(get_post_meta($comp_id, 'wpjobus_company_twitter',true));
-                               $wpjobus_company_googleplus = esc_url(get_post_meta($comp_id, 'wpjobus_company_googleplus',true));
-                               $wpjobus_company_googleaddress = esc_attr(get_post_meta($postID, 'wpjobus_company_googleaddress',true));
-                               $wpjobus_company_longitude = esc_attr(get_post_meta($postID, 'wpjobus_company_longitude',true));
-                               $wpjobus_company_latitude = esc_attr(get_post_meta($postID, 'wpjobus_company_latitude',true));
-                               ?>
-
-                               <option value='<?php echo $comp_id; ?>' <?php global $td_job_company;
-                               selected($td_job_company, $comp_id); ?>><?php echo $wpjobus_company_fullname; ?></option>
-
-                           <?php }
-                           ?>
+                      <?php
+                      foreach ($companies as $company) {
+                      $comp_id = $company->ID;
+                      $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
+                      $wpjobus_company_address = esc_attr(get_post_meta($comp_id, 'wpjobus_company_address',true));
+                      $wpjobus_company_phone = esc_attr(get_post_meta($comp_id, 'wpjobus_company_phone',true));
+                      $wpjobus_company_website = esc_url(get_post_meta($comp_id, 'wpjobus_company_website',true));
+                      $wpjobus_company_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_email',true));
+                      $wpjobus_company_publish_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_publish_email',true));
+                      $wpjobus_company_facebook = esc_url(get_post_meta($comp_id, 'wpjobus_company_facebook',true));
+                      $wpjobus_company_linkedin = esc_url(get_post_meta($comp_id, 'wpjobus_company_linkedin',true));
+                      $wpjobus_company_twitter = esc_url(get_post_meta($comp_id, 'wpjobus_company_twitter',true));
+                      $wpjobus_company_googleplus = esc_url(get_post_meta($comp_id, 'wpjobus_company_googleplus',true));
+                      $wpjobus_company_googleaddress = esc_attr(get_post_meta($postID, 'wpjobus_company_googleaddress',true));
+                      $wpjobus_company_longitude = esc_attr(get_post_meta($postID, 'wpjobus_company_longitude',true));
+                      $wpjobus_company_latitude = esc_attr(get_post_meta($postID, 'wpjobus_company_latitude',true));
+                      ?>
+                      <?php }
+                      ?>
                       <h3>Địa chỉ:</h3>
                     </span>
                     <span class="three_fifth" >
@@ -657,7 +642,7 @@ border: none;
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-phone" aria-hidden="true"></i>
-                      <input type="number" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_job_phone"  value="<?php echo $wpjobus_job_phone ?:$wpjobus_company_phone; ?> " placeholder="" vk_162b1="subscribed" >
+                      <input type="text" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_job_phone"  value="<?php echo $wpjobus_job_phone ?:$wpjobus_company_phone; ?> " placeholder="" vk_162b1="subscribed" >
                       <p id="err_number"></p>
                     </span>
                   </span>
@@ -797,45 +782,45 @@ border: none;
               </div>
             </div>
             <div class="divider"></div>
-              <div class="job_skills">
-            <?php
-            $wpjobus_job_skills = get_post_meta($job_id, 'wpjobus_job_skills',true);
-            for ($i = 0; $i < (count($wpjobus_job_skills)); $i++) {
-            ?>
-            <div class="row_skill">
-              <div class="col-md-6">
-                <div class="Skills-needed-1">
-                  <span class="label-title">
-                    <h3>Kĩ năng <?php echo $i+1;?> :</h3>
-                  </span>
-                  <span class="Skills-needed-2">
-                    <i class="fa fa-bar-chart-o"></i>
-                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_skills[$i][0])) echo $wpjobus_job_skills[$i][0]; ?>" placeholder="" vk_1ffd1="subscribed">
-                  </span>
-                  <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+            <div class="job_skills">
+              <?php
+              $wpjobus_job_skills = get_post_meta($job_id, 'wpjobus_job_skills',true);
+              for ($i = 0; $i < (count($wpjobus_job_skills)); $i++) {
+              ?>
+              <div class="row_skill"  id="row_skill-<?php echo $i+1; ?>">
+                <div class="col-md-6">
+                  <div class="Skills-needed-1">
+                    <span class="label-title">
+                      <h3>Kĩ năng <?php echo $i+1;?> :</h3>
+                    </span>
+                    <span class="Skills-needed-2">
+                      <i class="fa fa-bar-chart-o"></i>
+                      <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_skills[$i][0])) echo $wpjobus_job_skills[$i][0]; ?>" placeholder="" vk_1ffd1="subscribed">
+                    </span>
+                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="Skills-needed-1">
+                    <span class="label-title">
+                      <h3>Giá trị :</h3>
+                    </span>
+                    <span class="Skills-needed-2">
+                      <i class="fa fa-bar-chart-o"></i>
+                      <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][1]' value="<?php if (!empty($wpjobus_job_skills[$i][1])) echo $wpjobus_job_skills[$i][1]; ?>" placeholder="70%" vk_1ffd1="subscribed">
+                    </span>
+                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="Skills-needed-1">
-                  <span class="label-title">
-                    <h3>Giá trị :</h3>
-                  </span>
-                  <span class="Skills-needed-2">
-                    <i class="fa fa-bar-chart-o"></i>
-                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][1]' value="<?php if (!empty($wpjobus_job_skills[$i][1])) echo $wpjobus_job_skills[$i][1]; ?>" placeholder="70%" vk_1ffd1="subscribed">
-                  </span>
-                  <p id="error" style="color: red;display:none;font-size: 16px;"></p>
-                </div>
-              </div>
+              <?php
+              }
+              ?>
             </div>
-            <?php
-            }
-            ?>
-              </div>
-              <div class="delete-add">
-                  <button type="button" class="delete_skill"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
-                  <button type="button" class="add_skill"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng</button>
-              </div>
+            <div class="delete-add">
+              <button type="button" class="delete_skill"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+              <button type="button" class="add_skill"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng</button>
+            </div>
             <div class="divider"></div>
             <div class="col-md-6">
               <div class="Skills-needed-1">
@@ -844,90 +829,89 @@ border: none;
                 </span>
                 <span class="Skills-needed-2" >
                   <i class="fa fa-language" aria-hidden="true"></i>
-                  <input vk_1ffd1="subscribed" type='text' id="review-name" class='' name='wpjobus_job_native_language' style="width: 100%; float: left; margin-bottom: 0;" value='<?php echo $wpjobus_job_native_language;?>' placeholder="" />
+                  <input vk_1ffd1="subscribed" type='text' id="review-name" class='' name='wpjobus_job_native_language' style="width: 100%; float: left; margin-bottom: 0;" value='<?php echo $wpjobus_job_native_language?:"Tiếng Việt";?>' placeholder="" />
                 </span>
                 <p id="error" style="color: red;display:none;font-size: 16px;"></p>
               </div>
             </div>
             <div class="divider"></div>
-              <div class="job_languages">
-            <?php
-            $wpjobus_job_languages = get_post_meta($job_id, 'wpjobus_job_languages',true);
-            for ($i = 0; $i < (count($wpjobus_job_languages)); $i++) {
-            ?>
-            <div class="row_language">
-              <div class="col-xs-6">
-                <div class="contact-input">
-                  <span class="information-input">
-                    <span class="label-title">
-                      <h3>Ngoại ngữ <?php echo $i+1;?>:</h3>
+            <div class="job_languages">
+              <?php
+              $wpjobus_job_languages = get_post_meta($job_id, 'wpjobus_job_languages',true);
+              for ($i = 0; $i < (count($wpjobus_job_languages)); $i++) {
+              ?>
+              <div class="row_language" id="row_language-<?php echo $i+1; ?>">
+                <div class="col-xs-6">
+                  <div class="contact-input">
+                    <span class="information-input">
+                      <span class="label-title">
+                        <h3>Ngoại ngữ <?php echo $i+1;?>:</h3>
+                      </span>
+                      <span class="three_fifth">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        <input type='text' id="wpjobus_job_languages[<?php echo $i; ?>][0]" class="resume_lang_title" name='wpjobus_job_languages[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_job_languages[$i][0])) echo $wpjobus_job_languages[$i][0]; ?>' placeholder="" />
+                      </span>
                     </span>
-                    <span class="three_fifth">
-                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                      <input type='text' id="wpjobus_job_languages[<?php echo $i; ?>][0]" class="resume_lang_title" name='wpjobus_job_languages[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_job_languages[$i][0])) echo $wpjobus_job_languages[$i][0]; ?>' placeholder="" />
+                    <span class="information-input">
+                      <span class="label-title">
+                        <h3>Kĩ năng nói:</h3>
+                      </span>
+                      <span class="three_fifth">
+                        <i class="fa fa-bullhorn"></i>
+                        <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_speaking" name="wpjobus_job_languages[<?php echo $i; ?>][2]" id="wpjobus_job_languages[<?php echo $i; ?>][2]" style="width: 100%; margin-right: 10px;">
+                          <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+                          <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+                          <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+                          <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+                          <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+                        </select>
+                      </span>
                     </span>
-                  </span>
-                  <span class="information-input">
-                    <span class="label-title">
-                      <h3>Kĩ năng nói:</h3>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="contact-input">
+                    <span class="information-input">
+                      <span class="label-title">
+                        <h3>Thông thạo:</h3>
+                      </span>
+                      <span class="three_fifth">
+                        <i class="fa fa-cubes" aria-hidden="true"></i>
+                        <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_understanding" name="wpjobus_job_languages[<?php echo $i; ?>][1]" id="wpjobus_job_languages[<?php echo $i; ?>][1]" style="width: 100%; margin-right: 10px;">
+                          <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+                          <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+                          <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+                          <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+                          <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+                        </select>
+                      </span>
                     </span>
-                    <span class="three_fifth">
-                      <i class="fa fa-bullhorn"></i>
-                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_speaking" name="wpjobus_job_languages[<?php echo $i; ?>][2]" id="wpjobus_job_languages[<?php echo $i; ?>][2]" style="width: 100%; margin-right: 10px;">
-                        <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
-                        <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
-                        <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
-                        <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
-                        <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
-                      </select>
+                    <span class="information-input">
+                      <span class="label-title">
+                        <h3>Kĩ năng viết:</h3>
+                      </span>
+                      <span class="three_fifth">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_writing" name="wpjobus_job_languages[<?php echo $i; ?>][3]" id="wpjobus_job_languages[<?php echo $i; ?>][3]" style="width: 100%; margin-right: 10px;">
+                          <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+                          <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+                          <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+                          <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+                          <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+                        </select>
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
               </div>
-              <div class="col-xs-6">
-                <div class="contact-input">
-                  <span class="information-input">
-                    <span class="label-title">
-                      <h3>Thông thạo:</h3>
-                    </span>
-                    <span class="three_fifth">
-                      <i class="fa fa-cubes" aria-hidden="true"></i>
-                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_understanding" name="wpjobus_job_languages[<?php echo $i; ?>][1]" id="wpjobus_job_languages[<?php echo $i; ?>][1]" style="width: 100%; margin-right: 10px;">
-                        <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
-                        <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
-                        <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
-                        <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
-                        <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
-                      </select>
-                    </span>
-                  </span>
-                  <span class="information-input">
-                    <span class="label-title">
-                      <h3>Kĩ năng viết:</h3>
-                    </span>
-                    <span class="three_fifth">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_writing" name="wpjobus_job_languages[<?php echo $i; ?>][3]" id="wpjobus_job_languages[<?php echo $i; ?>][3]" style="width: 100%; margin-right: 10px;">
-                        <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
-                        <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
-                        <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
-                        <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
-                        <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
-                      </select>
-                    </span>
-                  </span>
-                </div>
-              </div>
-
+              <?php
+              }
+              ?>
             </div>
-            <?php
-            }
-            ?>
-              </div>
-              <div class="delete-add">
-                  <button type="button" class="delete_language"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
-                  <button type="button" class="add_language"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn ngữ</button>
-              </div>
+            <div class="delete-add">
+              <button type="button" class="delete_language"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+              <button type="button" class="add_language"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn ngữ</button>
+            </div>
             <div class="divider"></div>
             <div class="additional">
               <div class="information-input">
@@ -1005,7 +989,7 @@ $wpjobus_job_cover_images= $upload_dir['url'].'/'.$_POST['wpjobus_job_cover_imag
 }
 else if($wpjobus_job_cover_image !="")
 {
-    $wpjobus_job_cover_images=$wpjobus_job_cover_image;
+$wpjobus_job_cover_images=$wpjobus_job_cover_image;
 }
 //regular update
 update_post_meta($td_post_id, 'job_dictrict' , wp_kses($_POST['dictrict'], $td_allowed));
@@ -1050,14 +1034,14 @@ update_post_meta($td_post_id, 'wpjobus_job_linkedin', $_POST['wpjobus_job_linked
 update_post_meta($td_post_id, 'wpjobus_job_twitter', $_POST['wpjobus_job_twitter']);
 update_post_meta($td_post_id, 'wpjobus_job_googleplus', $_POST['wpjobus_job_googleplus']);
 update_post_meta($td_post_id, 'wpjobus_job_googleaddress', $_POST['wpjobus_job_googleaddress']);
-    ?>
-    <script>
-        jQuery(document).ready(function ($) {
-            var url = "<?php echo home_url('/')."edit-job/?job_id=".$td_post_id.""?>";
-            location.href = url;
-        });
-    </script>
-    <?php
+?>
+<script>
+jQuery(document).ready(function ($) {
+var url = "<?php echo home_url('/')."edit-job/?job_id=".$td_post_id.""?>";
+location.href = url;
+});
+</script>
+<?php
 }
 if(isset($_POST['save_pending']))
 {
@@ -1104,14 +1088,14 @@ if($job_location=="")
 {
 $job_location=$id_location;
 }
-    if($_POST['wpjobus_job_cover_image'] !="")
-    {
-        $wpjobus_job_cover_images= $upload_dir['url'].'/'.$_POST['wpjobus_job_cover_image'];
-    }
-    else if($wpjobus_job_cover_image !="")
-    {
-        $wpjobus_job_cover_images=$wpjobus_job_cover_image;
-    }
+if($_POST['wpjobus_job_cover_image'] !="")
+{
+$wpjobus_job_cover_images= $upload_dir['url'].'/'.$_POST['wpjobus_job_cover_image'];
+}
+else if($wpjobus_job_cover_image !="")
+{
+$wpjobus_job_cover_images=$wpjobus_job_cover_image;
+}
 //regular update
 update_post_meta($td_post_id, 'job_dictrict' , wp_kses($_POST['dictrict'], $td_allowed));
 update_post_meta($td_post_id, 'wpjobus_job_expired' , wp_kses($_POST["expired_at"], $td_allowed));
@@ -1156,12 +1140,12 @@ update_post_meta($td_post_id, 'wpjobus_job_twitter', $_POST['wpjobus_job_twitter
 update_post_meta($td_post_id, 'wpjobus_job_googleplus', $_POST['wpjobus_job_googleplus']);
 update_post_meta($td_post_id, 'wpjobus_job_googleaddress', $_POST['wpjobus_job_googleaddress']);
 ?>
-    <script>
-        jQuery(document).ready(function ($) {
-            var url = "<?php echo home_url('/')."edit-job/?job_id=".$td_post_id.""?>";
-            location.href = url;
-        });
-    </script>
+<script>
+jQuery(document).ready(function ($) {
+var url = "<?php echo home_url('/')."edit-job/?job_id=".$td_post_id.""?>";
+location.href = url;
+});
+</script>
 <?php
 }
 ?>

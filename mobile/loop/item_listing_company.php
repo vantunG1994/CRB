@@ -4,11 +4,13 @@ $wpjobus_company_profile_picture =$q["wpjobus_company_profile_picture"];
 
 if($wpjobus_company_profile_picture=="")
 {
-    $wpjobus_company_profile_picture="https://cdn.mangvieclam.com/images/common/nicethumb/50x50/mang-viec-lam.png";
+    $wpjobus_company_profile_picture=home_url() . "/wp-content/themes/CRB/images/logo mvl 60x60.png";
 }
+$companylink = get_permalink($company_id);
+if($companylink){
 ?>
 <div class="listting_content">
-    <a href="<?php $companylink = get_permalink($company_id);echo $companylink; ?>">
+    <a href="<?php echo $companylink; ?>">
     <div class="title">
         <span><?php echo $list['wpjobus_job_fullname']; ?></span>
     </div>
@@ -30,5 +32,5 @@ if($wpjobus_company_profile_picture=="")
 </a>
 
 <?php
-
+}
 ?>

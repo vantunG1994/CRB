@@ -17,11 +17,11 @@
                 <div class="box-title"><h3>Thông tin chung <i class="fa fa-angle-down text-right"></i></h3></div>
                 <div class="list-item">
                     <div class="host-news">
-                        <a href="#"><h3>GIỚI THIỆU</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Bang-gia-mangvieclam.docx" target="_blank" download="Bang gia - mangvieclam"><h3>BẢNG GIÁ</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Quy-che-hoat-đong-mangvieclam.pdf" target="_blank" type="application/octet-stream" download="Quy che hoat đong - mangvieclam"><h3>QUY CHẾ HOẠT ĐỘNG</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Chinh-sach-bao-mat-thong-tin-mangvieclam.com_.docx" download="chinh sach bao mat - mangvieclam"><h3>CHÍNH SÁCH BẢO MẬT</h3></a>
-                        <a href="<?php echo home_url()?>/wp-content/uploads/2017/01/Quy-trinh-ho-tro-giai-quyet-khieu-nai-mangvieclam.com_.docx" target="_blank" type="application/octet-stream" download="Quy trinh ha tro giai quyet khieu nai - mangvieclam"><h3>giải quyết tranh chấp</h3></a>
+                        <a href="<?php echo home_url();?>/gioi-thieu"><h3>GIỚI THIỆU</h3></a>
+                        <a href="<?php echo home_url();?>/bang-gia"><h3>BẢNG GIÁ</h3></a>
+                        <a id="downloadLink" href="/wp-content/themes/CRB/file/Quy che hoat dong - mangvieclam.pdf" target="_blank" type="application/octet-stream" download="Quy che hoat dong - mangvieclam.pdf"><h3>QUY CHẾ HOẠT ĐỘNG</h3></a>
+                        <a id="downloadLink" href="/wp-content/themes/CRB/file/Chinh sach bao mat thong tin - mangvieclam.com.docx" target="_blank" type="application/octet-stream" download="Chinh sach bao mat thong tin - mangvieclam.com.docx"><h3>CHÍNH SÁCH BẢO MẬT</h3></a>
+                        <a id="downloadLink" href="/wp-content/themes/CRB/file/Quy trình ho tro giai quyet khieu nai - mangvieclam.com.docx" target="_blank" type="application/octet-stream" download="Quy trình ho tro giai quyet khieu nai - mangvieclam.com.docx"><h3>GIẢI QUYẾT TRANH CHẤP</h3></a>
                     </div>
                 </div>
             </div>
@@ -63,9 +63,22 @@
 <div class="bottom-navigation">
     
     <div class="nav-item nav-active">
-        <a href="">
-            <span class="icon"><span class="fa fa-pencil-square-o"></span></span>
-            <span class="text">Tin mới</span>
+        <?php
+        if ( is_user_logged_in() ) {
+
+        ?>
+
+        <a href="<?php echo home_url();?>/tin-da-luu">
+            <?php
+            }
+            else{
+            ?>
+            <a href="<?php echo home_url();?>/login">
+            <?php
+            }
+            ?>
+            <span class="icon"><span class="fa fa-floppy-o"></span></span>
+            <span class="text">Tin lưu</span>
         </a>
     </div>
      <?php if ( !is_user_logged_in() ) { ?>
@@ -87,23 +100,155 @@
     ?>
    
     <div class="nav-item">
-        <a href="">
+        <a style="color: white;" href="//m.me/mangvieclamcom" target="_blank" rel="nofollow">
             <span class="icon"><span class="fa fa-comments-o"></span></span>
             <span class="text">Live chat</span>
         </a>
     </div>
     <div class="nav-item">
-        <a href="">
+        <a href="#">
             <span class="icon"><span class="fa fa-globe"></span></span>
             <span class="text">Thông báo</span>
         </a>
     </div>
-    <div class="nav-item">
-        <a href="">
+    <div class="nav-item" id="nav-item">
+        <a href="#">
             <span class="icon"><span class="fa fa-bars"></span></span>
             <span class="text">Xem thêm</span>
         </a>
+        
     </div>
-    
+   
+  
+   
 </div>
+<div id="topnews_header">
+      <div class="table-news">
+        <span class="text-news"><span class="fa fa-rss"></span> Mới nhất</span>
+       <div class="content-new">
+           <div class="list-job" style="margin-top: 10%;">
+               <div class="container bg-fff">
+                   <div class="row">
+                       <div class=" col-md-8 col-sm-12 col-xs-12">
+                           <div class="post-wrap clearfix">
+                               <?php
+                               global $post;
+                               //                $args = array( 'posts_per_page' => 5, 'offset'=> 0, 'category' => 20 );
+                               $args = array( 'posts_per_page' =>3,'order' => 'DESC', 'offset'=> 0,'orderby' => 'rand','category' =>2510);
+                               $myposts = get_posts( $args );
+                               foreach( $myposts as $post ) : setup_postdata($post); ?>
+                               <div class="post post-box clearfix post-2211737 type-post status-publish format-standard has-post-thumbnail hentry category-phong-van-xin-viec tag-cho-ket-qua-phong-van tag-cuoc-phong-van tag-ket-qua-phong-van tag-kinh-nghiem-phong-van tag-kinh-nghiem-phong-van-thanh-cong tag-kinh-nghiem-phong-van-xin-viec tag-lam-gi-khiket-qua-phong-van tag-meo-phong-van tag-nha-tuyen-dung tag-phong-van tag-phong-van-vong-hai tag-thu-cam-on tag-thu-cam-on-nha-tuyen-dung tag-viec-nen-lam-khi-ket-qua-phong-van tag-viet-thu-cam-on" id="post-2211737">
+
+                                   <div class="postmeta-primary">
+                                       <!--<span class="meta_date">29/11/2016</span>
+
+                                        &nbsp; <span class="meta_comments"><a href="https://mangvieclam.com/trong-khi-cho-doi-phong-van-ban-can-nen-lam-nhung-dieu-gi.html#respond">No comments</a></span> -->
+                                   </div>
+
+                                   <h2 class="title"><a href="<?php the_permalink(); ?>" title="   <?php the_title(); ?>" rel="bookmark">   <?php the_title(); ?></a></h2>
+
+                                   <div class="entry clearfix">
+                                       <div class="img-txt">
+                                           <a href="<?php the_permalink(); ?>"><img width="90" height="90" src="<?php echo catch_that_image();?>" class="alignleft featured_image wp-post-image" alt="cau-hoi-phong-van"></a>
+                                       </div>
+                                       <div class="removepd15">
+                                           <div class="txt-content ">
+                                              <?php the_content_rss('', FALSE, '',20);; ?><div class="readmore">
+                                                   <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark">Xem Thêm</a>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+
+
+
+                               </div><!-- Post ID 2211737 -->
+                               <?php endforeach; ?>
+                               <?php
+                               global $post;
+                               //                $args = array( 'posts_per_page' => 5, 'offset'=> 0, 'category' => 20 );
+                               $args = array( 'posts_per_page' =>2,'order' => 'DESC', 'offset'=> 0,'orderby' => 'rand','category' =>5);
+                               $myposts = get_posts( $args );
+                               foreach( $myposts as $post ) : setup_postdata($post); ?>
+                                   <div class="post post-box clearfix post-2211737 type-post status-publish format-standard has-post-thumbnail hentry category-phong-van-xin-viec tag-cho-ket-qua-phong-van tag-cuoc-phong-van tag-ket-qua-phong-van tag-kinh-nghiem-phong-van tag-kinh-nghiem-phong-van-thanh-cong tag-kinh-nghiem-phong-van-xin-viec tag-lam-gi-khiket-qua-phong-van tag-meo-phong-van tag-nha-tuyen-dung tag-phong-van tag-phong-van-vong-hai tag-thu-cam-on tag-thu-cam-on-nha-tuyen-dung tag-viec-nen-lam-khi-ket-qua-phong-van tag-viet-thu-cam-on" id="post-2211737">
+
+                                       <div class="postmeta-primary">
+                                           <!--<span class="meta_date">29/11/2016</span>
+
+                                            &nbsp; <span class="meta_comments"><a href="https://mangvieclam.com/trong-khi-cho-doi-phong-van-ban-can-nen-lam-nhung-dieu-gi.html#respond">No comments</a></span> -->
+                                       </div>
+
+                                       <h2 class="title"><a href="<?php the_permalink(); ?>" title="   <?php the_title(); ?>" rel="bookmark">   <?php the_title(); ?></a></h2>
+
+                                       <div class="entry clearfix">
+                                           <div class="img-txt">
+                                               <a href="<?php the_permalink(); ?>"><img width="90" height="90" src="<?php echo catch_that_image();?>" class="alignleft featured_image wp-post-image" alt="cau-hoi-phong-van"></a>
+                                           </div>
+                                           <div class="removepd15">
+                                               <div class="txt-content ">
+                                                   <?php the_content_rss('', FALSE, '',20);; ?><div class="readmore">
+                                                       <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" rel="bookmark">Xem Thêm</a>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+
+
+
+                                   </div><!-- Post ID 2211737 -->
+                               <?php endforeach; ?>
+
+                           </div> <!-- end col-md-8 --></div>
+
+               </div>
+           </div>
+            </div>
+
+      </div>
+     
+    </div>
+ <div class="store-information">
+            <div class="list-save">
+                <span class="text-news"><span class="fa fa-pencil-square-o"></span> Danh sách</span>
+            </div>
+            <div class="content-save">
+                
+            </div>
+        </div>
+        <script>
+    $(document).ready(function(){
+            
+        $(".show-news").click(function(){
+            $("#topnews_header").show();
+        });
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+            
+        $(".hide-news").click(function(){
+            $("#topnews_header").hide();
+        });
+    });
+    </script>
+      <script>
+    $(document).ready(function(){
+            
+        $("#nav-item").click(function(){
+            $(".store-information").toggle();
+        });
+    });
+    </script>
+    <script>
+            $(document).ready(function(){
+                $(".icon-show").click(function(){
+                    $(".discription-top").toggleClass("show");
+                });
+                $(".icon-show").click(function(){
+                    $(".icon-show").toggleClass("icon-hide");
+                });
+            });
+            </script>
+            
+        
 <script src="<?php echo get_template_directory_uri();?>/mobile/asset/js/select2.js"></script>

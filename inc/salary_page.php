@@ -1,5 +1,31 @@
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel='stylesheet' id='main-style-css'  href='<?php echo home_url("/"); ?>wp-content/themes/mangvieclam789/css/main_mvl_v1.css' type='text/css' media='all' />
+<style>
+    a.button-ag-full {
+        cursor: pointer;
+        background-color: #2980b9;
+        padding: 15px 20px 13px 20px;
+        text-transform: uppercase;
+        color: #fff;
+        width: auto;
+        float: left;
+        display: inline-block;
+        float: none;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        /* -webkit-box-shadow: 0 2px 0 #1f6797; */
+        /* box-shadow: 0 3px 0 #1f6797; */
+        text-decoration: none;
+    }
+</style>
 <?php
 global $wpdb,$current_user;
 

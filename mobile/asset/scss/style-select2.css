@@ -223,7 +223,8 @@ select#job_list_location {
   color: #333333; }
 
 .list_industry {
-  max-width: 171px; }
+  max-width: 171px;
+  overflow: hidden; }
 
 .location {
   max-width: 107px; }
@@ -263,6 +264,27 @@ input.select2-search__field {
   width: 100%;
   cursor: pointer;
   border-bottom: 1px solid #ccc;
-  float: left; }
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.location span.select2.select2-container.select2-container--default, .list_industry span.select2.select2-container.select2-container--default {
+  width: auto !important; }
+
+.list_industry span.select2.select2-container.select2-container--default.select2-container--below.select2-container--open.select2-container--focus {
+  max-width: 171px; }
+
+.list_industry span.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus {
+  max-width: 171px; }
+
+.list_industry span.select2.select2-container.select2-container--default {
+  max-width: 171px; }
+
+span.select2-dropdown.select2-dropdown--below {
+  min-width: 180px !important; }
+
+span.select2-results {
+  min-width: 180px; }
 
 /*# sourceMappingURL=style-select2.css.map */

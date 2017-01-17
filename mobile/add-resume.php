@@ -102,7 +102,8 @@ if (empty($wpjobus_resume_latitude)) {
             border: none;
         }
         input#save_pending {
-            width: 35%;
+            width: 100%;
+            margin-bottom: 10px;
             border: none;
             background: #16a085;
             color: white;
@@ -111,7 +112,8 @@ if (empty($wpjobus_resume_latitude)) {
             padding-left: 0 !important;
         }
         input#save_draf {
-            width: 20%;
+            width: 100%;
+            margin-bottom: 10px;
             border: none;
             background: #428bca;
             color: white;
@@ -124,7 +126,7 @@ if (empty($wpjobus_resume_latitude)) {
         }
     </style>
     <div class="main-content">
-        <div class="container">
+        <div class="">
             <form method="post">
                 <div class="add-edit">
                     <div class="title-top">
@@ -149,7 +151,7 @@ if (empty($wpjobus_resume_latitude)) {
                 <span class="label-title" >
                   <h3>Giới tính:</h3>
                 </span>
-                <span class="three_fifth select-wrapper " >
+                <span class="three_fifth  " >
                   <i class="fa fa-transgender" aria-hidden="true"></i>
                   <select class="input-lg select2" name="resume_gender" id="job_sex" style="width: 100%;">
                       <?php
@@ -171,7 +173,7 @@ if (empty($wpjobus_resume_latitude)) {
                   <h3>Ngày sinh:</h3>
                 </span>
                 <span class="three_fifth" >
-                  <select class="birthday"name="resume_month_birth" id="resume_month_birth"  class="valid">
+                  <select class="birthday select2"name="resume_month_birth" id="resume_month_birth"  class="valid">
                       <?php
                       for ($i=0;$i<12;$i++) {
                           ?>
@@ -180,7 +182,7 @@ if (empty($wpjobus_resume_latitude)) {
                       }
                       ?>
                   </select>
-                  <select class="birthday" name="resume_day_birth" id="resume_day_birth" >
+                  <select class="birthday select2" name="resume_day_birth" id="resume_day_birth" >
                   <?php
                   for ($i=0;$i<31;$i++) {
                       ?>
@@ -189,7 +191,7 @@ if (empty($wpjobus_resume_latitude)) {
                   }
                   ?>
                   </select>
-                  <select class="birthday" name="resume_year_birth" id="resume_year_birth" >
+                  <select class="birthday select2" name="resume_year_birth" id="resume_year_birth" >
                       <?php
                       if($td_resume_year_birth !="")
                       {
@@ -288,7 +290,7 @@ if (empty($wpjobus_resume_latitude)) {
                 <span class="label-title " >
                   <h3>Số năm kinh nghiệm:</h3>
                 </span>
-                <span class="three_fifth select-wrapper" >
+                <span class="three_fifth " >
                   <i class="fa fa-suitcase" aria-hidden="true"></i>
                   <select class="input-lg select2" name="resume_years_of_exp" id="job_years_of_exp" style="width: 100%;">
                       <?php
@@ -322,7 +324,7 @@ if (empty($wpjobus_resume_latitude)) {
                 <span class="label-title" >
                   <h3>Ngành nghề:</h3>
                 </span>
-                <span class="three_fifth select-wrapper " >
+                <span class="three_fifth  " >
                   <i class="fa fa-tasks" aria-hidden="true"></i>
                   <select class="input-lg select2" name="resume_industry" id="job_industry" style="width: 100%; margin-right: 10px;">
                    <?php
@@ -339,7 +341,7 @@ if (empty($wpjobus_resume_latitude)) {
                 <span class="label-title" >
                   <h3>Tỉnh thành:</h3>
                 </span>
-                <span class="three_fifth select-wrapper  " >
+                <span class="three_fifth   " >
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
                   <select name="resume_location" class="city input-lg select2" id="job_location" style="width: 100%; margin-right: 10px;">
                       <?php
@@ -403,7 +405,7 @@ if (empty($wpjobus_resume_latitude)) {
                   <h3>Mô tả công việc:</h3>
                 </span>
               </span>
-                                    <textarea id="postContent" rows="10" name="postContent" ><?php echo  $resume_about_me ?></textarea>
+                                    <textarea id="postContent" rows="5" name="postContent" ><?php echo  $resume_about_me ?></textarea>
                                     <p id="err_postContent"></p>
 
                                 </div>
@@ -523,8 +525,8 @@ if (empty($wpjobus_resume_latitude)) {
                             <h3 class="resume-section-subtitle" >Chúng ta đã gần hoàn tất! Điền vào các thông tin liên lạc chính xác.</h3>
                         </div>
                         <div class="contact-details">
-                            <div class="row">
-                                <div class="col-xs-6">
+                            <div class="">
+                                <div class="">
                                     <div class="contact-input">
                 <span class="information-input">
                   <span class="label-title" >
@@ -542,7 +544,7 @@ if (empty($wpjobus_resume_latitude)) {
                   </span>
                   <span class="three_fifth" >
                     <i class="fa fa-phone" aria-hidden="true"></i>
-                    <input type="number" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_resume_phone"  value="<?php echo $wpjobus_resume_phone; ?>" placeholder="" vk_162b1="subscribed" >
+                    <input type="text" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_resume_phone"  value="<?php echo $wpjobus_resume_phone; ?>" placeholder="" vk_162b1="subscribed" >
                     <p id="err_number"></p>
                   </span>
                 </span>
@@ -569,7 +571,7 @@ if (empty($wpjobus_resume_latitude)) {
                   </span>
                                     </div>
                                 </div>
-                                <div class="col-xs-6">
+                                <div class="">
                                     <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title" >
@@ -652,6 +654,10 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                                     <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                                 </div>
+                                 <div class="Skills-needed-1">
+                                    <textarea  rows="3" name="skillsNotes" placeholder="Ghi chú"><?php echo $wpjobus_resume_comm_note; ?></textarea>
+
+                                </div>
 
                                 <div class="Skills-needed-1">
                 <span class="label-title" >
@@ -663,6 +669,10 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                                     <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                                 </div>
+                                 <div class="Skills-needed-1">
+                                    <textarea  rows="3" name="orgNotes" placeholder="Ghi chú"><?php echo $wpjobus_resume_org_note; ?></textarea>
+
+                                </div>
                                 <div class="Skills-needed-1">
                 <span class="label-title" >
                   <h3>Kĩ năng liên quan đến công việc:</h3>
@@ -673,6 +683,10 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                                     <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                                 </div>
+                                 <div class="Skills-needed-1">
+                                    <textarea  rows="3" name="jobNotes" placeholder="Ghi chú"><?php echo $wpjobus_resume_job_rel_note; ?></textarea>
+
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="Skills-needed-1">
@@ -681,7 +695,7 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                                     <span class="Skills-needed-2" >
                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  <select name="resume_career_level" id="resume_career_level" class="valid">
+                  <select name="resume_career_level select2" id="resume_career_level" class="valid">
                       <?php
                       if($td_resume_career_level !="")
                       {
@@ -702,18 +716,9 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                                     <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                                 </div>
-                                <div class="Skills-needed-1">
-                                    <textarea  rows="3" name="skillsNotes" placeholder="Ghi chú"><?php echo $wpjobus_resume_comm_note; ?></textarea>
-
-                                </div>
-                                <div class="Skills-needed-1">
-                                    <textarea  rows="3" name="orgNotes" placeholder="Ghi chú"><?php echo $wpjobus_resume_org_note; ?></textarea>
-
-                                </div>
-                                <div class="Skills-needed-1">
-                                    <textarea  rows="3" name="jobNotes" placeholder="Ghi chú"><?php echo $wpjobus_resume_job_rel_note; ?></textarea>
-
-                                </div>
+                               
+                               
+                               
 
                             </div>
                         </div>
@@ -803,7 +808,7 @@ if (empty($wpjobus_resume_latitude)) {
                   </span>
                   <span class="three_fifth">
                     <i class="fa fa-bullhorn"></i>
-               <select class="resume_lang_speaking" name="wpjobus_resume_languages[<?php echo $i; ?>][2]" id="wpjobus_resume_languages[<?php echo $i; ?>][2]" style="width: 100%; margin-right: 10px;">
+               <select class="resume_lang_speaking select2" name="wpjobus_resume_languages[<?php echo $i; ?>][2]" id="wpjobus_resume_languages[<?php echo $i; ?>][2]" style="width: 100%; margin-right: 10px;">
 											<option value='Level 1' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
 											<option value='Level 2' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
 											<option value='Level 3' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
@@ -822,7 +827,7 @@ if (empty($wpjobus_resume_latitude)) {
                   </span>
                   <span class="three_fifth">
                     <i class="fa fa-cubes" aria-hidden="true"></i>
-                <select class="resume_lang_understanding" name="wpjobus_resume_languages[<?php echo $i; ?>][1]" id="wpjobus_resume_languages[<?php echo $i; ?>][1]" style="width: 100%; margin-right: 10px;">
+                <select class="resume_lang_understanding select2" name="wpjobus_resume_languages[<?php echo $i; ?>][1]" id="wpjobus_resume_languages[<?php echo $i; ?>][1]" style="width: 100%; margin-right: 10px;">
 											<option value='Level 1' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
 											<option value='Level 2' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
 											<option value='Level 3' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
@@ -837,7 +842,7 @@ if (empty($wpjobus_resume_latitude)) {
                   </span>
                   <span class="three_fifth">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                  <select class="resume_lang_writing" name="wpjobus_resume_languages[<?php echo $i; ?>][3]" id="wpjobus_resume_languages[<?php echo $i; ?>][3]" style="width: 100%; margin-right: 10px;">
+                  <select class="resume_lang_writing select2" name="wpjobus_resume_languages[<?php echo $i; ?>][3]" id="wpjobus_resume_languages[<?php echo $i; ?>][3]" style="width: 100%; margin-right: 10px;">
 											<option value='Level 1' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
 											<option value='Level 2' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
 											<option value='Level 3' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
@@ -909,7 +914,9 @@ if (empty($wpjobus_resume_latitude)) {
                   <h3>Giai đoạn</h3>
                 </span>
                 <span class="three_fifth">
-          <input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][2]' name='wpjobus_resume_education[<?php echo $i; ?>][2]' value='<?php if (!empty($wpjobus_resume_education[$i][2])) echo $wpjobus_resume_education[$i][2]; ?>' class='criteria_from_time' placeholder="" style="width: 40%"> <span style="float: left; margin: 10px;">-</span> <input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][3]' name='wpjobus_resume_education[<?php echo $i; ?>][3]' value='<?php if (!empty($wpjobus_resume_education[$i][3])) echo $wpjobus_resume_education[$i][3]; ?>' class='criteria_to_time' placeholder="" style="width: 40%">
+          <input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][2]' name='wpjobus_resume_education[<?php echo $i; ?>][2]' value='<?php if (!empty($wpjobus_resume_education[$i][2])) echo $wpjobus_resume_education[$i][2]; ?>' class='criteria_from_time' placeholder="" style="width: 40%"> <span style="float: left; margin: 10px;">
+            
+          </span> - <input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][3]' name='wpjobus_resume_education[<?php echo $i; ?>][3]' value='<?php if (!empty($wpjobus_resume_education[$i][3])) echo $wpjobus_resume_education[$i][3]; ?>' class='criteria_to_time' placeholder="" style="width: 40%">
 
                 </span>
               </span>
@@ -1104,7 +1111,7 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                 <span class="three_fifth">
                   <i class="fa fa-briefcase" aria-hidden="true"></i>
-                 <select class="resume_work_job_type" name="wpjobus_resume_work[<?php echo $i; ?>][4]" id="wpjobus_resume_work[<?php echo $i; ?>][4]" style="width: 100%; margin-right: 10px;">
+                 <select class="resume_work_job_type select2" name="wpjobus_resume_work[<?php echo $i; ?>][4]" id="wpjobus_resume_work[<?php echo $i; ?>][4]" style="width: 100%; margin-right: 10px;">
 												<option value="Chính thức">Chính thức</option>
 												<option value="Bán thời gian">Bán thời gian</option>
 												<option value="Lao động tự do ">Lao động tự do </option>
@@ -1148,7 +1155,7 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                                     <span class="price-welfare-day">
                   <i class="fa fa-usd" aria-hidden="true"></i>
-                  <select id="remuneration" name="wpjobus_resume_remuneration" style="width: 100%;float: left;">
+                  <select class="select2" id="remuneration " name="wpjobus_resume_remuneration" style="width: 100%;float: left;">
                         <?php
                         if($wpjobus_resume_remuneration!="") {
                             $salary = $wpjobus_resume_remuneration;
@@ -1211,7 +1218,7 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                                     <span class="price-welfare-day">
                   <i class="fa fa-calendar" aria-hidden="true"></i>
-                  <select name="wpjobus_job_remuneration_per" id="wpjobus_resume_remuneration_per" style="width: 100%;">
+                  <select class="select2" name="wpjobus_job_remuneration_per" id="wpjobus_resume_remuneration_per" style="width: 100%;">
                     <option value="Tháng">Tháng</option>
                     <option value="Giờ">Giờ</option>
                     <option value="Năm">Năm</option>

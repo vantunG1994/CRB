@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('.search-mb').click(function(){
-        $(this).parent().toggleClass('demo');
+        $(this).parent().toggleClass();
     });
 
     $('.host-new').click(function(){
