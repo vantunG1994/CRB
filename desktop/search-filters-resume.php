@@ -1,13 +1,16 @@
 <?php
-global $wpdb;
+global $wpdb,$post;
 $job_field=$wpdb->get_results('select * from job_field ');
 $job_province=$wpdb->get_results('select * from job_province ');
+if(get_post_type( $post->ID ) == 'resume' ) {
+    $action=home_url()."/ung-vien";
+}else{$action="";}
 ?>
 <div class="search-filters">
    <span class="search-filters-title">
       <h3 class="search-select2"><i class="fa fa-search"></i>TÌM KIẾM ỨNG VIÊN</h3>
    </span>
-    <form class="search-filters" method="get">
+    <form class="search-filters" method="get" action="<?php echo $action;?>">
         <div class=" sidebar-widget-bottom-line ">
             <div class=" input-write" style="margin-bottom: 0;">
                 <i class="fa fa-search" aria-hidden="true"></i>
@@ -18,9 +21,9 @@ $job_province=$wpdb->get_results('select * from job_province ');
             <i class="fa fa-pencil" aria-hidden="true"></i>
             <input class="input-lg selecl" placeholder="Lựa chọn năm KN" type="number" name="job_est_year_num" id="job_est_year_num" value="<?php echo $_GET['job_est_year_num'];?>">
         </div>
-        <div class=" sidebar-widget-bottom-line select-wrapper select-job">
+        <div class=" sidebar-widget-bottom-line  select-job">
             <i class="fa fa-tasks" aria-hidden="true"></i>
-            <select class="input-lg select2 job_type"  multiple="multiple" name="industry[]" id="job_type"  tabindex="-1" aria-hidden="true">
+            <select class="input-lg select2 job_type"   name="industry" id="job_type"  tabindex="-1" aria-hidden="true">
                 <?php
                 if($job_type !="" && $job_type!="resume" && $job_type !="job")
                 {
@@ -28,6 +31,12 @@ $job_province=$wpdb->get_results('select * from job_province ');
                     <option selected value="<?php echo createSlug($job_type); ?>"><?php echo $job_type; ?></option>
                     <?php
 
+                }
+                else{
+                    ?>
+                    <option value="">Lựa chọn ngành nghề</option>
+
+                    <?php
                 }
 
                 foreach ($job_field as $industry) {
@@ -39,15 +48,15 @@ $job_province=$wpdb->get_results('select * from job_province ');
             </select>
 
         </div>
-        <div class="sidebar-widget-bottom-line select-wrapper select-address  ">
+        <div class="sidebar-widget-bottom-line  select-address  ">
             <i class="fa fa-map-marker" aria-hidden="true"></i>
-            <select class="input-lg select2 job_location "  multiple="multiple" name="resume_location[]" id="job_location"  tabindex="-1" aria-hidden="true">
+            <select class="input-lg select2 job_location "   name="resume_location" id="job_location"  tabindex="-1" aria-hidden="true">
                 <?php
                 if($_GET['resume_location']!="")
                 {
                     ?>
 
-                    <option selected value="<?php echo $locations[0]; ?>"><?php echo $locations[0]; ?></option>
+                    <option selected value="<?php echo $locations; ?>"><?php echo $locations; ?></option>
                     <?php
 
                 }else{
@@ -67,60 +76,59 @@ $job_province=$wpdb->get_results('select * from job_province ');
             </select>
 
         </div>
-        <div class=" sidebar-widget-bottom-line select-wrapper select-salary">
+        <div class=" sidebar-widget-bottom-line  select-salary">
             <i class="fa fa-usd" aria-hidden="true"></i>
-            <select class="input-lg select2 "  multiple="multiple" id="price"  name="salary[]" style="width: 100%;" data-ref="hoso_salary" tabindex="-1" aria-hidden="true">
+            <select class="input-lg select2 "   id="price"  name="salary" style="width: 100%;" data-ref="hoso_salary" tabindex="-1" aria-hidden="true">
                 <?php
                 if($_GET["salary"]!="")
                 {
                     $salarys=$_GET["salary"];
-                    foreach($salarys as $salary)
-                    {
-                        if($salary==2500000)
-                        {
-                            $salary_name="1-3 triệu";
-                        }
-                        if($salary==4000000)
-                        {
-                            $salary_name="3-5 triệu";
-                        }
-                        if($salary==6000000)
-                        {
-                            $salary_name="5-7 triệu";
-                        }
-                        if($salary==8500000)
-                        {
-                            $salary_name="7-10 triệu";
-                        }
-                        if($salary==11000000)
-                        {
-                            $salary_name="10-12 triệu";
-                        }
-                        if($salary==13500000)
-                        {
-                            $salary_name="12-15 triệu";
-                        }
-                        if($salary==17500000)
-                        {
-                            $salary_name="15-20 triệu";
-                        }
-                        if($salary==22500000)
-                        {
-                            $salary_name="20-25 triệu";
-                        }
-                        if($salary==27500000)
-                        {
-                            $salary_name="25-30 triệu";
-                        }
-                        if($salary==30000000)
-                        {
-                            $salary_name="30 triệu trở lên";
-                        }
-                        ?>
-                        <option selected value="<?php echo $salary; ?>"><?php echo $salary_name; ?></option>
 
-                        <?php
+                    if($salary==2500000)
+                    {
+                        $salary_name="1-3 triệu";
                     }
+                    if($salary==4000000)
+                    {
+                        $salary_name="3-5 triệu";
+                    }
+                    if($salary==6000000)
+                    {
+                        $salary_name="5-7 triệu";
+                    }
+                    if($salary==8500000)
+                    {
+                        $salary_name="7-10 triệu";
+                    }
+                    if($salary==11000000)
+                    {
+                        $salary_name="10-12 triệu";
+                    }
+                    if($salary==13500000)
+                    {
+                        $salary_name="12-15 triệu";
+                    }
+                    if($salary==17500000)
+                    {
+                        $salary_name="15-20 triệu";
+                    }
+                    if($salary==22500000)
+                    {
+                        $salary_name="20-25 triệu";
+                    }
+                    if($salary==27500000)
+                    {
+                        $salary_name="25-30 triệu";
+                    }
+                    if($salary==30000000)
+                    {
+                        $salary_name="30 triệu trở lên";
+                    }
+                    ?>
+                    <option selected value="<?php echo $salary; ?>"><?php echo $salary_name; ?></option>
+
+                    <?php
+
 
                     ?>
 
@@ -173,9 +181,9 @@ $job_province=$wpdb->get_results('select * from job_province ');
         </div>
         <div class=" sidebar-widget-bottom-lineselect-typejob ">
             <i class="fa fa-gavel" aria-hidden="true"></i>
-            <select name="wpjobus_resume_job_type[]" class="input-lg select2" tabindex="-1" aria-hidden="true">
+            <select name="wpjobus_resume_job_type" class="input-lg select2" tabindex="-1" aria-hidden="true">
                 <?php
-                if($_GET["wpjobus_resume_job_type"][0]!='')
+                if($_GET["wpjobus_resume_job_type"]!='')
                 {
                     $resume_job_types=$_GET["wpjobus_resume_job_type"] ?:'';
                     foreach($resume_job_types as$resume_job_type){

@@ -280,7 +280,7 @@ text-transform: uppercase  !important;
 font-weight: 600  !important;
 color: white  !important;
 display: block  !important;
-margin-bottom: 5px  !important;
+margin-bottom: 15px  !important;
 font-size: 15px  !important;
 clear: left  !important;
 letter-spacing: 1.5px  !important;
@@ -341,11 +341,10 @@ select.package_up {
     float: left;
 }
 .account-infor {
-    width: 55%;
+    width: 100%;
     float: left;
 }
 span.my-account-header-settings {
-width: 42%;
     float: left;
     margin-right: 5px;
 
@@ -372,4 +371,11 @@ a.button-ag-full:hover {
 span.my-account-header-settings-link {
     float: right;
 }
+
+}
+div#menu4 {
+    text-align: center;
+}
+ .table {
+    text-align: center;
 }

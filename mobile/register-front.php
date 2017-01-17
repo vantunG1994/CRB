@@ -9,7 +9,7 @@
 						<span class="title-home">Đăng ký tài khoản nhà tuyển dụng để đăng tin tuyển dụng tại website của chúng tôi.
 					</div>
 					<div class="btn-register">
-						<a href="" class='btn btn-primary btn-rg'><i class="fa fa-check"></i>Đăng Ký tài khoản</a>
+						<a href="<?php echo home_url();?>/register/" class='btn btn-primary btn-rg'><i class="fa fa-check"></i>Đăng Ký tài khoản</a>
 					</div>
 				</div>
 				
@@ -22,7 +22,7 @@
 						<span class="title-home">Đăng ký tài khoản ứng viên để tìm việc tại website của chúng tôi.</span>
 					</div>
 					<div class="btn-register">
-						<a href="" class='btn btn-primary btn-rg'><i class="fa fa-check"></i>Đăng Ký tài khoản</a>
+						<a href="<?php echo home_url();?>/register/" class='btn btn-primary btn-rg'><i class="fa fa-check"></i>Đăng Ký tài khoản</a>
 					</div>
 				</div>
 			

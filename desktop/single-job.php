@@ -739,6 +739,72 @@ if($td_job_location=="")
                     <?php }?>
                 </div>
             </div>
+            
+            <ul class="links">
+                <li class="service-links-twitter-widget first">
+                    <div id="fb-root"></div>
+                    <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8"></script><fb:send href="<?php echo get_permalink(); ?>" font=""></fb:send>
+                </li>
+
+
+                <li class="service-links-twitter-widget first">
+                    <div class='fb-like' data-action='like' data-href='<?php echo get_permalink(); ?>' data-layout='button_count' data-share='false' data-show-faces='false' data-width=''/>
+                </li>
+                <li class="service-links-twitter-widget first">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button_count"></div>
+                </li>
+
+
+                <li class="service-links-google-plus-one last">
+                    <!-- Place this tag where you want the share button to render. -->
+                    <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+                    <!-- Place this tag after the last share tag. -->
+                    <script type="text/javascript">
+                        (function() {
+                            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                            po.src = 'https://apis.google.com/js/platform.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                        })();
+                    </script>
+                </li>
+
+                <?php
+
+                $td_user_id = get_current_user_id();
+
+                global $wpdb;
+                $myFav = $wpdb->get_results( 'SELECT id FROM wpjobus_favorites WHERE user_id = "'.$td_user_id.'" AND listing_id = "'.$td_this_post_id.'" ' );
+
+                if(empty($myFav)) {
+                    $status = "Lưu tin";
+                    $class="like_post";
+                } else {
+                    $status = "Đã lưu";
+                    $class="unlike_post";
+                }
+
+                ?>
+
+                <li class="service-links-twitter-widget first">
+                    <button id="button_like" class="<?php echo $class ?>"><i class="fa fa-floppy-o"></i> <?php echo $status; ?></button>
+
+                </li>
+                <li class="service-links-twitter-widget first">
+                    <button onclick="copyToClipboard()" class="button_copy">Copy link</button>
+
+                </li>
+            </ul>
+
+
         </div>
         <div class="listting-more">
             <h2 class="resume-section-title"><i class="fa fa-file-text-o"></i>VIỆC LÀM LIÊN QUAN</h2>
@@ -769,7 +835,7 @@ if($td_job_location=="")
                 <div class="col-md-4">
 
                     <?php
-                include('search-filters-resume.php');
+                include('search-filters.php');
                 include('sidebar.php');
                  include('listnews.php');
                  ?>

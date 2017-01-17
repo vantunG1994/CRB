@@ -3,16 +3,7 @@
     width: 300px !important;
     padding-top: 10px !important;
 }
-    section#popup-login {
-    position: absolute;
-}
 
-   #popup-login span.two_third {
-    width: 54%;
-}
-  #popup-login span.one_third.first {
-    width: 40%;
-}
   #popup-register .one_half.first {
     width: 100%;
 }
@@ -24,10 +15,8 @@
     position: fixed;
     width: 84% !important;
 }
-section#popup-login {
-    width: 100%;
-    margin-top: 30px;
-}
+
+
 div#close-login {
     width: 100%;
 }

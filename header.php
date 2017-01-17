@@ -5,10 +5,17 @@
   <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><?php is_front_page() ? bloginfo('name') : wp_title(''); ?> |  <?php bloginfo('description'); ?> </title>
+
+   
+      <link rel="shortcut icon" href="/wp-content/uploads/2017/01/logo-mvl-60x60.png" type="image/x-icon" />
+   
+    <meta property="og:image" content="/wp-content/uploads/2017/01/logo-mvl-60x60.png" />
+
+
     <meta name="description" content="<?php if ( is_single() ) {
         single_post_title('', true);
     } else {
-        wp_title(''); echo " - "; bloginfo('description');
+        wp_title(''); echo "-"; bloginfo('description');
     }
 
     ?>" />
@@ -22,6 +29,7 @@
   <?php  wp_head(); ?>
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen, projection" />
   <link href="<?php echo THEMATER_URL; ?>/css/bootstrap.min.css" rel="stylesheet">
+   <link href="<?php echo THEMATER_URL; ?>/css/popup-login.css" rel="stylesheet">
   <link href="<?php echo THEMATER_URL; ?>/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo THEMATER_URL; ?>/css/owl.carousel.css">
   <link rel="stylesheet" href="<?php echo THEMATER_URL; ?>/css/owl.theme.css">

@@ -172,7 +172,7 @@ text-transform: uppercase  !important;
 font-weight: 600  !important;
 color: white  !important;
 display: block  !important;
-margin-bottom: 5px  !important;
+margin-bottom: 15px  !important;
 font-size: 15px  !important;
 clear: left  !important;
 letter-spacing: 1.5px  !important;
@@ -261,3 +261,16 @@ a.button-ag-full:hover {
 		    padding-right: 7px;
 		    top: -1px;
 		}
+
+span.my-account-header-settings {
+width: 100%;
+float: left;
+text-align: center;
+a.button-ag-full {
+    width: 100%;
+    font-size: 18px;
+}
+}
+.table {
+    text-align: center;
+}

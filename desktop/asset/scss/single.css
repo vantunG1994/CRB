@@ -1163,4 +1163,40 @@ span.main-skills-item-bar-color.animate {
   float: left;
   margin-top: 20px; }
 
+.information a.btn.btn-primary {
+  padding: 12px;
+  font-weight: bold; }
+.information .button-mxh {
+  width: 100%;
+  float: left; }
+
+/*-----------------------------*/
+button.button_copy {
+  background: #1f6797;
+  border: 1px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold; }
+
+button#button_like {
+  background: #1f6797;
+  border: 1px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold; }
+
+ul.links {
+  width: 100%;
+  float: left;
+  padding: 0px; }
+
+ul.links li {
+  float: left;
+  list-style-type: none;
+  margin-left: 9px;
+  padding-left: 0px;
+  margin-top: 15px; }
+
+/*--------------------------------------------                    */
+
 /*# sourceMappingURL=single.css.map */

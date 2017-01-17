@@ -1,0 +1,65 @@
+.register-front {
+	    padding-bottom: 20px;
+	    .remove-padding-15 {
+	    	padding-left:0;
+	    	padding-right:0;
+	    }
+	    
+	    
+	.rg-employer {
+		color:#2980b9;
+		background-color:#fff;
+		
+		h3 {
+			padding-left:40px;
+			font-size:30px;
+			padding-top:15px;
+			i {
+				font-size:34px;
+				padding-right:5px;
+			}
+		}
+		.rg-infor {
+			padding:20px 30px;
+			.title-home {
+				color:#484848;
+				font-size:20px;
+
+			}
+		}
+		.btn-register {
+		text-align:center;
+   		padding-bottom: 15px;
+		.btn-rg {
+			background-color: #008cd8;
+  			  font-size: 20px;
+   			padding:20px;
+    		text-transform: uppercase;
+    		i {
+    			padding-right:5px;
+    		}
+    		&:hover {
+    			background-color:#1f6797;
+    		}
+		}
+	}
+		
+	}
+	.rg-uv {
+		h3 {
+			color: #16a085;
+		}
+		.rg-employer {
+			.btn-register {
+				.btn-rg {
+					background-color: #16a085;
+					&:hover {
+						background-color:#128C74;
+					} 
+				}
+			}
+		}
+		
+	}
+	
+}

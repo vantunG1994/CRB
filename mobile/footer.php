@@ -5,11 +5,11 @@
                 <div class="box-title"><h3>Việc làm nổi bật <i class="fa fa-angle-down text-right"></i></h3></div>
                 <div class="list-item">
                     <div class="host-news">
-                        <a href=""><h3>việc làm tại tp.hcm</h3></a>
-                        <a href=""><h3>việc làm tại hà nội</h3></a>
-                        <a href=""><h3>việc làm tại đà nẵng</h3></a>
-                        <a href=""><h3>việc làm tại bình dương</h3></a>
-                        <a href=""><h3>việc làm tại hải phòng</h3></a>
+                      <a href="<?php echo home_url(); ?>/tuyen-dung/?resume_location=TP%20H%E1%BB%93%20Ch%C3%AD%20Minh"><h3>việc làm tại tp.hcm</h3></a>
+                        <a href="<?php echo home_url(); ?>/tuyen-dung/?resume_location=H%C3%A0%20N%E1%BB%99i"><h3>việc làm tại hà nội</h3></a>
+                        <a href="<?php echo home_url(); ?>/tuyen-dung/?resume_location=%C4%90%C3%A0%20N%E1%BA%B5ng"><h3>việc làm tại đà nẵng</h3></a>
+                        <a href="<?php echo home_url(); ?>/tuyen-dung/?resume_location=B%C3%ACnh%20D%C6%B0%C6%A1ng"><h3>việc làm tại bình dương</h3></a>
+                        <a href="<?php echo home_url(); ?>/tuyen-dung/?resume_location=H%E1%BA%A3i%20Ph%C3%B2ng"><h3>việc làm tại hải phòng</h3></a>
                     </div>
                 </div>
             </div>

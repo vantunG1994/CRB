@@ -31,7 +31,7 @@ if(($_GET["resume_location"])!="")
 {
     $location='';
     $locations=$_GET["resume_location"];
-    $location=$locations[0];
+    $location=$locations;
     $resume_location='resume_location';
 
 }else
@@ -43,12 +43,7 @@ if(($_GET["resume_location"])!="")
 if(($_GET["salary"])!="")
 {
     $salary='';
-    $salarys=$_GET["salary"];
-
-    foreach($salarys as $v1) {
-        $salary .= ''.$v1.'' . ',';
-    }
-
+    $salary=$_GET["salary"];
     $wpjobus_resume_remuneration='wpjobus_resume_remuneration';
 }
 else{
@@ -58,13 +53,12 @@ else{
 
 if(($_GET["industry"])!="" )
 {
-    global $redux_demo;
     $job_types=$_GET["industry"];
     $job_type="";
 //        foreach($job_types as $v2)
 //        {
     foreach ($job_field as $industry) {
-        if($job_types[0]==$industry->slug)
+        if($job_types==$industry->slug)
         {
             $job_type .=$industry->name;
         }
@@ -105,13 +99,7 @@ else{
 if($_GET['wpjobus_resume_job_type'] !="")
 {
 
-    $resume_job_types=$_GET['wpjobus_resume_job_type'];
-    $resume_job_type="";
-    foreach($resume_job_types as $v4)
-    {
-        $resume_job_type.=$v4.',';
-    }
-
+    $resume_job_type=$_GET['wpjobus_resume_job_type'];
     $wpjobus_resume_job_type='wpjobus_resume_job_type';
 
 }
@@ -200,7 +188,7 @@ if($td_total_pages >1000)
                         {
                             ?>
 
-                            <option selected value="<?php echo $locations[0]; ?>"><?php echo $locations[0]; ?></option>
+                            <option selected value="<?php echo $location; ?>"><?php echo $location; ?></option>
                             <?php
 
                         }else{
@@ -289,7 +277,7 @@ if($td_total_pages >1000)
             jQuery(document).ready(function ($) {
                 jQuery(".job_list_location").change(function () {
                     var id = jQuery(".job_list_location").val();
-                    var url = "<?php echo home_url('/')."tuyen-dung"?>?industry[]=<?php echo createSlug($v); ?>&resume_location[]=" + id;
+                    var url = "<?php echo home_url('/')."tuyen-dung"?>?industry=<?php echo createSlug($v); ?>&resume_location=" + id;
                     location.href = url;
                 });
             });
@@ -302,7 +290,7 @@ if($td_total_pages >1000)
         jQuery(document).ready(function ($) {
             jQuery(".job_list_location").change(function () {
                 var id = jQuery(".job_list_location").val();
-                var url = "<?php echo home_url('/')."tuyen-dung"?>?resume_location[]=" + id;
+                var url = "<?php echo home_url('/')."tuyen-dung"?>?resume_location=" + id;
                 location.href = url;
             });
         });

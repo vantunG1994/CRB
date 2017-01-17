@@ -13,6 +13,11 @@ window.location.href="<?php echo $profile; ?>"
 <?php
 }
 ?>
+<style>
+    #err_pass, #err_pass1, #err_email, #err {
+    color:red;
+}
+</style>
 <div class="main-contnet">
     <div class="container">
         <div class="register">
@@ -111,8 +116,8 @@ window.location.href="<?php echo $profile; ?>"
                                             <div class="col-sm-9">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
 
-                                                <input type="number" class="form-control" name="userName" id="userName" placeholder="Nhập số điện thoại của bạn" onblur="return kt_sdt()" required>
-                                                  <p id="err" style="color: #ff0000;font-size: 14px;width: 200px;"></p>
+                                                <input type="number" class="form-control" name="userName" id="userName" placeholder="Nhập số điện thoại của bạn" onblur="return kt_sdt()" >
+                                                  <span id="err"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -120,7 +125,8 @@ window.location.href="<?php echo $profile; ?>"
                                             <label class="control-label col-sm-3" for="email">Email:</label>
                                             <div class="col-sm-9">
                                                 <i class="fa fa-at"></i>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" >
+                                                <span id="err_email"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -128,7 +134,8 @@ window.location.href="<?php echo $profile; ?>"
                                             <label class="control-label col-sm-3" for="pwd1">Password:</label>
                                             <div class="col-sm-9">
                                                 <i class="fa fa-key" aria-hidden="true"></i>
-                                                <input type="password" class="form-control" name="pwd1" id="inputPassword" placeholder="Nhập password" required>
+                                                <input type="password" class="form-control" name="pwd1" id="pwd1" placeholder="Nhập password" >
+                                                <span id="err_pass"></span>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -136,7 +143,7 @@ window.location.href="<?php echo $profile; ?>"
                                             <label class="control-label col-sm-3" for="pwd2">Nhập lại Pass:</label>
                                             <div class="col-sm-9">
                                                 <i class="fa fa-clipboard" aria-hidden="true"></i>
-                                                <input type="password" class="form-control" name="pwd2" id="pwd2" placeholder="Nhập lại password" data-match="#inputPassword" required>
+                                                <input type="password" class="form-control" name="pwd2" id="pwd2" placeholder="Nhập lại password" data-match="#inputPassword" >
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -155,7 +162,7 @@ window.location.href="<?php echo $profile; ?>"
                                             <?php wp_nonce_field( 'post_nonce', 'post_nonce_field' ); ?>
                                             <div class="form-group">
                                                 <div class="col-sm-offset-3 col-sm-9">
-                                                    <button type="submit" class="btn btn-primary">Đăng ký</button>
+                                                    <button type="submit" id="sb-register" class="btn btn-primary">Đăng ký</button>
                                                     <input type="hidden" name="task" value="register" />
                                                 </div>
                                             </div>

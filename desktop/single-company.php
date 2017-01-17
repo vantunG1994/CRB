@@ -232,29 +232,129 @@ foreach($result_company as $company)
                 display: block;
                 width: 100%;
                 height: 470px;
+                position: relative;
+                margin-bottom: 10px;
             }
 
         </style>
 
         <script type="text/javascript">
 
-            // Function khởi tạo google map
-            function initialize()
-            {
-                // Config google map
-                var mapOptions = {
-                    // Tọa độ muốn hiển thị ban đầu (tung độ,vỹ độ)
-                    center: new google.maps.LatLng(<?php echo $wpjobus_company_latitude?:14.058324; ?>,<?php echo $wpjobus_company_longitude?:108.277199; ?>),
-                    // Mức độ zoom
-                    zoom: 8
-                };
+            jQuery(document).ready(function($) {
 
-                // Hiển thị map lên bản đồ (div#map-canvas)
-                var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-            }
+                var geocoder;
+                var map;
+                var marker;
 
-            // Gán hàm initialize vào trong sự kiện load dom google map
-            google.maps.event.addDomListener(window, 'load', initialize);
+                var geocoder = new google.maps.Geocoder();
+
+                function geocodePosition(pos) {
+                    geocoder.geocode({
+                        latLng: pos
+                    }, function(responses) {
+                        if (responses && responses.length > 0) {
+                            updateMarkerAddress(responses[0].formatted_address);
+                        } else {
+                            updateMarkerAddress('Cannot determine address at this location.');
+                        }
+                    });
+                }
+
+                function updateMarkerPosition(latLng) {
+                    jQuery('#latitude').val(latLng.lat());
+                    jQuery('#longitude').val(latLng.lng());
+                }
+
+                function updateMarkerAddress(str) {
+                    jQuery('#address').val(str);
+                }
+
+                function initialize() {
+
+                    var latlng = new google.maps.LatLng(<?php echo $wpjobus_company_latitude; ?>, <?php echo $wpjobus_company_longitude; ?>);
+                    var mapOptions = {
+                        zoom: 16,
+                        center: latlng
+                    }
+
+                    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                    geocoder = new google.maps.Geocoder();
+
+                    marker = new google.maps.Marker({
+                        position: latlng,
+                        map: map,
+                        draggable: true
+                    });
+
+                    // Add dragging event listeners.
+                    google.maps.event.addListener(marker, 'dragstart', function() {
+                        updateMarkerAddress('Dragging...');
+                    });
+
+                    google.maps.event.addListener(marker, 'drag', function() {
+                        updateMarkerPosition(marker.getPosition());
+                    });
+
+                    google.maps.event.addListener(marker, 'dragend', function() {
+                        geocodePosition(marker.getPosition());
+                    });
+
+                }
+
+                google.maps.event.addDomListener(window, 'load', initialize);
+
+                jQuery(document).ready(function() {
+
+                    initialize();
+
+                    jQuery(function() {
+                        jQuery("#address").autocomplete({
+                            //This bit uses the geocoder to fetch address values
+                            source: function(request, response) {
+                                geocoder.geocode( {'address': request.term }, function(results, status) {
+                                    response(jQuery.map(results, function(item) {
+                                        return {
+                                            label:  item.formatted_address,
+                                            value: item.formatted_address,
+                                            latitude: item.geometry.location.lat(),
+                                            longitude: item.geometry.location.lng()
+                                        }
+                                    }));
+                                })
+                            },
+                            //This bit is executed upon selection of an address
+                            select: function(event, ui) {
+                                jQuery("#latitude").val(ui.item.latitude);
+                                jQuery("#longitude").val(ui.item.longitude);
+
+                                var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
+
+                                marker.setPosition(location);
+                                map.setZoom(16);
+                                map.setCenter(location);
+
+                            }
+                        });
+                    });
+
+                    //Add listener to marker for reverse geocoding
+                    google.maps.event.addListener(marker, 'drag', function() {
+                        geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                if (results[0]) {
+                                    jQuery('#address').val(results[0].formatted_address);
+                                    jQuery('#latitude').val(marker.getPosition().lat());
+                                    jQuery('#longitude').val(marker.getPosition().lng());
+                                }
+                            }
+                        });
+                    });
+
+                });
+
+            });
+
         </script>
         <div class="information">
 
@@ -426,7 +526,73 @@ foreach($result_company as $company)
                     ?>
                 </div>
             </div>
+            <ul class="links">
+        <li class="service-links-twitter-widget first">
+            <div id="fb-root"></div>
+            <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8"></script><fb:send href="<?php echo get_permalink(); ?>" font=""></fb:send>
+        </li>
+
+
+        <li class="service-links-twitter-widget first">
+            <div class='fb-like' data-action='like' data-href='<?php echo get_permalink(); ?>' data-layout='button_count' data-share='false' data-show-faces='false' data-width=''/>
+        </li>
+        <li class="service-links-twitter-widget first">
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+            <div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button_count"></div>
+        </li>
+
+
+        <li class="service-links-google-plus-one last">
+            <!-- Place this tag where you want the share button to render. -->
+            <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+            <!-- Place this tag after the last share tag. -->
+            <script type="text/javascript">
+                (function() {
+                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                    po.src = 'https://apis.google.com/js/platform.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                })();
+            </script>
+        </li>
+        <?php
+
+        $td_user_id = get_current_user_id();
+
+        global $wpdb;
+        $myFav = $wpdb->get_results( 'SELECT id FROM wpjobus_favorites WHERE user_id = "'.$td_user_id.'" AND listing_id = "'.$td_this_post_id.'" ' );
+
+        if(empty($myFav)) {
+            $status = "Lưu tin";
+            $class="like_post";
+        } else {
+            $status = "Đã lưu";
+            $class="unlike_post";
+        }
+
+        ?>
+
+        <li class="service-links-twitter-widget first">
+            <button id="button_like" class="<?php echo $class ?>"><i class="fa fa-floppy-o"></i> <?php echo $status; ?></button>
+
+        </li>
+        <li class="service-links-twitter-widget first">
+            <button onclick="copyToClipboard()" class="button_copy">Copy link</button>
+
+        </li>
+    </ul>
 
         </div>
+
     </div>
+   
+   
+
 </div>

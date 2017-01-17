@@ -1,0 +1,137 @@
+#footer_mb {
+	h3 {
+		margin-top: 0px;
+    	margin-bottom: 0px;
+	}
+	.margin-bottom50 {
+		margin-bottom: 50px;
+	}
+	background-color: #333333;
+    width: 100%;
+    float: left;
+	.padding-bottom30 {
+		padding-bottom:30px;
+	}
+	.remove-padding15 {
+		padding-left:0;
+		padding-right:0
+	}
+	.box-title {
+		color:#ecf0f1;
+		text-transform: capitalize;
+		height: 48px;
+		background: #1a1a1a;
+    	
+    	margin-top: 15px;
+		>h3 {
+				line-height: 48px;
+   				 padding-left: 15px;
+   				 font-weight:700;
+   				 font-size: 18px;
+			i {
+				float: right;
+			    padding-top: 7px;
+			    padding-right: 20px;
+			    cursor: pointer;
+			    font-size: 30px;
+			}
+		}	
+		
+	}
+		.list-item {
+			display: none;
+		}
+	.click-ft {
+		.list-item {
+			display:block;
+			transition:all 1.5s;
+			background:#000;
+			
+		}
+	}
+	.list-item {
+		.host-news {
+			background-color:#000000;
+			text-transform: uppercase;
+			padding-top:10px;
+			padding-left:15px;
+		}
+		a {
+			text-decoration: none;
+			line-height: 24px;
+			color: #fff;
+   			 font-weight: 600;
+		}
+		span {
+			color: #fff;
+   			
+		}
+		h3 {
+			padding:5px 0;
+			color: #fff;
+			font-size: 13px;
+			margin-top: 0px;
+   			 margin-bottom: 0px;
+		}
+	}
+	.ft-company {
+		padding-left:20px;
+		background:#000;
+		h3 {
+			font-size:18px;
+			color:#fff;
+			i {
+				font-size:20px;
+				padding-right:15px;
+			}
+
+		}
+		.address1 {
+			display: inline-block;
+    		padding-top: 5px;
+    		padding-left: 25px;
+   			 padding-right: 10px;
+		}
+	}
+}
+@media(max-width:768px){
+	#footer_yuna_1 {
+		display: none;
+	}
+}
+
+.bottom-navigation {
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #008cd8;
+    height: 50px;
+    width: 100%;
+    border-top: 1px solid;
+    border-color: #2f8baf;
+    z-index: 1000;
+    .nav-active {
+    				background-color:#0e73ab;
+    			}
+    	.nav-item {
+    			width:19%;
+    			display: inline-block;
+    			text-align: center;
+    			color: #fff;
+    			height: 100%;
+    			.text {
+    				font-size: 10px;
+    				display: block;
+    				color: #fff;
+    			}
+    			.icon {
+    				font-size: 15px;
+    				display: block;
+    				color: #fff;
+    				margin-top:5px;
+    			}
+    			
+    		}
+		}
+    
+    

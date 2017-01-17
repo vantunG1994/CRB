@@ -31,7 +31,7 @@ if(($_GET["resume_location"])!="")
     $location='';
     $locations=$_GET["resume_location"];
 
-    $location .=$locations[0];
+    $location=$locations;
 
 
 
@@ -46,9 +46,7 @@ if(($_GET["salary"])!="")
 {
     $salary='';
     $salarys=$_GET["salary"];
-    foreach($salarys as $v1) {
-        $salary .= ''.$v1.'' . ',';
-    }
+    $salary=$salarys;
     $wpjobus_job_remuneration='wpjobus_job_remuneration';
 
 }
@@ -66,7 +64,7 @@ if(($_GET["industry"])!="" )
     $job_type="";
 
     foreach ($job_field as $industry) {
-        if ($job_types[0] == $industry->slug) {
+        if ($job_types == $industry->slug) {
             $job_type .= $industry->name;
         }
     }
@@ -167,7 +165,7 @@ if($td_total_pages >1000)
                         {
                             ?>
 
-                            <option selected value="<?php echo $locations[0]; ?>"><?php echo $locations[0]; ?></option>
+                            <option selected value="<?php echo $location; ?>"><?php echo $location; ?></option>
                             <?php
 
                         }else{
@@ -241,7 +239,7 @@ if($td_total_pages >1000)
             jQuery(document).ready(function ($) {
                 jQuery(".job_list_location").change(function () {
                     var id = jQuery(".job_list_location").val();
-                    var url = "<?php echo home_url('/')."tuyen-dung"?>?industry[]=<?php echo createSlug($v); ?>&resume_location[]=" + id;
+                    var url = "<?php echo home_url('/')."tuyen-dung"?>?industry=<?php echo createSlug($v); ?>&resume_location" + id;
                     location.href = url;
                 });
             });
@@ -254,7 +252,7 @@ if($td_total_pages >1000)
         jQuery(document).ready(function ($) {
             jQuery(".job_list_location").change(function () {
                 var id = jQuery(".job_list_location").val();
-                var url = "<?php echo home_url('/')."tuyen-dung"?>?resume_location[]=" + id;
+                var url = "<?php echo home_url('/')."tuyen-dung"?>?resume_location=" + id;
                 location.href = url;
             });
         });

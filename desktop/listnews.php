@@ -9,7 +9,7 @@
                 global $post;
 
 //                $args = array( 'posts_per_page' => 5, 'offset'=> 0, 'category' => 20 );
-                $args = array( 'posts_per_page' => 5, 'offset'=> 3);
+                $args = array( 'posts_per_page' => 5,'order' => 'DESC', 'offset'=> 0,'orderby' => 'rand', 'offset'=> 3);
                 $myposts = get_posts( $args );
 
                 foreach( $myposts as $post ) : setup_postdata($post); ?>
@@ -37,7 +37,7 @@
                 global $post;
 
                 //                $args = array( 'posts_per_page' => 5, 'offset'=> 0, 'category' => 20 );
-                $args = array( 'posts_per_page' => 5, 'offset'=> 5);
+                $args = array( 'posts_per_page' => 5,'order' => 'DESC', 'offset'=> 0,'orderby' => 'rand', 'offset'=> 5);
                 $myposts = get_posts( $args );
 
                 foreach( $myposts as $post ) : setup_postdata($post); ?>

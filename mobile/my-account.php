@@ -170,6 +170,8 @@ else{
                             ?>
                             <li><a class="lst-setting" href="#menu2"><i class="fa fa-user"></i>Nâng cấp tài khoản VIP</a></li>
                             <li><a class="lst-setting" href="#menu3"><i class="fa fa-arrow-up"></i>Mua gói úp tin</a></li>
+                            <li><a class="lst-setting" href="#menu4"><i class="fa fa-arrow-up"></i>Gói tin đặc biệt</a></li>
+                           
                             <?php
                         }
                         ?>
@@ -449,6 +451,57 @@ else{
 												</div>
 											</div>
 										</div>
+                                        <div id="menu4" class="tab-pane fade">         
+                            <div id="show_post_package " class="full" >
+                                
+                                <h1 class="resume-section-title" style="margin-bottom: 0;"><i class="fa fa-star-o" aria-hidden="true"></i>Đăng ký gói tin VIP</h1>
+                                <div class="full"><p style="margin-top: 0;">Lựa chọn các gói tin VIP của chúng tôi để được hưởng những quyền lợi đặc biệt.</p></div>
+                                <div class="table">
+                                 <?php
+                                    $balance = get_user_meta($current_user->ID, 'user_cash', true);
+
+                                    foreach ( $post_vip as $package )
+                                    {
+                                    $description=$package->service_benefit;
+                                    $description=json_decode($description, true);
+
+                                    ?>
+                                    <div class="plan popular" id="Diamond">
+                                        <div class="noidung_banggia">
+                                            <div class="price">
+                                                <span class="dollar"></span>
+                                                <p class="name_package"><?php echo $package->name?></p>
+
+                                                <p class="price-list-stars">
+                                                    <img src="/wp-content/themes/mangvieclam789/img/5star.png" alt="">
+                                                </p>
+                                                <span class="slash"></span>
+                                                <span class="month"></span>
+                                            </div>
+                                            <ul>
+                                                <li>Thời hạn sử dụng<span><?php echo $description["duration"];?> ngày</span></li>
+                                            <?php
+                                                if($description["discount_percent"]!=0){
+                                                    $price_vip=($package->price *$description["discount_percent"])/100;
+                                                    ?>
+                                                    <li>Giảm giá<span><?php  echo $description["discount_percent"];?>%</span></li>
+                                                    <li>Giá<span class="price_none" style="text-decoration:line-through;color: lightgray;"><?php echo format_gia( $package->price); ?></span> <span class="price_sale"><?php echo format_gia($price_vip); ?></span></li>
+                                                <?php }else { ?>
+                                                    <li>Giá<span class="price_vip"><?php echo format_gia($package->price); ?></span></li>
+                                                <?php
+                                                }
+                                                ?>                                            </ul>
+                                            <p></p>
+                                        </div>
+                                        <div class="buton">
+                                           <a onclick="pay_ment()" class="button sign-up" id="add_vip_<?php echo $package->package_id;?>" href="<?php echo home_url("/") ?>my-account/?vip_star=<?php echo $package->package_id;?>">Gửi yêu cầu</a>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    }
+                                     ?>
+                                </div>
+                            </div>
 									</div>
 									
 									<script>
@@ -519,15 +572,14 @@ else{
                                     $status = "Đang đăng công khai";
                                 }
                                 ?>
-                                <div class="list-company">
+                                <div class="list-company" id="row-<?php echo $td_result_company[$key]; ?>">
                                     <div class="col-xs-6 remove-padding15"><?php echo $wpjobus_company_fullname; ?>
                                         (<?php echo $status; ?>)
                                     </div>
                                     <div class="col-xs-6 lst-icon">
                                         <a href="<?php $edit_comp = home_url('/') . "edit-company/?company_id=" . $td_result_company[$key];
                                         echo $edit_comp; ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                        <a onclick='return confirm("Bạn có chắc chắn xoá hồ sơ này?")' href='#'><i
-                                                    class="fa fa-trash-o"></i></a>
+                                        <a onclick='return confirm("Bạn có chắc chắn xoá hồ sơ này?")'  class="delete_post" id="<?php echo $td_result_company[$key];?>" href='#'><i class="fa fa-trash-o"></i></a>
 
                                     </div>
                                 </div>
@@ -641,7 +693,7 @@ else{
                                 }
 
                                 ?>
-                                <div class="list-company">
+                                <div class="list-company" id="row-<?php echo $td_result_job[$key]; ?>">
                                     <div style="width: 40%;" class="col-xs-6 remove-padding15">
                                         <?php
                                         if (get_post_status($td_result_job[$key]) == 'publish') {
@@ -655,8 +707,7 @@ else{
                                     <div style="width: 60%;" class="col-xs-6 lst-icon">
                                         <a href="<?php $edit_job = home_url('/') . "edit-job/?job_id=" . $td_result_job[$key];
                                         echo $edit_job; ?>"><i class="fa fa-pencil-square-o"></i></a>
-                                        <a onclick='return confirm("Bạn có chắc muốn xoá tin đăng này?")' href=''><i
-                                                    class="fa fa-trash-o"></i></a>
+                                        <a onclick='return confirm("Bạn có chắc muốn xoá tin đăng này?")'  class="delete_post" id="<?php echo $td_result_job[$key];?>" href='#'><i class="fa fa-trash-o"></i></a>
 
                                         <?php
                                         global $wpdb, $current_user;
@@ -769,12 +820,12 @@ else{
                                         ?>
 
                                         <?php if (get_post_status($listing_id) == 'publish') { ?>
-                                            <div class="list-company">
+                                            <div class="list-company" id="row-<?php echo $listing_id;?>">
                                                 <div class="col-xs-6 remove-padding15">
                                                     <a href="<?php $listinglink =get_permalink($listing_id); echo $listinglink; ?>"><?php echo $listing_fullname; ?>(<?php echo $type;?>)</a>
                                                 </div>
                                                 <div class="col-xs-6 lst-icon">
-                                                    <a href="#<?php echo $listing_id; ?>"><i class="fa fa-trash-o"></i></a>
+                                                    <a href="#"  class="delete_post" id="<?php echo $listing_id;?>"><i class="fa fa-trash-o"></i></a>
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
@@ -818,13 +869,9 @@ else{
                     $('#err_re_pass').text("Mật khẩu không trùng nhau.")
                     return false;
                 }
-
-
             });
         });
-
     </script>
-
     <script>
         function Function_star() {
             swal({
@@ -840,13 +887,12 @@ else{
                 cancelButtonClass: 'btn btn-danger',
                 buttonsStyling: false
             }).then(function () {
-                $(".resume-skills").addClass('openSubscriptions');
-                $("#show_post_package").show();
-
+                $("#menu4").addClass('active');
+                $("#menu4").addClass('in');
+                $("#menu4").show();
             }, function (dismiss) {
                 if (dismiss === 'cancel') {
                     return false;
-
                 }
             })
         }
@@ -866,13 +912,12 @@ else{
                 cancelButtonClass: 'btn btn-danger',
                 buttonsStyling: false
             }).then(function () {
-                $(".resume-skills").addClass('openSubscriptions');
-                $("#show_vip_package").show();
-
+                $("#menu3").addClass('active');
+                $("#menu3").addClass('in');
+                $("#menu3").show();
             }, function (dismiss) {
                 if (dismiss === 'cancel') {
                     return false;
-
                 }
             })
         }
@@ -890,13 +935,12 @@ else{
                 cancelButtonClass: 'btn btn-danger',
                 buttonsStyling: false
             }).then(function () {
-                $(".resume-skills").addClass('openSubscriptions');
-                $("#show_user_package").show();
-
+                $("#menu2").addClass('active');
+                $("#menu2").addClass('in');
+                $("#menu2").show();
             }, function (dismiss) {
                 if (dismiss === 'cancel') {
                     return false;
-
                 }
             })
         }
@@ -914,13 +958,11 @@ else{
                 cancelButtonClass: 'btn btn-danger',
                 buttonsStyling: false
             }).then(function () {
-//                $(".resume-skills").addClass('openSubscriptions');
-//                $("#show_user_package").show();
-
+                //                $(".resume-skills").addClass('openSubscriptions');
+                //                $("#show_user_package").show();
             }, function (dismiss) {
                 if (dismiss === 'cancel') {
                     return false;
-
                 }
             })
         }
@@ -938,23 +980,16 @@ else{
                 cancelButtonClass: 'btn btn-danger',
                 buttonsStyling: false
             }).then(function () {
-                $(".resume-skills").addClass('openSubscriptions');
-                $("#show_user_package").show();
-
+                $("#menu2").addClass('active');
+                $("#menu2").addClass('in');
+                $("#menu2").show();
             }, function (dismiss) {
                 if (dismiss === 'cancel') {
                     return false;
-
                 }
             })
         }
     </script>
-
-
-
-
-
-
 <?php
 $user_account_type = get_user_meta( $current_user->ID, 'account_type', true );
 $time = current_time( 'timestamp' );
@@ -965,7 +1000,6 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 }
 $check_resume_award = $wpdb->get_var( 'SELECT id FROM crb_resume_award WHERE user_id ='.$current_user->ID.' ' );
 if (current_user_can('subscriber')) {
-
     if (empty($check_resume_award) && $user_account_type == "job-seeker") {
         $wpdb->insert(
             'crb_resume_award',
@@ -988,11 +1022,8 @@ if (current_user_can('subscriber')) {
                     customClass: 'animated tada'
                 })
             });
-
         </script>
         <?php
-
     }
 }
-
 require get_template_directory() . '/inc/function_vip.php';

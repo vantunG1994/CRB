@@ -232,5 +232,7 @@ select#job_list_location {
   width: 254px !important; }
 
 /*--------------------------------------------------------------------------------*/
+input.select2-search__field {
+  display: none; }
 
 /*# sourceMappingURL=style-select2.css.map */

@@ -1,0 +1,37 @@
+.login {
+  color: #484848;
+  background: #fff; }
+  .login .resume-title {
+    color: #008cd8;
+    padding: 15px;
+    border-bottom: 1px solid #ccc; }
+    .login .resume-title i {
+      padding-right: 10px;
+      font-size: 30px; }
+  .login .lg-text {
+    padding: 15px; }
+    .login .lg-text span {
+      line-height: 24px;
+      font-weight: 400;
+      color: #484848;
+      font-size: 16px; }
+  .login .lg-form {
+    padding: 0 15px; }
+    .login .lg-form .form-group .label-text {
+      text-align: left;
+      color: #484848; }
+    .login .lg-form .form-group .form-control {
+      height: 40px; }
+      .login .lg-form .form-group .form-control:focus {
+        background: #ecf0f1; }
+    .login .lg-form .form-group .checkbox {
+      font-size: 16px; }
+      .login .lg-form .form-group .checkbox .txt-r {
+        float: right;
+        font-size: 16px; }
+    .login .lg-form .form-group .btn-dn {
+      height: 40px;
+      font-size: 20px;
+      width: 100%; }
+
+/*# sourceMappingURL=login.css.map */

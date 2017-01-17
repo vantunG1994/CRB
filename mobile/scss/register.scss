@@ -1,0 +1,65 @@
+.register {
+	margin-bottom:50px;
+	.resume-title  {
+		color:#008cd8;
+	   
+	    i {
+	    	padding-right:10px;
+	    }
+
+	}
+	 .tt-text {
+	    	padding-left:15px;
+	    	padding-right:15px;
+	    	padding-bottom: 15px;
+    		border-bottom: 1px solid #ccc;
+    		color:#484848;
+    		@media(max-width:320px){
+    			padding-left:0;
+    			padding-right:0;
+    		}
+	    }
+	.fr-input {
+		margin: 5px 0px;
+	    input {
+	    	height: 40px;
+    		padding-left: 35px;
+    		font-size:18px;
+    		border-left: 3px solid #008cd8;
+	    }
+	    select {
+	    	padding-left:35px;
+	    	color:#999999;
+	    	font-size:18px;
+	    	border-left: 3px solid #008cd8;
+	    	
+	    }
+    	i {
+    		position: absolute;
+		    top: 10px;
+		    left: 22px;  
+		    display: block;
+		    color: #008cd8;
+		    font-size: 20px;
+    	}
+	}
+	.txt-lb {
+		padding-top:10px;
+		color: #666666;
+	    font-size: 18px;
+	    font-weight: 500;
+	}
+		.form-control {
+					height: 40px;
+					&:focus {
+						background: #ecf0f1;
+					}
+	}
+	.btn-dn {
+		width:100%;
+		height:40px;
+		font-size:18px;
+		margin-bottom:15px;
+	}
+			
+}

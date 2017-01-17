@@ -52,7 +52,7 @@ if(isset($_GET['job_id']) !="") {
 ?>
     <style>
         input#save_pending {
-            width: 100%;
+            width: 35%;
             border: none;
             background: #16a085;
             color: white;
@@ -61,8 +61,7 @@ if(isset($_GET['job_id']) !="") {
             padding-left: 0 !important;
         }
         input#save_draf {
-            width: 100%;
-            margin-bottom: 10px;
+            width: 20%;
             border: none;
             background: #428bca;
             color: white;
@@ -74,12 +73,11 @@ if(isset($_GET['job_id']) !="") {
             border: none;
         }
         #userNameError, #err_email, #error_address, #err_postContent, #err_number {
-      color:red;
-      padding-top:5px;
-}
+            color:red;
+        }
     </style>
     <div class="main-content">
-        <div class="">
+        <div class="container">
             <form method="post">
                 <div class="add-edit">
                     <div class="title-top">
@@ -115,7 +113,7 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Giới tính:</h3>
                   </span>
-                  <span class="three_fifth  " >
+                  <span class="three_fifth select-wrapper " >
                     <i class="fa fa-transgender" aria-hidden="true"></i>
                     <select class="input-lg select2" name="job_sex"  style="width: 100%;">
                       <?php
@@ -136,7 +134,7 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Cấp bậc:</h3>
                   </span>
-                  <span class="three_fifth  " >
+                  <span class="three_fifth select-wrapper " >
                     <i class="fa fa-line-chart" aria-hidden="true"></i>
                     <select class="input-lg select2" name="job_career_level" id="job_career_level" style="width: 100%;">
                       <?php
@@ -162,7 +160,7 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Loại công việc:</h3>
                   </span>
-                  <span class="three_fifth  " >
+                  <span class="three_fifth select-wrapper " >
                     <i class="fa fa-gavel" aria-hidden="true"></i>
                     <select class="input-lg select2 " name="job_type"  style="width: 100%;" tabindex="-1" aria-hidden="true">
                       <?php
@@ -184,7 +182,7 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Thời gian thử việc</h3>
                   </span>
-                  <span class="three_fifth " >
+                  <span class="three_fifth select-wrapper" >
                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                     <select class="input-lg select2" name="job_time_trial" id="job_time_trial" style="width: 100%;">
                       <?php
@@ -206,7 +204,7 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Trình độ học vấn</h3>
                   </span>
-                  <span class="three_fifth   " >
+                  <span class="three_fifth select-wrapper  " >
                     <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                     <select class="input-lg select2" name="job_education" id="job_education" style="width: 100%;">
                       <?php
@@ -232,7 +230,7 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title " >
                     <h3>Số năm kinh nghiệm:</h3>
                   </span>
-                  <span class="three_fifth " >
+                  <span class="three_fifth select-wrapper" >
                     <i class="fa fa-suitcase" aria-hidden="true"></i>
                     <select class="input-lg select2" name="job_years_of_exp" id="job_years_of_exp" style="width: 100%;">
                       <?php
@@ -261,7 +259,7 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Ngành nghề:</h3>
                   </span>
-                  <span class="three_fifth  " >
+                  <span class="three_fifth select-wrapper " >
                     <i class="fa fa-tasks" aria-hidden="true"></i>
                     <select class="input-lg select2" name="job_industry" id="job_industry" style="width: 100%; margin-right: 10px;">
                       <?php
@@ -278,9 +276,9 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Tỉnh thành:</h3>
                   </span>
-                  <span class="three_fifth   " >
+                  <span class="three_fifth select-wrapper  " >
                     <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    <select class="input-lg select2 job_location "  name="job_location" id="job_location"  tabindex="-1" aria-hidden="true" required>
+                    <select class="input-lg select2 job_location "  name="job_location" id="job_location"  tabindex="-1" aria-hidden="true">
                       <?php
                       if($td_job_location !="")
                       {
@@ -337,9 +335,9 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Quận/Huyện:</h3>
                   </span>
-                  <span class="three_fifth  " >
+                  <span class="three_fifth select-wrapper " >
                     <i class="fa fa-map" aria-hidden="true"></i>
-                    <select class="input-lg" name="dictrict" id="dictrict" style="width: 100%; margin-right: 10px;" required>
+                    <select class="input-lg" name="dictrict" id="dictrict" style="width: 100%; margin-right: 10px;" >
                       <?php
                       if($dictrict !="")
                       {
@@ -377,10 +375,22 @@ if(isset($_GET['job_id']) !="") {
                   <span class="label-title" >
                     <h3>Công ty:</h3>
                   </span>
-                  <span class="three_fifth " ><i class="fa fa-building"></i>
+                  <span class="three_fifth select-wrapper" ><i class="fa fa-building"></i>
                     <select class="input-lg" name="job_company" id="job_company" style="width: 100%;">
-                      <option value="1055794">Công ty TNHH Công Nghệ Caribe</option>
-                      <option value="<?php echo $td_job_company_id; ?>"><?php echo $wpjobus_company_fullname; ?></option>
+                      <?php
+
+                      foreach ($companies as $company) {
+
+                          $comp_id = $company->ID;
+
+                          $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
+                          ?>
+
+                          <option value='<?php echo $comp_id; ?>' <?php global $td_job_company;
+                          selected($td_job_company, $comp_id); ?>><?php echo $wpjobus_company_fullname; ?></option>
+
+                      <?php }
+                      ?>
                     </select>
                   </span>
                 </span>
@@ -393,7 +403,7 @@ if(isset($_GET['job_id']) !="") {
                     <h3>Mô tả công việc:</h3>
                   </span>
                 </span>
-                                    <textarea id="postContent" rows="5" name="postContent" required><?php echo $resume_about_me; ?></textarea>
+                                    <textarea id="postContent" rows="10" name="postContent"><?php echo $resume_about_me; ?></textarea>
                                     <p id="err_postContent"></p>
                                 </div>
                                 <span class="full" style="margin-bottom: 0;">
@@ -549,46 +559,50 @@ if(isset($_GET['job_id']) !="") {
                             </div>
                         </div>
                     </div>
-                    <div class="welfare">
+                    <div class="welfare" id="result_benefit">
                         <h4 class="resume-section-subtitle" >Phúc lợi</h4>
-                        <?php
-                        $wpjobus_job_benefits = get_post_meta($job_id, 'wpjobus_job_benefits',true);
-                        $wpjobus_job_benefits_count=(count($wpjobus_job_benefits));
-                        for ($i = 0; $i < $wpjobus_job_benefits_count ; $i++) {
-                            ?>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="price-welfare-1">
+                        <div class="job_benefits">
+                            <?php
+                            $wpjobus_job_benefits = get_post_meta($job_id, 'wpjobus_job_benefits',true);
+                            $wpjobus_job_benefits_count=(count($wpjobus_job_benefits));
+                            for ($i = 0; $i < $wpjobus_job_benefits_count ; $i++) {
+                                ?>
+                                <div class="row_benefit">
+                                    <div class="col-md-6">
+                                        <div class="price-welfare-1">
                 <span class="label-title">
-                  <h3>Tên phúc lợi:</h3>
+                  <h3>Tên phúc lợi <?php echo $i+1;?>:</h3>
                 </span>
-                                        <span class="price-welfare-day">
+                                            <span class="price-welfare-day">
                   <i class="fa fa-gift" aria-hidden="true"></i>
                   <input class="input-lg" type="text"  name='wpjobus_job_benefits[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_benefits[$i][0])) echo $wpjobus_job_benefits[$i][0]; ?>" placeholder="Nhập phúc lợi" vk_1ffd1="subscribed">
                 </span>
-                                        <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                            <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="price-welfare-1">
+                                    <div class="col-md-6">
+                                        <div class="price-welfare-1">
                 <span class="label-title">
                   <h3>Mô tả phúc lợi:</h3>
                 </span>
-                                        <span class="price-welfare-day">
+                                            <span class="price-welfare-day">
                   <textarea row="20"  name='wpjobus_job_benefits[<?php echo $i; ?>][1]'  placeholder="Nhập nội dung mô tả">
                   <?php
                   if (!empty($wpjobus_job_benefits[$i][1])) echo $wpjobus_job_benefits[$i][1]; ?>
                   </textarea>
                 </span>
+                                        </div>
                                     </div>
+
                                 </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
+
+                                <?php
+                            }
+                            ?>
+                        </div>
                         <div class="delete-add">
-                            <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                            <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm phúc lợi</a>
+                            <button type="button" class="delete_benefit"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                            <button type="button" class="add_benefit"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách phúc lợi</button>
                         </div>
                     </div>
                     <div class="divider"></div>
@@ -598,17 +612,43 @@ if(isset($_GET['job_id']) !="") {
                             <h3 class="resume-section-subtitle" >Chúng ta đã gần hoàn tất! Điền vào các thông tin liên lạc chính xác.</h3>
                         </div>
                         <div class="contact-details">
-                            <div class="">
-                                <div class="">
+                            <div class="row">
+                                <div class="col-xs-6">
                                     <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title" >
-                      <h3>Địa chỉ:</h3>
+                           <?php
+
+                           foreach ($companies as $company) {
+
+                               $comp_id = $company->ID;
+
+                               $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
+                               $wpjobus_company_address = esc_attr(get_post_meta($comp_id, 'wpjobus_company_address',true));
+                               $wpjobus_company_phone = esc_attr(get_post_meta($comp_id, 'wpjobus_company_phone',true));
+                               $wpjobus_company_website = esc_url(get_post_meta($comp_id, 'wpjobus_company_website',true));
+                               $wpjobus_company_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_email',true));
+                               $wpjobus_company_publish_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_publish_email',true));
+                               $wpjobus_company_facebook = esc_url(get_post_meta($comp_id, 'wpjobus_company_facebook',true));
+                               $wpjobus_company_linkedin = esc_url(get_post_meta($comp_id, 'wpjobus_company_linkedin',true));
+                               $wpjobus_company_twitter = esc_url(get_post_meta($comp_id, 'wpjobus_company_twitter',true));
+                               $wpjobus_company_googleplus = esc_url(get_post_meta($comp_id, 'wpjobus_company_googleplus',true));
+                               $wpjobus_company_googleaddress = esc_attr(get_post_meta($postID, 'wpjobus_company_googleaddress',true));
+                               $wpjobus_company_longitude = esc_attr(get_post_meta($postID, 'wpjobus_company_longitude',true));
+                               $wpjobus_company_latitude = esc_attr(get_post_meta($postID, 'wpjobus_company_latitude',true));
+                               ?>
+
+                               <option value='<?php echo $comp_id; ?>' <?php global $td_job_company;
+                               selected($td_job_company, $comp_id); ?>><?php echo $wpjobus_company_fullname; ?></option>
+
+                           <?php }
+                           ?>
+                        <h3>Địa chỉ:</h3>
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-street-view" aria-hidden="true"></i>
-                      <input type="text" name="wpjobus_job_address" id="wpjobus_job_address"  value="<?php echo $wpjobus_job_address; ?>" class="input-textarea" placeholder="" vk_162b1="subscribed" >
-                        <p id="error_address"></p>
+                      <input type="text" name="wpjobus_job_address" id="wpjobus_job_address"  value="<?php echo $wpjobus_job_address ?:$wpjobus_company_address; ?>" class="input-textarea" placeholder="" vk_162b1="subscribed" >
+                      <p id= "error_address"></p>
                     </span>
                   </span>
                                         <span class="information-input">
@@ -617,7 +657,7 @@ if(isset($_GET['job_id']) !="") {
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-phone" aria-hidden="true"></i>
-                      <input type="number" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_job_phone"  value="<?php echo $wpjobus_job_phone; ?> " placeholder="" vk_162b1="subscribed" >
+                      <input type="number" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_job_phone"  value="<?php echo $wpjobus_job_phone ?:$wpjobus_company_phone; ?> " placeholder="" vk_162b1="subscribed" >
                       <p id="err_number"></p>
                     </span>
                   </span>
@@ -627,7 +667,7 @@ if(isset($_GET['job_id']) !="") {
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-list-alt" aria-hidden="true"></i>
-                      <input type="text" id="wpjobus_job_website" class="input-textarea" name="wpjobus_job_website"  value="<?php echo $wpjobus_job_website; ?> " placeholder="" vk_162b1="subscribed">
+                      <input type="text" id="wpjobus_job_website" class="input-textarea" name="wpjobus_job_website"  value="<?php echo $wpjobus_job_website ?:$wpjobus_company_website; ?> " placeholder="" vk_162b1="subscribed">
                     </span>
                   </span>
                                         <span class="information-input">
@@ -636,15 +676,15 @@ if(isset($_GET['job_id']) !="") {
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-envelope" aria-hidden="true"></i>
-                      <input type="email" id="wpjobus_job_email" class="input-textarea" name="wpjobus_job_email"  value="<?php echo $wpjobus_job_email; ?>" placeholder="" vk_162b1="subscribed" >
-                      <p id="err_email"></p>
+                      <input type="email" id="wpjobus_job_email" class="input-textarea" name="wpjobus_job_email"  value="<?php echo $wpjobus_job_email ?:$wpjobus_company_email; ?>" placeholder="" vk_162b1="subscribed" >
+                      <p id= "err_email"></p>
                       <span class="information-input" >
                         <input type="checkbox" class="" name="wpjobus_job_publish_email"  value="publish_email" placeholder="">Công khai địa chỉ email của tôi                 </span>
                       </span>
                     </span>
                                     </div>
                                 </div>
-                                <div class="">
+                                <div class="col-xs-6">
                                     <div class="contact-input">
                     <span class="information-input">
                       <span class="label-title" >
@@ -652,7 +692,7 @@ if(isset($_GET['job_id']) !="") {
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_facebook" class="input-textarea" name="wpjobus_job_facebook"  value="<?php echo $wpjobus_job_facebook; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_facebook" class="input-textarea" name="wpjobus_job_facebook"  value="<?php echo $wpjobus_job_facebook ?:$wpjobus_company_facebook; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                                         <span class="information-input">
@@ -661,7 +701,7 @@ if(isset($_GET['job_id']) !="") {
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-link" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_linkedin" class="input-textarea" name="wpjobus_job_linkedin"  value="<?php echo $wpjobus_job_linkedin; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_linkedin" class="input-textarea" name="wpjobus_job_linkedin"  value="<?php echo $wpjobus_job_linkedin ?:$wpjobus_company_linkedin; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                                         <span class="information-input">
@@ -670,7 +710,7 @@ if(isset($_GET['job_id']) !="") {
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-twitter" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_twitter" class="input-textarea" name="wpjobus_job_twitter"  value="<?php echo $wpjobus_job_twitter; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_twitter" class="input-textarea" name="wpjobus_job_twitter"  value="<?php echo $wpjobus_job_twitter ?:$wpjobus_company_twitter; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                                         <span class="information-input">
@@ -679,45 +719,11 @@ if(isset($_GET['job_id']) !="") {
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-google-plus" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_googleplus" class="input-textarea" name="wpjobus_job_googleplus"  value="<?php echo $wpjobus_job_googleplus; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_googleplus" class="input-textarea" name="wpjobus_job_googleplus"  value="<?php echo $wpjobus_job_googleplus ?:$wpjobus_company_googleplus; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="information-input">
-                <span class="label-title" >
-                  <h3>Địa chỉ Google Maps:</h3>
-                </span>
-                                <span class="three_fifth" >
-                  <input type='text' id="address" class='input-textarea' name='wpjobus_company_googleaddress' style="width: 100%; float: left; margin-bottom: 0;" value='<?php global $wpjobus_company_googleaddress; echo $wpjobus_company_googleaddress; ?>' placeholder="" />
-                  <p class="help-block"><?php _e('Start typing an address and select from the dropdown.', 'themesdojo') ?></p>
-                </span>
-                                <div id="map-canvas"></div>
-                                <style>
-                                    #map-canvas {
-                                        display: block;
-                                        width: 100%;
-                                        height: 470px;
-                                    }
-                                </style>
-                                <script type="text/javascript">
-                                    // Function khởi tạo google map
-                                    function initialize()
-                                    {
-                                        // Config google map
-                                        var mapOptions = {
-                                            // Tọa độ muốn hiển thị ban đầu (tung độ,vỹ độ)
-                                            center: new google.maps.LatLng(10.771971, 106.697845),
-                                            // Mức độ zoom
-                                            zoom: 8
-                                        };
-                                        // Hiển thị map lên bản đồ (div#map-canvas)
-                                        var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-                                    }
-                                    // Gán hàm initialize vào trong sự kiện load dom google map
-                                    google.maps.event.addDomListener(window, 'load', initialize);
-                                </script>
                             </div>
                         </div>
                     </div>
@@ -791,42 +797,44 @@ if(isset($_GET['job_id']) !="") {
                             </div>
                         </div>
                         <div class="divider"></div>
-                        <?php
-                        $wpjobus_job_skills = get_post_meta($job_id, 'wpjobus_job_skills',true);
-                        for ($i = 0; $i < (count($wpjobus_job_skills)); $i++) {
-                            ?>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="Skills-needed-1">
+                        <div class="job_skills">
+                            <?php
+                            $wpjobus_job_skills = get_post_meta($job_id, 'wpjobus_job_skills',true);
+                            for ($i = 0; $i < (count($wpjobus_job_skills)); $i++) {
+                                ?>
+                                <div class="row_skill">
+                                    <div class="col-md-6">
+                                        <div class="Skills-needed-1">
                   <span class="label-title">
-                    <h3>Kĩ năng 1 :</h3>
+                    <h3>Kĩ năng <?php echo $i+1;?> :</h3>
                   </span>
-                                        <span class="Skills-needed-2">
+                                            <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
                     <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_skills[$i][0])) echo $wpjobus_job_skills[$i][0]; ?>" placeholder="" vk_1ffd1="subscribed">
                   </span>
-                                        <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                            <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="Skills-needed-1">
+                                    <div class="col-md-6">
+                                        <div class="Skills-needed-1">
                   <span class="label-title">
                     <h3>Giá trị :</h3>
                   </span>
-                                        <span class="Skills-needed-2">
+                                            <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
                     <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][1]' value="<?php if (!empty($wpjobus_job_skills[$i][1])) echo $wpjobus_job_skills[$i][1]; ?>" placeholder="70%" vk_1ffd1="subscribed">
                   </span>
-                                        <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                            <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
+                                <?php
+                            }
+                            ?>
+                        </div>
                         <div class="delete-add">
-                            <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                            <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng</a>
+                            <button type="button" class="delete_skill"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                            <button type="button" class="add_skill"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng</button>
                         </div>
                         <div class="divider"></div>
                         <div class="col-md-6">
@@ -842,23 +850,24 @@ if(isset($_GET['job_id']) !="") {
                             </div>
                         </div>
                         <div class="divider"></div>
-                        <?php
-                        $wpjobus_job_languages = get_post_meta($job_id, 'wpjobus_job_languages',true);
-                        for ($i = 0; $i < (count($wpjobus_job_languages)); $i++) {
-                            ?>
-                            <div class="row">
-                                <div class="col-xs-6">
-                                    <div class="contact-input">
+                        <div class="job_languages">
+                            <?php
+                            $wpjobus_job_languages = get_post_meta($job_id, 'wpjobus_job_languages',true);
+                            for ($i = 0; $i < (count($wpjobus_job_languages)); $i++) {
+                                ?>
+                                <div class="row_language">
+                                    <div class="col-xs-6">
+                                        <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title">
-                      <h3>Ngoại ngữ:</h3>
+                      <h3>Ngoại ngữ <?php echo $i+1;?>:</h3>
                     </span>
                     <span class="three_fifth">
                       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                       <input type='text' id="wpjobus_job_languages[<?php echo $i; ?>][0]" class="resume_lang_title" name='wpjobus_job_languages[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_job_languages[$i][0])) echo $wpjobus_job_languages[$i][0]; ?>' placeholder="" />
                     </span>
                   </span>
-                                        <span class="information-input">
+                                            <span class="information-input">
                     <span class="label-title">
                       <h3>Kĩ năng nói:</h3>
                     </span>
@@ -873,10 +882,10 @@ if(isset($_GET['job_id']) !="") {
                       </select>
                     </span>
                   </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-6">
-                                    <div class="contact-input">
+                                    <div class="col-xs-6">
+                                        <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title">
                       <h3>Thông thạo:</h3>
@@ -892,7 +901,7 @@ if(isset($_GET['job_id']) !="") {
                       </select>
                     </span>
                   </span>
-                                        <span class="information-input">
+                                            <span class="information-input">
                     <span class="label-title">
                       <h3>Kĩ năng viết:</h3>
                     </span>
@@ -907,16 +916,18 @@ if(isset($_GET['job_id']) !="") {
                       </select>
                     </span>
                   </span>
+                                        </div>
                                     </div>
+
                                 </div>
-                                <div class="delete-add">
-                                    <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                                    <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn ngữ</a>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div class="delete-add">
+                            <button type="button" class="delete_language"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                            <button type="button" class="add_language"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn ngữ</button>
+                        </div>
                         <div class="divider"></div>
                         <div class="additional">
                             <div class="information-input">

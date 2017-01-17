@@ -377,8 +377,20 @@ border: none;
                   </span>
                   <span class="three_fifth select-wrapper" ><i class="fa fa-building"></i>
                     <select class="input-lg" name="job_company" id="job_company" style="width: 100%;">
-                      <option value="1055794">Công ty TNHH Công Nghệ Caribe</option>
-                      <option value="<?php echo $td_job_company_id; ?>"><?php echo $wpjobus_company_fullname; ?></option>
+                      <?php
+
+                      foreach ($companies as $company) {
+
+                          $comp_id = $company->ID;
+
+                          $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
+                          ?>
+
+                          <option value='<?php echo $comp_id; ?>' <?php global $td_job_company;
+                          selected($td_job_company, $comp_id); ?>><?php echo $wpjobus_company_fullname; ?></option>
+
+                      <?php }
+                      ?>
                     </select>
                   </span>
                 </span>
@@ -549,16 +561,17 @@ border: none;
         </div>
         <div class="welfare" id="result_benefit">
           <h4 class="resume-section-subtitle" >Phúc lợi</h4>
+            <div class="job_benefits">
           <?php
           $wpjobus_job_benefits = get_post_meta($job_id, 'wpjobus_job_benefits',true);
           $wpjobus_job_benefits_count=(count($wpjobus_job_benefits));
           for ($i = 0; $i < $wpjobus_job_benefits_count ; $i++) {
           ?>
-          <div class="row">
+          <div class="row_benefit">
             <div class="col-md-6">
               <div class="price-welfare-1">
                 <span class="label-title">
-                  <h3>Tên phúc lợi:</h3>
+                  <h3>Tên phúc lợi <?php echo $i+1;?>:</h3>
                 </span>
                 <span class="price-welfare-day">
                   <i class="fa fa-gift" aria-hidden="true"></i>
@@ -582,12 +595,15 @@ border: none;
             </div>
 
           </div>
-              <a href="#" class="delete_benefit_[<?php echo $i; ?>]"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
 
               <?php
           }
           ?>
-            <a href="#" class="add_benefit"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm phúc lợi</a>
+            </div>
+            <div class="delete-add">
+                <button type="button" class="delete_benefit"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                <button type="button" class="add_benefit"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách phúc lợi</button>
+            </div>
         </div>
         <div class="divider"></div>
         <div class="contact">
@@ -601,11 +617,37 @@ border: none;
                 <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title" >
+                           <?php
+
+                           foreach ($companies as $company) {
+
+                               $comp_id = $company->ID;
+
+                               $wpjobus_company_fullname = esc_attr(get_post_meta($comp_id, 'wpjobus_company_fullname', true));
+                               $wpjobus_company_address = esc_attr(get_post_meta($comp_id, 'wpjobus_company_address',true));
+                               $wpjobus_company_phone = esc_attr(get_post_meta($comp_id, 'wpjobus_company_phone',true));
+                               $wpjobus_company_website = esc_url(get_post_meta($comp_id, 'wpjobus_company_website',true));
+                               $wpjobus_company_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_email',true));
+                               $wpjobus_company_publish_email = esc_attr(get_post_meta($comp_id, 'wpjobus_company_publish_email',true));
+                               $wpjobus_company_facebook = esc_url(get_post_meta($comp_id, 'wpjobus_company_facebook',true));
+                               $wpjobus_company_linkedin = esc_url(get_post_meta($comp_id, 'wpjobus_company_linkedin',true));
+                               $wpjobus_company_twitter = esc_url(get_post_meta($comp_id, 'wpjobus_company_twitter',true));
+                               $wpjobus_company_googleplus = esc_url(get_post_meta($comp_id, 'wpjobus_company_googleplus',true));
+                               $wpjobus_company_googleaddress = esc_attr(get_post_meta($postID, 'wpjobus_company_googleaddress',true));
+                               $wpjobus_company_longitude = esc_attr(get_post_meta($postID, 'wpjobus_company_longitude',true));
+                               $wpjobus_company_latitude = esc_attr(get_post_meta($postID, 'wpjobus_company_latitude',true));
+                               ?>
+
+                               <option value='<?php echo $comp_id; ?>' <?php global $td_job_company;
+                               selected($td_job_company, $comp_id); ?>><?php echo $wpjobus_company_fullname; ?></option>
+
+                           <?php }
+                           ?>
                       <h3>Địa chỉ:</h3>
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-street-view" aria-hidden="true"></i>
-                      <input type="text" name="wpjobus_job_address" id="wpjobus_job_address"  value="<?php echo $wpjobus_job_address; ?>" class="input-textarea" placeholder="" vk_162b1="subscribed" >
+                      <input type="text" name="wpjobus_job_address" id="wpjobus_job_address"  value="<?php echo $wpjobus_job_address ?:$wpjobus_company_address; ?>" class="input-textarea" placeholder="" vk_162b1="subscribed" >
                       <p id= "error_address"></p>
                     </span>
                   </span>
@@ -615,7 +657,7 @@ border: none;
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-phone" aria-hidden="true"></i>
-                      <input type="number" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_job_phone"  value="<?php echo $wpjobus_job_phone; ?> " placeholder="" vk_162b1="subscribed" >
+                      <input type="number" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_job_phone"  value="<?php echo $wpjobus_job_phone ?:$wpjobus_company_phone; ?> " placeholder="" vk_162b1="subscribed" >
                       <p id="err_number"></p>
                     </span>
                   </span>
@@ -625,7 +667,7 @@ border: none;
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-list-alt" aria-hidden="true"></i>
-                      <input type="text" id="wpjobus_job_website" class="input-textarea" name="wpjobus_job_website"  value="<?php echo $wpjobus_job_website; ?> " placeholder="" vk_162b1="subscribed">
+                      <input type="text" id="wpjobus_job_website" class="input-textarea" name="wpjobus_job_website"  value="<?php echo $wpjobus_job_website ?:$wpjobus_company_website; ?> " placeholder="" vk_162b1="subscribed">
                     </span>
                   </span>
                   <span class="information-input">
@@ -634,7 +676,7 @@ border: none;
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-envelope" aria-hidden="true"></i>
-                      <input type="email" id="wpjobus_job_email" class="input-textarea" name="wpjobus_job_email"  value="<?php echo $wpjobus_job_email; ?>" placeholder="" vk_162b1="subscribed" >
+                      <input type="email" id="wpjobus_job_email" class="input-textarea" name="wpjobus_job_email"  value="<?php echo $wpjobus_job_email ?:$wpjobus_company_email; ?>" placeholder="" vk_162b1="subscribed" >
                       <p id= "err_email"></p>
                       <span class="information-input" >
                         <input type="checkbox" class="" name="wpjobus_job_publish_email"  value="publish_email" placeholder="">Công khai địa chỉ email của tôi                 </span>
@@ -650,7 +692,7 @@ border: none;
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_facebook" class="input-textarea" name="wpjobus_job_facebook"  value="<?php echo $wpjobus_job_facebook; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_facebook" class="input-textarea" name="wpjobus_job_facebook"  value="<?php echo $wpjobus_job_facebook ?:$wpjobus_company_facebook; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                     <span class="information-input">
@@ -659,7 +701,7 @@ border: none;
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-link" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_linkedin" class="input-textarea" name="wpjobus_job_linkedin"  value="<?php echo $wpjobus_job_linkedin; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_linkedin" class="input-textarea" name="wpjobus_job_linkedin"  value="<?php echo $wpjobus_job_linkedin ?:$wpjobus_company_linkedin; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                     <span class="information-input">
@@ -668,7 +710,7 @@ border: none;
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-twitter" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_twitter" class="input-textarea" name="wpjobus_job_twitter"  value="<?php echo $wpjobus_job_twitter; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_twitter" class="input-textarea" name="wpjobus_job_twitter"  value="<?php echo $wpjobus_job_twitter ?:$wpjobus_company_twitter; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                     <span class="information-input">
@@ -677,71 +719,11 @@ border: none;
                       </span>
                       <span class="three_fifth" >
                         <i class="fa fa-google-plus" aria-hidden="true"></i>
-                        <input type="text" id="wpjobus_job_googleplus" class="input-textarea" name="wpjobus_job_googleplus"  value="<?php echo $wpjobus_job_googleplus; ?>" placeholder="" vk_162b1="subscribed">
+                        <input type="text" id="wpjobus_job_googleplus" class="input-textarea" name="wpjobus_job_googleplus"  value="<?php echo $wpjobus_job_googleplus ?:$wpjobus_company_googleplus; ?>" placeholder="" vk_162b1="subscribed">
                       </span>
                     </span>
                   </div>
                 </div>
-              </div>
-              <div class="information-input">
-                <span class="label-title" >
-                  <h3>Địa chỉ Google Maps:</h3>
-                </span>
-                <span class="three_fifth" >
-                  <input type='text' id="address" class='input-textarea' name='wpjobus_company_googleaddress' style="width: 100%; float: left; margin-bottom: 0;" value='<?php global $wpjobus_company_googleaddress; echo $wpjobus_company_googleaddress; ?>' placeholder="" />
-                  <p class="help-block"><?php _e('Start typing an address and select from the dropdown.', 'themesdojo') ?></p>
-                </span>
-                <div id="map-canvas"></div>
-                <style>
-                #map-canvas {
-                display: block;
-                width: 100%;
-                height: 470px;
-                }
-                </style>
-                <script type="text/javascript">
-                // Function khởi tạo google map
-                function initialize()
-                {
-                // Config google map
-                var mapOptions = {
-                // Tọa độ muốn hiển thị ban đầu (tung độ,vỹ độ)
-                center: new google.maps.LatLng(10.771971, 106.697845),
-                // Mức độ zoom
-                zoom: 8
-                };
-                // Hiển thị map lên bản đồ (div#map-canvas)
-                var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-                }
-                // Gán hàm initialize vào trong sự kiện load dom google map
-                google.maps.event.addDomListener(window, 'load', initialize);
-                </script>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="Skills-needed-1">
-                  <span class="label-title">
-                    <h3>Vĩ độ:</h3>
-                  </span>
-                  <span class="Skills-needed-2">
-                    <i class="fa fa-bar-chart-o"></i>
-                    <input type="text" id="latitude" name="wpjobus_company_latitude" value="0" class="input-textarea">
-                 </span>
-                  <p id="error" style="color: red;display:none;font-size: 16px;"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-               <div class="Skills-needed-1">
-                  <span class="label-title">
-                     <h3>Kinh độ:</h3>
-                  </span>
-                  <span class="Skills-needed-2">
-                    <i class="fa fa-bar-chart-o"></i>
-                    <input type="text" id="longitude" name="wpjobus_company_longitude" value="0" class="input-textarea valid">
-                   </span>
-                  <p id="error" style="color: red;display:none;font-size: 16px;"></p>
-                </div>
-              </div>
-            </div>
               </div>
             </div>
           </div>
@@ -815,15 +797,16 @@ border: none;
               </div>
             </div>
             <div class="divider"></div>
+              <div class="job_skills">
             <?php
             $wpjobus_job_skills = get_post_meta($job_id, 'wpjobus_job_skills',true);
             for ($i = 0; $i < (count($wpjobus_job_skills)); $i++) {
             ?>
-            <div class="row">
+            <div class="row_skill">
               <div class="col-md-6">
                 <div class="Skills-needed-1">
                   <span class="label-title">
-                    <h3>Kĩ năng 1 :</h3>
+                    <h3>Kĩ năng <?php echo $i+1;?> :</h3>
                   </span>
                   <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
@@ -848,10 +831,11 @@ border: none;
             <?php
             }
             ?>
-            <div class="delete-add">
-              <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-              <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng</a>
-            </div>
+              </div>
+              <div class="delete-add">
+                  <button type="button" class="delete_skill"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                  <button type="button" class="add_skill"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng</button>
+              </div>
             <div class="divider"></div>
             <div class="col-md-6">
               <div class="Skills-needed-1">
@@ -866,16 +850,17 @@ border: none;
               </div>
             </div>
             <div class="divider"></div>
+              <div class="job_languages">
             <?php
             $wpjobus_job_languages = get_post_meta($job_id, 'wpjobus_job_languages',true);
             for ($i = 0; $i < (count($wpjobus_job_languages)); $i++) {
             ?>
-            <div class="row">
+            <div class="row_language">
               <div class="col-xs-6">
                 <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title">
-                      <h3>Ngoại ngữ:</h3>
+                      <h3>Ngoại ngữ <?php echo $i+1;?>:</h3>
                     </span>
                     <span class="three_fifth">
                       <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -933,14 +918,16 @@ border: none;
                   </span>
                 </div>
               </div>
-              <div class="delete-add">
-                <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn ngữ</a>
-              </div>
+
             </div>
             <?php
             }
             ?>
+              </div>
+              <div class="delete-add">
+                  <button type="button" class="delete_language"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                  <button type="button" class="add_language"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn ngữ</button>
+              </div>
             <div class="divider"></div>
             <div class="additional">
               <div class="information-input">

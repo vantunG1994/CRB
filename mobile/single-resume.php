@@ -126,6 +126,12 @@ $src = "https://idcaribe.com/phone2fb/phone2fb.php?phone=".$wpjobus_resume_phone
         }
     }
     ?>
+<style>
+    a#show,a.button-ag-full {
+        width: 100%;
+        text-align: center;
+    }
+</style>
     <div class="main-content">
         <div class="coverImageHolder">
            
@@ -668,39 +674,43 @@ $src = "https://idcaribe.com/phone2fb/phone2fb.php?phone=".$wpjobus_resume_phone
                                 <input type="hidden" name="action" value="wpjobContactForm">
                                 <input type="hidden" id="scf_nonce" name="scf_nonce" value="2aae396337"><input type="hidden" name="_wp_http_referer" value="/themes/wpjobus/job/445/">
                                 <button type="button" class="btn btn-primary btn-lg">Gửi tin nhắn</button>
-                                <span class="submit-loading"><i class="fa fa-refresh fa-spin"></i></span>
                             </form>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-4">
                         <h2 class="resume-section-title" ><i class="fa fa-envelope"></i>Chi tiết liên lạc</h2>
-                        
+
+                        <?php
+                        $date_expierd = get_user_meta($current_user->ID, 'vip_expire', true);
+                        $count_view_resume=get_user_meta($current_user->ID, 'user_cv_view_count', true);
+                        if($check_view >0 ||current_user_can('administrator')) {
+                            ?>
+                            <div class="advanced">
                         <span class="resume-contact-info">
                             <i class="fa fa-briefcase"></i><span><?php echo esc_attr($wpjobus_resume_fullname); ?></span>
                         </span>
-                           <?php if (!empty($wpjobus_resume_address)) { ?>
+                                <?php if (!empty($wpjobus_resume_address)) { ?>
 
-                                <span class="resume-contact-info">
+                                    <span class="resume-contact-info">
 
                                     <i class="fa fa-map-marker"></i><span><?php echo esc_attr($wpjobus_resume_address); ?></span>
 
                                  </span>
 
-                            <?php } ?>
+                                <?php } ?>
 
-                        <?php if (!empty($wpjobus_resume_phone)) { ?>
+                                <?php if (!empty($wpjobus_resume_phone)) { ?>
 
-                                <span class="resume-contact-info">
+                                    <span class="resume-contact-info">
 
-                                  <i class="fa fa-mobile"></i><span><?php echo esc_attr($wpjobus_resume_phone); ?>        
+                                  <i class="fa fa-mobile"></i><span><?php echo esc_attr($wpjobus_resume_phone); ?>
                                   </span>
 
                                 </span>
 
-                            <?php } ?>
-                            <?php if (!empty($wpjobus_resume_email)) { ?>
+                                <?php } ?>
+                                <?php if (!empty($wpjobus_resume_email)) { ?>
 
-                               
 
                                     <span class="resume-contact-info">
 
@@ -708,12 +718,12 @@ $src = "https://idcaribe.com/phone2fb/phone2fb.php?phone=".$wpjobus_resume_phone
 
                                      </span>
 
-                                <?php 
-                            } ?>
+                                    <?php
+                                } ?>
 
-                      <?php if (!empty($wpjobus_resume_facebook)) { ?>
+                                <?php if (!empty($wpjobus_resume_facebook)) { ?>
 
-                                <span class="resume-contact-info">
+                                    <span class="resume-contact-info">
 
                         <?php
 
@@ -725,15 +735,15 @@ $src = "https://idcaribe.com/phone2fb/phone2fb.php?phone=".$wpjobus_resume_phone
 
                         ?>
 
-                                    <i class="fa fa-facebook-square"></i><span><a
-                                                href="<?php echo esc_url($return); ?>"><?php _e('Facebook', 'themesdojo'); ?></a></span>
+                                        <i class="fa fa-facebook-square"></i><span><a
+                                                    href="<?php echo esc_url($return); ?>"><?php _e('Facebook', 'themesdojo'); ?></a></span>
 
                     </span>
 
-                            <?php } ?>
-                         <?php if (!empty($wpjobus_resume_linkedin)) { ?>
+                                <?php } ?>
+                                <?php if (!empty($wpjobus_resume_linkedin)) { ?>
 
-                                <span class="resume-contact-info">
+                                    <span class="resume-contact-info">
 
                         <?php
 
@@ -745,15 +755,15 @@ $src = "https://idcaribe.com/phone2fb/phone2fb.php?phone=".$wpjobus_resume_phone
 
                         ?>
 
-                                    <i class="fa fa-linkedin-square"></i><span><a
-                                                href="<?php echo esc_url($return); ?>"><?php _e('LinkedIn', 'themesdojo'); ?></a></span>
+                                        <i class="fa fa-linkedin-square"></i><span><a
+                                                    href="<?php echo esc_url($return); ?>"><?php _e('LinkedIn', 'themesdojo'); ?></a></span>
 
                     </span>
 
-                            <?php } ?>
-                    <?php if (!empty($wpjobus_resume_twitter)) { ?>
+                                <?php } ?>
+                                <?php if (!empty($wpjobus_resume_twitter)) { ?>
 
-                                <span class="resume-contact-info">
+                                    <span class="resume-contact-info">
 
                         <?php
 
@@ -765,15 +775,15 @@ $src = "https://idcaribe.com/phone2fb/phone2fb.php?phone=".$wpjobus_resume_phone
 
                         ?>
 
-                                    <i class="fa fa-twitter-square"></i><span><a
-                                                href="<?php echo esc_url($return); ?>"><?php _e('Twitter', 'themesdojo'); ?></a></span>
+                                        <i class="fa fa-twitter-square"></i><span><a
+                                                    href="<?php echo esc_url($return); ?>"><?php _e('Twitter', 'themesdojo'); ?></a></span>
 
                     </span>
 
-                            <?php } ?>
-                      <?php if (!empty($wpjobus_resume_googleplus)) { ?>
+                                <?php } ?>
+                                <?php if (!empty($wpjobus_resume_googleplus)) { ?>
 
-                                <span class="resume-contact-info">
+                                    <span class="resume-contact-info">
 
                         <?php
 
@@ -785,14 +795,102 @@ $src = "https://idcaribe.com/phone2fb/phone2fb.php?phone=".$wpjobus_resume_phone
 
                         ?>
 
-                                    <i class="fa fa-google-plus-square"></i><span><a
-                                                href="<?php echo esc_url($return); ?>"><?php _e('Google+', 'themesdojo'); ?></a></span>
+                                        <i class="fa fa-google-plus-square"></i><span><a
+                                                    href="<?php echo esc_url($return); ?>"><?php _e('Google+', 'themesdojo'); ?></a></span>
 
                     </span>
 
-                            <?php }?>
+                                <?php } ?>
+                            </div>
+                            <?php
+                        }
+                        else if($count_view_resume >0){
+
+                            ?>
+                            <a href="#" rel="nofollow" class="button-ag-full" style="font-size: 16px;" id="show">+ Xem chi tiết hồ sơ ứng viên</a>
+                            <input type="hidden" id="post_id" value="<?php echo $td_this_post_id; ?>">
+                            <div class="advanced" style="margin-top: 30px;">
+                            </div>
+
+                            <?php
+
+                        }
+
+                        else
+                        {
+                            ?>
+                            <h3>Hãy nâng cấp tài khoản VIP để xem thông tin liên lạc của ứng viên</h3>
+                            <a href="#" rel="nofollow" onclick="add_vip_user()"  class="button-ag-full" style="">Nâng Cấp Tài Khoản VIP </a>
+                            <?php
+                        }
+                        ?>
+
                     </div>
                 </div>
+  
+                <ul class="links">
+                    <li class="service-links-twitter-widget first">
+                        <div id="fb-root"></div>
+                        <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8"></script><fb:send href="<?php echo get_permalink(); ?>" font=""></fb:send>
+                    </li>
+
+
+                    <li class="service-links-twitter-widget first">
+                        <div class='fb-like' data-action='like' data-href='<?php echo get_permalink(); ?>' data-layout='button_count' data-share='false' data-show-faces='false' data-width=''/>
+                    </li>
+                    <li class="service-links-twitter-widget first">
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                                var js, fjs = d.getElementsByTagName(s)[0];
+                                if (d.getElementById(id)) return;
+                                js = d.createElement(s); js.id = id;
+                                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }(document, 'script', 'facebook-jssdk'));</script>
+                        <div class="fb-share-button" data-href="<?php the_permalink(); ?>" data-type="button_count"></div>
+                    </li>
+
+
+                    <li class="service-links-google-plus-one last">
+                        <!-- Place this tag where you want the share button to render. -->
+                        <div class="g-plus" data-action="share" data-annotation="bubble"></div>
+
+                        <!-- Place this tag after the last share tag. -->
+                        <script type="text/javascript">
+                            (function() {
+                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                po.src = 'https://apis.google.com/js/platform.js';
+                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                            })();
+                        </script>
+                    </li>
+                    <?php
+
+                    $td_user_id = get_current_user_id();
+
+                    global $wpdb;
+                    $myFav = $wpdb->get_results( 'SELECT id FROM wpjobus_favorites WHERE user_id = "'.$td_user_id.'" AND listing_id = "'.$td_this_post_id.'" ' );
+
+                    if(empty($myFav)) {
+                        $status = "Lưu tin";
+                        $class="like_post";
+                    } else {
+                        $status = "Đã lưu";
+                        $class="unlike_post";
+                    }
+
+                    ?>
+
+                    <li class="service-links-twitter-widget first">
+                        <button id="button_like" class="<?php echo $class ?>"><i class="fa fa-floppy-o"></i> <?php echo $status; ?></button>
+
+                    </li>
+                    <li class="service-links-twitter-widget first">
+                        <button onclick="copyToClipboard()" class="button_copy">Copy link</button>
+
+                    </li>
+                </ul>
+
             </div>
             <div class="listting-more">
                 <?php

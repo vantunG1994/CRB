@@ -97,7 +97,7 @@ if(empty($wpjobus_company_latitude)) {
         border: none;
     }
     input#save_pending {
-       width: 100%;
+        width: 35%;
         border: none;
         background: #16a085;
         color: white;
@@ -106,8 +106,7 @@ if(empty($wpjobus_company_latitude)) {
         padding-left: 0 !important;
     }
     input#save_draf {
-            width: 100%;
-    margin-bottom: 10px;
+        width: 20%;
         border: none;
         background: #428bca;
         color: white;
@@ -116,13 +115,13 @@ if(empty($wpjobus_company_latitude)) {
         padding-left: 0 !important;
     }
     #userNameError, #err_email, #error_address, #err_postContent, #err_number {
-      color:red;
-      padding-top:5px;
-}
+        color:red;
+        padding-top:5px;
+    }
 </style>
 <div class="main-content">
-  
-        <form method="post">
+    <div class="container">
+        <form name="frm" method="post">
             <div class="add-edit">
                 <div class="title-top">
                     <h1 class="resume-section-title"><i class="fa fa-briefcase"></i>  </i>Cập nhật hồ sơ doanh nghiệp</h1>
@@ -139,7 +138,7 @@ if(empty($wpjobus_company_latitude)) {
                 <span class="three_fifth " >
                   <i class="fa fa-pencil" aria-hidden="true"></i>
                   <input class="input-lg" type="text" name="wpjobus_job_fullname" id="wpjobus_company_fullname" value="<?php echo $wpjobus_company_fullname; ?>" placeholder="Nhập tên công ty"  vk_1ffd1="subscribed">
-                    <p id="userNameError"></p>
+                  <p id="userNameError"></p>
                 </span>
               </span>
 
@@ -147,7 +146,7 @@ if(empty($wpjobus_company_latitude)) {
                 <span class="label-title" >
                    <h3>Năm thành lập:</h3>
                 </span>
-                <span class="three_fifth " >
+                <span class="three_fifth select-wrapper " >
                    <i class="fa fa-calendar" aria-hidden="true"></i>
                   <input type="text" name="wpjobus_company_foundyear" id="wpjobus_company_foundyear" value="<?php echo $wpjobus_company_foundyear; ?>" class="input-textarea" placeholder="" style="margin-bottom: 0;">
 
@@ -158,7 +157,7 @@ if(empty($wpjobus_company_latitude)) {
                 <span class="label-title" >
                   <h3>Tổng số nhân viên</h3>
                 </span>
-                <span class="three_fifth " >
+                <span class="three_fifth select-wrapper " >
                    <i class="fa fa-street-view" aria-hidden="true"></i>
                   <select class="select2" name="company_team_size " id="company_team_size" style="width: 100%; margin-right: 10px;">
                       <?php
@@ -177,7 +176,7 @@ if(empty($wpjobus_company_latitude)) {
                 <span class="label-title" >
                   <h3>Ngành Nghề:</h3>
                 </span>
-                <span class="three_fifth " >
+                <span class="three_fifth select-wrapper " >
                   <i class="fa fa-tasks" aria-hidden="true"></i>
                   <select class="select2" name="company_industry" id="company_industry" style="width: 100%; margin-right: 10px;">
                                         <?php
@@ -196,7 +195,7 @@ if(empty($wpjobus_company_latitude)) {
                 <span class="label-title" >
                   <h3>Tỉnh thành:</h3>
                 </span>
-                <span class="three_fifth " >
+                <span class="three_fifth select-wrapper " >
                   <i class="fa fa-map-marker" aria-hidden="true"></i>
                   <select class="select2" name="company_location " id="company_location" style="width: 100%; margin-right: 10px;">
                       <?php
@@ -216,7 +215,7 @@ if(empty($wpjobus_company_latitude)) {
                    <h3>Tag Search:</h3>
                   <span>(Từ khoá tìm kiếm của doanh nghiệp)</span>
                 </span>
-                <span class="three_fifth " >
+                <span class="three_fifth select-wrapper " >
                    <i class="fa fa-tags" aria-hidden="true"></i>
                   <input type="text" name="wpjobus_company_tagline" id="wpjobus_company_tagline" value="<?php echo $wpjobus_company_tagline; ?>" class="input-textarea" placeholder="" style="margin-bottom: 0;">
 
@@ -233,7 +232,7 @@ if(empty($wpjobus_company_latitude)) {
                     <h3>Mô tả công ty:</h3>
                   </span>
                 </span>
-                                <textarea id="postContent" rows="5" name="postContent"><?php echo $resume_about_me?></textarea>
+                                <textarea id="postContent" rows="10" name="postContent" required><?php echo $resume_about_me?></textarea>
                                 <p id="err_postContent"></p>
                             </div>
                         </div>
@@ -352,8 +351,8 @@ if(empty($wpjobus_company_latitude)) {
                         <h3 class="resume-section-subtitle" >Chúng ta đã gần hoàn tất! Điền vào các thông tin liên lạc chính xác.</h3>
                     </div>
                     <div class="contact-details">
-                        <div class="">
-                            <div class="">
+                        <div class="row">
+                            <div class="col-xs-6">
                                 <div class="contact-input">
                   <span class="information-input">
                     <span class="label-title" >
@@ -361,7 +360,7 @@ if(empty($wpjobus_company_latitude)) {
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-street-view" aria-hidden="true"></i>
-                      <input type="text" name="wpjobus_company_address" id="wpjobus_job_address"  value="<?php echo $wpjobus_company_address; ?>" class="input-textarea" placeholder="" vk_162b1="subscribed">
+                      <input type="text" name="wpjobus_company_address" id="wpjobus_job_address"  value="<?php echo $wpjobus_company_address; ?>" class="input-textarea" placeholder="" vk_162b1="subscribed" >
                       <p id="error_address"></p>
                     </span>
                   </span>
@@ -371,8 +370,8 @@ if(empty($wpjobus_company_latitude)) {
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-phone" aria-hidden="true"></i>
-                      <input type="text" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_company_phone"  value="<?php echo $wpjobus_company_phone; ?>" placeholder="" vk_162b1="subscribed">
-                       <p id="err_number"></p>
+                      <input type="number" id="wpjobus_job_phone" class="input-textarea" name="wpjobus_company_phone "  value="<?php echo $wpjobus_company_phone; ?>" placeholder="" vk_162b1="subscribed">
+                      <p id="err_number"></p>
                     </span>
                   </span>
                                     <span class="information-input">
@@ -390,15 +389,15 @@ if(empty($wpjobus_company_latitude)) {
                     </span>
                     <span class="three_fifth" >
                       <i class="fa fa-envelope" aria-hidden="true"></i>
-                      <input type="text" id="wpjobus_job_email" class="input-textarea" name="wpjobus_company_email"  value="<?php echo $wpjobus_company_email; ?>" placeholder="" vk_162b1="subscribed">
-                       <p id="err_email"></p>
+                      <input type="email" id="wpjobus_job_email" class="input-textarea" name="wpjobus_company_email"  value="<?php echo $wpjobus_company_email; ?>" placeholder="" vk_162b1="subscribed" >
+                      <p id="err_email"></p>
                       <span class="information-input" >
                         <input type="checkbox" class="" name="wpjobus_company_publish_email"  value="publish_email" <?php if (!empty($wpjobus_company_publish_email)) { ?>checked<?php } ?> placeholder="">Công khai địa chỉ email của tôi                 </span>
                       </span>
                     </span>
                                 </div>
                             </div>
-                            <div class="">
+                            <div class="col-xs-6">
                                 <div class="contact-input">
                     <span class="information-input">
                       <span class="label-title" >
@@ -438,7 +437,7 @@ if(empty($wpjobus_company_latitude)) {
                     </span>
                                 </div>
                             </div>
-                       
+                        </div>
                         <div class="information-input">
                 <span class="label-title" >
                   <h3>Địa chỉ Google Maps:</h3>
@@ -481,31 +480,31 @@ if(empty($wpjobus_company_latitude)) {
                                 google.maps.event.addDomListener(window, 'load', initialize);
                             </script>
                             <div class="row">
-              <div class="col-md-6">
-                <div class="Skills-needed-1">
+                                <div class="col-md-6">
+                                    <div class="Skills-needed-1">
                   <span class="label-title">
                     <h3>Vĩ độ:</h3>
                   </span>
-                  <span class="Skills-needed-2">
+                                        <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
                     <input type="text" id="latitude" name="wpjobus_company_latitude" value="0" class="input-textarea">
                  </span>
-                  <p id="error" style="color: red;display:none;font-size: 16px;"></p>
-                </div>
-              </div>
-              <div class="col-md-6">
-               <div class="Skills-needed-1">
+                                        <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="Skills-needed-1">
                   <span class="label-title">
                      <h3>Kinh độ:</h3>
                   </span>
-                  <span class="Skills-needed-2">
+                                        <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
                     <input type="text" id="longitude" name="wpjobus_company_longitude" value="0" class="input-textarea valid">
                    </span>
-                  <p id="error" style="color: red;display:none;font-size: 16px;"></p>
-                </div>
-              </div>
-            </div>
+                                        <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -515,19 +514,21 @@ if(empty($wpjobus_company_latitude)) {
                         <h1 class="resume-section-title"><i class="fa fa-bar-chart-o"></i>  Dịch vụ</h1>
                         <h3 class="resume-section-subtitle" >Mô tả dịch vụ và chuyên môn của công ty bạn.</h3>
                     </div>
-                    <?php
+                    <div class="company_services">
+                        <?php
 
-                    $wpjobus_company_services = get_post_meta($postID, 'wpjobus_company_services',true);
+                        $wpjobus_company_services = get_post_meta($postID, 'wpjobus_company_services',true);
 
-                    for ($i = 0; $i < (count($wpjobus_company_services)); $i++) {
+                        for ($i = 0; $i < (count($wpjobus_company_services)); $i++) {
 
-                    ?>
-                    <span class="information-input">
-              <h3>Dịch vụ <?php $i+1;?></h3>
+                        ?>
+                        <div class="row_services">
+                 <span class="information-input">
+              <h3>Dịch vụ <?php echo  $i+1;?></h3>
           </span>
-                    <div class="row">
+                            <div class="row">
 
-                        <div class="col-md-6">
+                                <div class="col-md-6">
               <span class="information-input">
                 <span class="label-title">
                   <h3 class="skill-item-title">Tên dịch vụ</h3>
@@ -540,7 +541,7 @@ if(empty($wpjobus_company_latitude)) {
                    </span>
               </span>
 
-                            <span class="information-input">
+                                    <span class="information-input">
                 <span class="label-title">
                   <h3 class="skill-item-title">Mã code</h3>
                 </span>
@@ -552,9 +553,9 @@ if(empty($wpjobus_company_latitude)) {
                    </span>
               </span>
 
-                        </div>
+                                </div>
 
-                        <div class="col-md-6">
+                                <div class="col-md-6">
               <span class="information-input">
                  <span class="label-title">
                  <h3 class="skill-item-title">Nội dung</h3>
@@ -564,19 +565,23 @@ if(empty($wpjobus_company_latitude)) {
                              id="wpjobus_company_services[<?php echo $i; ?>][2]" rows="5"><?php if (!empty($wpjobus_company_services[$i][2])) echo $wpjobus_company_services[$i][2]; ?></textarea>
                </span>
               </span>
-                        </div>
-                        <?php
-                        }
-                        ?>
+                                </div>
+                            </div>
 
-                        <div class="delete-add">
-                            <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                            <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm dịch vụ
-                                mới</a>
+                            <?php
+                            }
+                            ?>
+
                         </div>
-                        <div class="divider"></div>
+
 
                     </div>
+                    <div class="delete-add">
+                        <button type="button" class="delete_service"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                        <button type="button" class="add_service"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm dịch vụ mới</button>
+                    </div>
+                    <div class="divider"></div>
+
                     <div class="additional">
                         <div class="information-input">
               <span class="label-title">
@@ -597,18 +602,20 @@ if(empty($wpjobus_company_latitude)) {
                         <h1 class="resume-section-title"><i class="fa fa-users" aria-hidden="true"></i>  Khách hàng</h1>
                         <h3 class="resume-section-subtitle" >Liệt kê danh sách các khách hàng, đối tác của công ty bạn</h3>
                     </div>
-                    <?php
+                    <div class="company_clients">
+                        <?php
 
-                    $wpjobus_company_clients = get_post_meta($postID, 'wpjobus_company_clients',true);
+                        $wpjobus_company_clients = get_post_meta($postID, 'wpjobus_company_clients',true);
 
-                    for ($i = 0; $i < (count($wpjobus_company_clients)); $i++) {
+                        for ($i = 0; $i < (count($wpjobus_company_clients)); $i++) {
 
-                        ?>
-                        <span class="information-input">
-            <h3>khách hàng <?php echo $i+1; ?></h3>
-          </span>
-                        <div class="row">
-                            <div class="col-md-6">
+                            ?>
+                            <div class="row_client">
+                 <span class="information-input">
+                <h3>Khách hàng <?php echo $i+1; ?></h3>
+              </span>
+                                <div class="row">
+                                    <div class="col-md-6">
               <span class="information-input">
                 <span class="label-title">
                   <h3>Tên khách hàng</h3>
@@ -619,7 +626,7 @@ if(empty($wpjobus_company_latitude)) {
                          vk_17ced="subscribed">
                 </span>
               </span>
-                                <span class="information-input">
+                                        <span class="information-input">
                 <span class="label-title">
                   <h3>Giai đoạn</h3>
                 </span>
@@ -631,7 +638,7 @@ if(empty($wpjobus_company_latitude)) {
                 </span>
               </span>
 
-                                <span class="information-input">
+                                        <span class="information-input">
                 <span class="label-title">
                   <h3 class="skill-item-title">Website khách hàng:</h3>
                 </span>
@@ -641,8 +648,8 @@ if(empty($wpjobus_company_latitude)) {
                              value="<?php if (!empty($wpjobus_company_clients[$i][4])) echo $wpjobus_company_clients[$i][4]; ?>" class="criteria_location" placeholder="" style="width: 100%;">
                    </span>
               </span>
-                            </div>
-                            <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-6">
 
               <span class="information-input">
                 <span class="label-title">
@@ -654,7 +661,7 @@ if(empty($wpjobus_company_latitude)) {
                          class="criteria_name_two" placeholder="" style="width: 100%;">
                 </span>
               </span>
-                                <span class="information-input">
+                                        <span class="information-input">
                 <span class="label-title">
                   <h3 class="skill-item-title">Ghi chú</h3>
                 </span>
@@ -665,35 +672,40 @@ if(empty($wpjobus_company_latitude)) {
                   </textarea>
                 </span>
               </span>
+                                    </div>
+
+                                </div>
                             </div>
-                            <div class="delete-add">
-                                <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                                <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách hàng mới</a>
-                            </div>
-                        </div>
-                        <?php
-                    }
-                    ?>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="delete-add">
+                        <button type="button" class="delete_client"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                        <button type="button" class="add_client"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách hàng mới</button>
+                    </div>
                 </div>
                 <div class="divider"></div>
                 <div class="personal-project">
                     <div class="title-top">
-                        <h1 class="resume-section-title"><i class="fa fa-bookmark"></i>  Chứng Thực</h1>
+                        <h1 class="resume-section-title"><i class="fa fa-bookmark"></i>Chứng Thực</h1>
                         <h3 class="resume-section-subtitle" >Hãy nhập thông tin chứng thực về doanh nghiệp của bạn.</h3>
                     </div>
-                    <?php
+                    <div class="company_testimonials">
+                        <?php
 
-                    $wpjobus_company_testimonials = get_post_meta($postID, 'wpjobus_company_testimonials',true);
+                        $wpjobus_company_testimonials = get_post_meta($postID, 'wpjobus_company_testimonials',true);
 
-                    for ($i = 0; $i < (count($wpjobus_company_testimonials)); $i++) {
+                        for ($i = 0; $i < (count($wpjobus_company_testimonials)); $i++) {
 
-                        ?>
+                            ?>
+                            <div class="row_testimonial">
 
-                        <span class="information-input">
+                <span class="information-input">
               <h3>Dự án <?php echo $i+1;?></h3>
           </span>
-                        <div class="row">
-                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
               <span class="information-input">
                 <span class="label-title">
                   <h3>Họ và tên:</h3>
@@ -704,7 +716,7 @@ if(empty($wpjobus_company_latitude)) {
                          class="criteria_name" placeholder="" style="width: 100%;">
                    </span>
               </span>
-                                <span class="information-input">
+                                        <span class="information-input">
                 <span class="label-title">
                   <h3>Cơ quan</h3>
                 </span>
@@ -714,7 +726,7 @@ if(empty($wpjobus_company_latitude)) {
                          class="criteria_name_two" placeholder="" style="width: 100%;">
                     </span>
               </span>
-                                <span class="information-input">
+                                        <span class="information-input">
                 <span class="label-title">
                   <h3 class="skill-item-title">Ghi chú:</h3>
                 </span>
@@ -725,8 +737,8 @@ if(empty($wpjobus_company_latitude)) {
                  </textarea>
                   </span>
               </span>
-                            </div>
-                            <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-6">
               <span class="img-upload">
                 <span class="label-title">
                   <h3 class="skill-item-title">
@@ -781,17 +793,18 @@ if(empty($wpjobus_company_latitude)) {
                       </script>
                 </span>
               </span>
-                            </div>
-                            <div class="delete-add">
-                                <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                                <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm lời chứng thực
-                                    mới</a>
-                            </div>
-                        </div>
-                        <?php
+                                    </div>
 
-                    }
-                    ?>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+                <div class="delete-add">
+                    <button type="button" class="delete_testimonial"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                    <button type="button" class="add_testimonial"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm lời chứng thực mới</button>
                 </div>
 
                 <div class="divider"></div>
@@ -801,49 +814,56 @@ if(empty($wpjobus_company_latitude)) {
                         <h1 class="resume-section-title"><i class="fa fa-bookmark"></i>  Sản phẩm doanh nghiệp</h1>
                         <h3 class="resume-section-subtitle" >Tải lên những dự án tốt nhất của bạn</h3>
                     </div>
-                    <?php
+                    <div class="company_portfolio">
+                        <?php
 
-                    $wpjobus_company_portfolio = get_post_meta($postID, 'wpjobus_company_portfolio',true);
+                        $wpjobus_company_portfolio = get_post_meta($postID, 'wpjobus_company_portfolio',true);
 
-                    for ($i = 0; $i < (count($wpjobus_company_portfolio)); $i++) {
+                        for ($i = 0; $i < (count($wpjobus_company_portfolio)); $i++) {
 
-                    ?>
-                    <span class="information-input">
+                            ?>
+                            <div class="row_portfolio">
+        <span class="information-input">
               <h3>Dự án 1</h3>
           </span>
-                    <div class="row">
-                        <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
               <span class="information-input">
                 <span class="label-title">
                   <h3>Tên dự án:</h3>
                 </span>
                 <span class="three_fifth">
                   <i class="fa fa-users" aria-hidden="true"></i>
-                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i;?>][0]" name="wpjobus_company_portfolio[<?php echo $i;?>][0]"
-                         value="<?php if (!empty($wpjobus_company_portfolio[$i][0])) echo $wpjobus_company_portfolio[$i][0]; ?>" class="criteria_name" placeholder="" style="width: 100%;">
+                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i; ?>][0]"
+                         name="wpjobus_company_portfolio[<?php echo $i; ?>][0]"
+                         value="<?php if (!empty($wpjobus_company_portfolio[$i][0])) echo $wpjobus_company_portfolio[$i][0]; ?>"
+                         class="criteria_name" placeholder="" style="width: 100%;">
                    </span>
               </span>
-                            <span class="information-input">
+                                        <span class="information-input">
                 <span class="label-title">
                   <h3>Danh mục</h3>
                 </span>
                 <span class="three_fifth">
                    <i class="fa fa-th-large" aria-hidden="true"></i>
-                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i;?>][1]" name="wpjobus_company_portfolio[<?php echo $i;?>][1]"
-                         value="<?php if (!empty($wpjobus_company_portfolio[$i][1])) echo $wpjobus_company_portfolio[$i][1]; ?>" class="criteria_name_two" placeholder="" style="width: 100%;">
+                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i; ?>][1]"
+                         name="wpjobus_company_portfolio[<?php echo $i; ?>][1]"
+                         value="<?php if (!empty($wpjobus_company_portfolio[$i][1])) echo $wpjobus_company_portfolio[$i][1]; ?>"
+                         class="criteria_name_two" placeholder="" style="width: 100%;">
                     </span>
               </span>
-                            <span class="information-input">
+                                        <span class="information-input">
                 <span class="label-title">
                   <h3 class="skill-item-title">Ghi chú:</h3>
                 </span>
                 <span class="three_fifth">
-                 <textarea class="criteria_notes" name="wpjobus_company_portfolio[<?php echo $i;?>][2]"
-                           id="wpjobus_resume_portfolio[<?php echo $i;?>][2]" cols="70" rows="4"><?php if (!empty($wpjobus_company_portfolio[$i][2])) echo $wpjobus_company_portfolio[$i][2]; ?></textarea>
+                 <textarea class="criteria_notes" name="wpjobus_company_portfolio[<?php echo $i; ?>][2]"
+                           id="wpjobus_resume_portfolio[<?php echo $i; ?>][2]" cols="70"
+                           rows="4"><?php if (!empty($wpjobus_company_portfolio[$i][2])) echo $wpjobus_company_portfolio[$i][2]; ?></textarea>
                   </span>
               </span>
-                        </div>
-                        <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-6">
               <span class="img-upload">
                 <span class="label-title">
                   <h3 class="skill-item-title">
@@ -852,17 +872,17 @@ if(empty($wpjobus_company_latitude)) {
                     <?php if (!empty($wpjobus_company_portfolio[$i][3])) {
 
                         ?>
-                        <img id="img_product" src="<?php  echo $wpjobus_company_portfolio[$i][3];?>" width="200"/>
+                        <img id="img_product" src="<?php echo $wpjobus_company_portfolio[$i][3]; ?>" width="200"/>
                         <?php
-                    }
-                    else{
+                    } else {
                         ?>
                         <img id="img_product" src="" width="200" style="display:none;"/>
                         <?php
                     }
                     ?>
 
-                    <input name="wpjobus_company_portfolio[<?php echo $i;?>][3]" type="hidden" id="portfolio_name" value="<?php echo $wpjobus_company_portfolio[$i][3];?>">
+                    <input name="wpjobus_company_portfolio[<?php echo $i; ?>][3]" type="hidden" id="portfolio_name"
+                           value="<?php echo $wpjobus_company_portfolio[$i][3]; ?>">
 
                       <script>
                              function upload_product() {
@@ -887,37 +907,42 @@ if(empty($wpjobus_company_latitude)) {
                              }
                              $('#file_product').change(function (event) {
                                  $("#img_product").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
-                                 var src= $('#file_product').val();
-                                 var file= src.match(/[-_\w]+[.][\w]+$/i)[0];
-                                 var upload_file="<?php echo $upload_dir['url'];?>/"+ file;
+                                 var src = $('#file_product').val();
+                                 var file = src.match(/[-_\w]+[.][\w]+$/i)[0];
+                                 var upload_file = "<?php echo $upload_dir['url'];?>/" + file;
                                  $('#portfolio_name').val(upload_file);
 
                              });
                       </script>
                 </span>
               </span>
-                        </div>
-                        <?php
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
                         }
                         ?>
-                        <div class="delete-add">
-                            <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                            <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm lời chứng thực mới</a>
-                        </div>
+
                     </div>
 
-                </div>
-                <div class="divider"></div>
-                <div class="button">
-                    <p>
-                        <input type="submit" id="save_draf" name="save_draf" value="Lưu nháp"/>
-                        <input type="submit" class="save_add_company" id="save_pending" name="save_pending" value="Gửi hồ sơ công ty để xem xét"/>
-                    </p>
+                    <div class="delete-add">
+                        <button type="button" class="delete_portfolio"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                        <button type="button" class="add_portfolio"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm dự án</button>
+                    </div>
                 </div>
 
             </div>
-        </form>
-    
+            <div class="divider"></div>
+            <div class="button">
+                <p>
+                    <input type="submit" id="save_draf" name="save_draf" value="Lưu nháp"/>
+                    <input type="submit" class="save_add_company" id="save_pending" name="save_pending" value="Gửi hồ sơ công ty để xem xét"/>
+                </p>
+            </div>
+
+    </div>
+    </form>
+</div>
 </div>
 </div>
 <?php

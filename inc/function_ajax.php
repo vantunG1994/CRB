@@ -34,7 +34,204 @@ add_action('admin_footer', 'dvd_action_javascript');
 add_action( 'wp_footer', 'dvd_action_javascript' );
 function dvd_action_javascript() {
     ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            jQuery(".add_testimonial").click(function() {
+                var numItems = jQuery('.row_testimonial').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_testimonial', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".company_testimonials").html(resp);
 
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_service").click(function() {
+                var numItems = jQuery('.row_services').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_service', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".company_services").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_award").click(function() {
+                var numItems = jQuery('.row_resume_award').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_award', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".resume_award").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_education").click(function() {
+                var numItems = jQuery('.row_resume_education').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_education', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".resume_education").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_resume_skill").click(function() {
+                var numItems = jQuery('.row_resume_skill').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_resume_skill', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".resume_skills").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_client").click(function() {
+                var numItems = jQuery('.row_client').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_client', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".company_clients").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_resume_language").click(function() {
+                var numItems = jQuery('.row_resume_language').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_resume_language', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".resume_languages").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_work").click(function() {
+                var numItems = jQuery('.row_resume_work').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_work', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".resume_work").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_benefit").click(function() {
+                var numItems = jQuery('.row_benefit').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_benefit', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".job_benefits").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_resume_portfolio").click(function() {
+                var numItems = jQuery('.row_resume_portfolio').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_resume_portfolio', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".resume_portfolio").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_skill").click(function() {
+                var numItems = jQuery('.row_skill').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_skill', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".job_skills").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_language").click(function() {
+                var numItems = jQuery('.row_language').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_language', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".job_languages").html(resp);
+
+                    }
+                });
+
+            });
+        });
+        jQuery(document).ready(function($) {
+            jQuery(".add_portfolio").click(function() {
+                var numItems = jQuery('.row_portfolio').length;
+                $.ajax({
+                    type : 'POST',
+                    data : {'action' : 'add_portfolio', 'data' :numItems},
+                    url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                    success : function (resp){
+                        jQuery(".company_portfolio").html(resp);
+
+                    }
+                });
+
+            });
+        });
+
+    </script>
 
     <script type="text/javascript">
         jQuery(document).ready(function($) {
@@ -575,6 +772,1008 @@ for($i=1;$i<=4;$i++) {
     </script>
 
 <?php
+}
+add_action('wp_ajax_add_portfolio', 'add_portfolio');
+add_action('wp_ajax_nopriv_add_portfolio', 'add_portfolio');
+
+function add_portfolio()
+{
+    $portfolio = $_POST["data"];
+    $num_portfolio = $portfolio + 1;
+
+    for ($i = 0; $i < $num_portfolio; $i++) {
+        ?>
+        <div class="row_portfolio">
+        <span class="information-input">
+              <h3>Dự án <?php echo $i+1; ?></h3>
+          </span>
+        <div class="row">
+            <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3>Tên dự án:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i;?>][0]" name="wpjobus_company_portfolio[<?php echo $i;?>][0]"
+                         value="<?php if (!empty($wpjobus_company_portfolio[$i][0])) echo $wpjobus_company_portfolio[$i][0]; ?>" class="criteria_name" placeholder="" style="width: 100%;">
+                   </span>
+              </span>
+                <span class="information-input">
+                <span class="label-title">
+                  <h3>Danh mục</h3>
+                </span>
+                <span class="three_fifth">
+                   <i class="fa fa-th-large" aria-hidden="true"></i>
+                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i;?>][1]" name="wpjobus_company_portfolio[<?php echo $i;?>][1]"
+                         value="<?php if (!empty($wpjobus_company_portfolio[$i][1])) echo $wpjobus_company_portfolio[$i][1]; ?>" class="criteria_name_two" placeholder="" style="width: 100%;">
+                    </span>
+              </span>
+                <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Ghi chú:</h3>
+                </span>
+                <span class="three_fifth">
+                 <textarea class="criteria_notes" name="wpjobus_company_portfolio[<?php echo $i;?>][2]"
+                           id="wpjobus_resume_portfolio[<?php echo $i;?>][2]" cols="70" rows="4"><?php if (!empty($wpjobus_company_portfolio[$i][2])) echo $wpjobus_company_portfolio[$i][2]; ?></textarea>
+                  </span>
+              </span>
+            </div>
+            <div class="col-md-6">
+              <span class="img-upload">
+                <span class="label-title">
+                  <h3 class="skill-item-title">
+                    <i class="fa fa-picture-o"></i> Hình ảnh</h3>
+                      <input onchange="upload_product();return false;" type="file" id="file_product" value="">
+                    <?php if (!empty($wpjobus_company_portfolio[$i][3])) {
+
+                        ?>
+                        <img id="img_product" src="<?php  echo $wpjobus_company_portfolio[$i][3];?>" width="200"/>
+                        <?php
+                    }
+                    else{
+                        ?>
+                        <img id="img_product" src="" width="200" style="display:none;"/>
+                        <?php
+                    }
+                    ?>
+
+                    <input name="wpjobus_company_portfolio[<?php echo $i;?>][3]" type="hidden" id="portfolio_name" value="<?php echo $wpjobus_company_portfolio[$i][3];?>">
+
+                      <script>
+                             function upload_product() {
+                                 var formData = new FormData();
+                                 formData.append("action", "upload-attachment");
+
+                                 var fileInputElement = document.getElementById("file_product");
+                                 formData.append("async-upload", fileInputElement.files[0]);
+                                 formData.append("name", fileInputElement.files[0].name);
+
+                                 //also available on page from _wpPluploadSettings.defaults.multipart_params._wpnonce
+                                 <?php $my_nonce = wp_create_nonce('media-form'); ?>
+                                 formData.append("_wpnonce", "<?php echo $my_nonce; ?>");
+                                 var xhr = new XMLHttpRequest();
+                                 xhr.onreadystatechange = function () {
+                                     if (xhr.readyState == 4 && xhr.status == 200) {
+                                         console.log(xhr.responseText);
+                                     }
+                                 }
+                                 xhr.open("POST", "/wp-admin/async-upload.php", true);
+                                 xhr.send(formData);
+                             }
+                             $('#file_product').change(function (event) {
+                                 $("#img_product").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+                                 var src= $('#file_product').val();
+                                 var file= src.match(/[-_\w]+[.][\w]+$/i)[0];
+                                 var upload_file="<?php echo $upload_dir['url'];?>/"+ file;
+                                 $('#portfolio_name').val(upload_file);
+
+                             });
+                      </script>
+                </span>
+              </span>
+            </div>
+        </div>
+    </div>
+
+    <?php
+
+    }
+    die();
+}
+add_action('wp_ajax_add_testimonial', 'add_testimonial');
+add_action('wp_ajax_nopriv_add_testimonial', 'add_testimonial');
+
+function add_testimonial()
+{
+    $testimonial = $_POST["data"];
+    $num_testimonial = $testimonial + 1;
+for ($i = 0; $i < $num_testimonial; $i++) {
+
+    ?>
+    <div class="row_testimonial">
+
+                <span class="information-input">
+              <h3>Dự án <?php echo $i+1;?></h3>
+          </span>
+        <div class="row">
+            <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3>Họ và tên:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  <input type="text" id="wpjobus_company_testimonials[<?php echo $i;?>][0]" name="wpjobus_company_testimonials[<?php echo $i;?>][0]" value="<?php if (!empty($wpjobus_company_testimonials[$i][0])) echo $wpjobus_company_testimonials[$i][0]; ?>"
+                         class="criteria_name" placeholder="" style="width: 100%;">
+                   </span>
+              </span>
+                <span class="information-input">
+                <span class="label-title">
+                  <h3>Cơ quan</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-university" aria-hidden="true"></i>
+                  <input type="text" id="wpjobus_company_testimonials[<?php echo $i;?>][1]" name="wpjobus_company_testimonials[<?php echo $i;?>][1]" value="<?php if (!empty($wpjobus_company_testimonials[$i][1])) echo $wpjobus_company_testimonials[$i][1]; ?>"
+                         class="criteria_name_two" placeholder="" style="width: 100%;">
+                    </span>
+              </span>
+                <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Ghi chú:</h3>
+                </span>
+                <span class="three_fifth">
+                 <textarea class="criteria_notes" name="wpjobus_company_testimonials[<?php echo $i;?>][2]"
+                           id="wpjobus_company_testimonials[<?php echo $i;?>][2]" cols="70" rows="4">
+                     <?php if (!empty($wpjobus_company_testimonials[$i][2])) echo $wpjobus_company_testimonials[$i][2]; ?>
+                 </textarea>
+                  </span>
+              </span>
+            </div>
+            <div class="col-md-6">
+              <span class="img-upload">
+                <span class="label-title">
+                  <h3 class="skill-item-title">
+                    <i class="fa fa-picture-o"></i> Hình ảnh</h3>
+                     <input onchange="upload_portfolio();return false;" type="file" id="file_portfolio" value="">
+                    <?php
+                    if (!empty($wpjobus_company_testimonials[$i][3])) {
+
+                        ?>
+                        <img id="img_portfolio" src="<?php  echo $wpjobus_company_testimonials[$i][3];?>" width="200" />
+
+                        <?php
+                    }
+                    else{
+                        ?>
+                        <img id="img_portfolio" src="" width="200" style="display:none;"/>
+
+                        <?php
+                    }
+                    ?>
+                    <input name="wpjobus_company_testimonials[<?php echo $i;?>][3]" type="hidden" id="portfolio_file" value="<?php  echo $wpjobus_company_testimonials[$i][3];?>">
+
+                      <script>
+                             function upload_portfolio() {
+                                 var formData = new FormData();
+                                 formData.append("action", "upload-attachment");
+
+                                 var fileInputElement = document.getElementById("file_portfolio");
+                                 formData.append("async-upload", fileInputElement.files[0]);
+                                 formData.append("name", fileInputElement.files[0].name);
+
+                                 //also available on page from _wpPluploadSettings.defaults.multipart_params._wpnonce
+                                 <?php $my_nonce = wp_create_nonce('media-form'); ?>
+                                 formData.append("_wpnonce", "<?php echo $my_nonce; ?>");
+                                 var xhr = new XMLHttpRequest();
+                                 xhr.onreadystatechange = function () {
+                                     if (xhr.readyState == 4 && xhr.status == 200) {
+                                         console.log(xhr.responseText);
+                                     }
+                                 }
+                                 xhr.open("POST", "/wp-admin/async-upload.php", true);
+                                 xhr.send(formData);
+                             }
+                             $('#file_portfolio').change(function (event) {
+                                 $("#img_portfolio").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+                                 var src= $('#file_portfolio').val();
+                                 var file= src.match(/[-_\w]+[.][\w]+$/i)[0];
+                                 var upload_file="<?php echo $upload_dir['url'];?>/"+ file;
+                                 $('#portfolio_file').val(upload_file);
+
+                             });
+                      </script>
+                </span>
+              </span>
+            </div>
+
+        </div>
+    </div>
+
+    <?php
+}
+die();
+}
+
+add_action('wp_ajax_add_language', 'add_language');
+add_action('wp_ajax_nopriv_add_language', 'add_language');
+
+function add_language()
+{
+    $language = $_POST["data"];
+    $num_language = $language + 1;
+
+    for ($i = 0; $i < $num_language; $i++) {
+
+        ?>
+        <div class="row_language">
+            <div class="col-xs-6">
+                <div class="contact-input">
+                  <span class="information-input">
+                    <span class="label-title">
+                      <h3>Ngoại ngữ <?php echo $i+1;?>:</h3>
+                    </span>
+                    <span class="three_fifth">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      <input type='text' id="wpjobus_job_languages[<?php echo $i; ?>][0]" class="resume_lang_title" name='wpjobus_job_languages[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_job_languages[$i][0])) echo $wpjobus_job_languages[$i][0]; ?>' placeholder="" />
+                    </span>
+                  </span>
+                    <span class="information-input">
+                    <span class="label-title">
+                      <h3>Kĩ năng nói:</h3>
+                    </span>
+                    <span class="three_fifth">
+                      <i class="fa fa-bullhorn"></i>
+                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_speaking" name="wpjobus_job_languages[<?php echo $i; ?>][2]" id="wpjobus_job_languages[<?php echo $i; ?>][2]" style="width: 100%; margin-right: 10px;">
+                        <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+                        <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+                        <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+                        <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+                        <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][2])) { selected( $wpjobus_job_languages[$i][2], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+                      </select>
+                    </span>
+                  </span>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="contact-input">
+                  <span class="information-input">
+                    <span class="label-title">
+                      <h3>Thông thạo:</h3>
+                    </span>
+                    <span class="three_fifth">
+                      <i class="fa fa-cubes" aria-hidden="true"></i>
+                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_understanding" name="wpjobus_job_languages[<?php echo $i; ?>][1]" id="wpjobus_job_languages[<?php echo $i; ?>][1]" style="width: 100%; margin-right: 10px;">
+                        <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+                        <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+                        <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+                        <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+                        <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][1])) { selected( $wpjobus_job_languages[$i][1], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+                      </select>
+                    </span>
+                  </span>
+                    <span class="information-input">
+                    <span class="label-title">
+                      <h3>Kĩ năng viết:</h3>
+                    </span>
+                    <span class="three_fifth">
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                      <select  vk_162b1="subscribed" vk_17ced="subscribed" class="resume_lang_writing" name="wpjobus_job_languages[<?php echo $i; ?>][3]" id="wpjobus_job_languages[<?php echo $i; ?>][3]" style="width: 100%; margin-right: 10px;">
+                        <option value='Level 1' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+                        <option value='Level 2' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+                        <option value='Level 3' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+                        <option value='Level 4' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+                        <option value='Level 5' <?php if(!empty($wpjobus_job_languages[$i][3])) { selected( $wpjobus_job_languages[$i][3], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+                      </select>
+                    </span>
+                  </span>
+                </div>
+            </div>
+
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_skill', 'add_skill');
+add_action('wp_ajax_nopriv_add_skill', 'add_skill');
+
+function add_skill()
+{
+    $skill = $_POST["data"];
+    $num_skill = $skill + 1;
+
+    for ($i = 0; $i < $num_skill; $i++) {
+
+        ?>
+        <div class="row_skill">
+            <div class="col-md-6">
+                <div class="Skills-needed-1">
+                  <span class="label-title">
+                    <h3>Kĩ năng <?php echo $i+1;?> :</h3>
+                  </span>
+                    <span class="Skills-needed-2">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_skills[$i][0])) echo $wpjobus_job_skills[$i][0]; ?>" placeholder="" vk_1ffd1="subscribed">
+                  </span>
+                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="Skills-needed-1">
+                  <span class="label-title">
+                    <h3>Giá trị :</h3>
+                  </span>
+                    <span class="Skills-needed-2">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <input class="input-lg" type="text"  name='wpjobus_job_skills[<?php echo $i; ?>][1]' value="<?php if (!empty($wpjobus_job_skills[$i][1])) echo $wpjobus_job_skills[$i][1]; ?>" placeholder="70%" vk_1ffd1="subscribed">
+                  </span>
+                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                </div>
+            </div>
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_benefit', 'add_benefit');
+add_action('wp_ajax_nopriv_add_benefit', 'add_benefit');
+
+function add_benefit()
+{
+    $benefit = $_POST["data"];
+    $num_benefit = $benefit + 1;
+
+    for ($i = 0; $i < $num_benefit; $i++) {
+
+        ?>
+        <div class="row_benefit">
+            <div class="col-md-6">
+                <div class="price-welfare-1">
+                <span class="label-title">
+                  <h3>Tên phúc lợi <?php echo $i+1;?>:</h3>
+                </span>
+                    <span class="price-welfare-day">
+                  <i class="fa fa-gift" aria-hidden="true"></i>
+                  <input class="input-lg" type="text"  name='wpjobus_job_benefits[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_job_benefits[$i][0])) echo $wpjobus_job_benefits[$i][0]; ?>" placeholder="Nhập phúc lợi" vk_1ffd1="subscribed">
+                </span>
+                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="price-welfare-1">
+                <span class="label-title">
+                  <h3>Mô tả phúc lợi:</h3>
+                </span>
+                    <span class="price-welfare-day">
+                  <textarea row="20"  name='wpjobus_job_benefits[<?php echo $i; ?>][1]'  placeholder="Nhập nội dung mô tả">
+                  <?php
+                  if (!empty($wpjobus_job_benefits[$i][1])) echo $wpjobus_job_benefits[$i][1]; ?>
+                  </textarea>
+                </span>
+                </div>
+            </div>
+
+        </div>
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_resume_portfolio', 'add_resume_portfolio');
+add_action('wp_ajax_nopriv_add_resume_portfolio', 'add_resume_portfolio');
+
+function add_resume_portfolio()
+{
+    $resume_portfolio = $_POST["data"];
+    $num_resume_portfolio = $resume_portfolio + 1;
+
+    for ($i = 0; $i < $num_resume_portfolio; $i++) {
+
+        ?>
+        <div class="row_resume_portfolio">
+                <span class="information-input">
+              <h3>Dự án <?php echo $i+1; ?></h3>
+          </span>
+            <div class="row">
+                <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3>Tên dự án </h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                    <input type='text' id='wpjobus_resume_portfolio[<?php echo $i; ?>][0]' name='wpjobus_resume_portfolio[<?php echo $i; ?>][0]' value='<?php if (!empty($wpjobus_resume_portfolio[$i][0])) echo $wpjobus_resume_portfolio[$i][0]; ?>' class='criteria_name' placeholder="" style="width: 100%;">
+
+                   </span>
+              </span>
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3>Danh mục</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-th-large" aria-hidden="true"></i>
+                <input type='text' id='wpjobus_resume_portfolio[<?php echo $i; ?>][1]' name='wpjobus_resume_portfolio[<?php echo $i; ?>][1]' value='<?php if (!empty($wpjobus_resume_portfolio[$i][1])) echo $wpjobus_resume_portfolio[$i][1]; ?>' class='criteria_name_two' placeholder="" style="width: 100%;">
+
+                    </span>
+              </span>
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Ghi chú:</h3>
+                </span>
+                <span class="three_fifth">
+               <textarea class="criteria_notes" name="wpjobus_resume_portfolio[<?php echo $i; ?>][2]" id='pjobus_resume_portfolio[<?php echo $i; ?>][2]' cols="70" rows="4" ><?php if (!empty($pjobus_resume_portfolio[$i][2])) echo $pjobus_resume_portfolio[$i][2]; ?></textarea>
+
+                  </span>
+              </span>
+                </div>
+                <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Hình ảnh</h3>
+                        <input onchange="upload_product();return false;" type="file" id="file_product" value="">
+                    <?php if (!empty($wpjobus_resume_portfolio[$i][3])) {
+
+                        ?>
+                        <img id="img_product" src="<?php echo $wpjobus_resume_portfolio[$i][3]; ?>" width="200"/>
+                        <?php
+                    } else {
+                        ?>
+                        <img id="img_product" src="" width="200" style="display:none;"/>
+                        <?php
+                    }
+                    ?>
+
+                    <input name="wpjobus_resume_portfolio[<?php echo $i; ?>][3]" type="hidden" id="portfolio_name"
+                           value="<?php echo $wpjobus_resume_portfolio[$i][3]; ?>">
+
+                      <script>
+                             function upload_product() {
+                                 var formData = new FormData();
+                                 formData.append("action", "upload-attachment");
+
+                                 var fileInputElement = document.getElementById("file_product");
+                                 formData.append("async-upload", fileInputElement.files[0]);
+                                 formData.append("name", fileInputElement.files[0].name);
+
+                                 //also available on page from _wpPluploadSettings.defaults.multipart_params._wpnonce
+                                 <?php $my_nonce = wp_create_nonce('media-form'); ?>
+                                 formData.append("_wpnonce", "<?php echo $my_nonce; ?>");
+                                 var xhr = new XMLHttpRequest();
+                                 xhr.onreadystatechange = function () {
+                                     if (xhr.readyState == 4 && xhr.status == 200) {
+                                         console.log(xhr.responseText);
+                                     }
+                                 }
+                                 xhr.open("POST", "/wp-admin/async-upload.php", true);
+                                 xhr.send(formData);
+                             }
+                             $('#file_product').change(function (event) {
+                                 $("#img_product").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
+                                 var src = $('#file_product').val();
+                                 var file = src.match(/[-_\w]+[.][\w]+$/i)[0];
+                                 var upload_file = "<?php echo $upload_dir['url'];?>/" + file;
+                                 $('#portfolio_name').val(upload_file);
+
+                             });
+                      </script>
+                </span>
+              </span>
+                </div>
+
+            </div>
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_work', 'add_work');
+add_action('wp_ajax_nopriv_add_work', 'add_work');
+
+function add_work()
+{
+    $work = $_POST["data"];
+    $num_work = $work + 1;
+
+    for ($i = 0; $i < $num_work; $i++) {
+
+        ?>
+        <div class="row_resume_work">
+                <span class="information-input">
+            <span class="label-title">
+              <h3>Kinh nghiệm làm việc <?php echo $i+1; ?></h3>
+            </span>
+
+          </span>
+            <div class="row">
+                <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3>Tên tổ chức </h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                 	<input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][0]' name='wpjobus_resume_work[<?php echo $i; ?>][0]' value='<?php if (!empty($wpjobus_resume_work[$i][0])) echo $wpjobus_resume_work[$i][0]; ?>' class='criteria_name' placeholder="" style="width: 100%; float: left;">
+
+                </span>
+              </span>
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3>Giai đoạn</h3>
+                </span>
+                <span class="three_fifth">
+          	<input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][2]' name='wpjobus_resume_work[<?php echo $i; ?>][2]' value='<?php if (!empty($wpjobus_resume_work[$i][2])) echo $wpjobus_resume_work[$i][2]; ?>' class='criteria_from_time' placeholder="" style="width: 40%;"> <span style="float: left; margin: 10px;"></span> <input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][3]' name='wpjobus_resume_work[<?php echo $i; ?>][3]' value='<?php if (!empty($wpjobus_resume_work[$i][3])) echo $wpjobus_resume_work[$i][3]; ?>' class='criteria_to_time' placeholder="" style="width: 40%;">
+
+                </span>
+              </span>
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Tỉnh thành:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][1]' name='wpjobus_resume_work[<?php echo $i; ?>][1]' value='<?php if (!empty($wpjobus_resume_work[$i][1])) echo $wpjobus_resume_work[$i][1]; ?>' class='criteria_name_two' placeholder="" style="width: 100%;">
+
+                </span>
+              </span>
+                </div>
+                <div class="col-md-6">
+
+              <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Chuyên môn</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                 <select class="resume_work_job_type" name="wpjobus_resume_work[<?php echo $i; ?>][4]" id="wpjobus_resume_work[<?php echo $i; ?>][4]" style="width: 100%; margin-right: 10px;">
+												<option value="Chính thức">Chính thức</option>
+												<option value="Bán thời gian">Bán thời gian</option>
+												<option value="Lao động tự do ">Lao động tự do </option>
+												<option value="Thực tập sinh">Thực tập sinh</option>
+											</select>
+                </span>
+              </span>
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Ghi chú</h3>
+                </span>
+                <span class="three_fifth">
+                <textarea class="criteria_notes" name="wpjobus_resume_work[<?php echo $i; ?>][5]" id='wpjobus_resume_work[<?php echo $i; ?>][5]' cols="70" rows="4" ><?php if (!empty($wpjobus_resume_work[$i][5])) echo $wpjobus_resume_work[$i][5]; ?></textarea>
+
+                </span>
+              </span>
+                </div>
+
+            </div>
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_award', 'add_award');
+add_action('wp_ajax_nopriv_add_award', 'add_award');
+
+function add_award()
+{
+    $award = $_POST["data"];
+    $num_award = $award + 1;
+
+    for ($i = 0; $i < $num_award; $i++) {
+
+        ?>
+        <div class="row_resume_award">
+                <span class="information-input">
+            <span class="label-title">
+              <h3>Giải thưởng <?php echo $i+1; ?></h3>
+            </span>
+
+          </span>
+            <div class="row">
+
+                <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Phần thưởng:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-cubes" aria-hidden="true"></i>
+             <input type='text' id="wpjobus_resume_award[<?php echo $i; ?>][0]" class="criteria_name" name='wpjobus_resume_award[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_resume_award[$i][0])) echo $wpjobus_resume_award[$i][0]; ?>' placeholder="" />
+
+                </span>
+              </span>
+
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Năm:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+              	<input type='text' id='wpjobus_resume_award[<?php echo $i; ?>][2]' name='wpjobus_resume_award[<?php echo $i; ?>][2]' value='<?php if (!empty($wpjobus_resume_award[$i][2])) echo $wpjobus_resume_award[$i][2]; ?>' class='criteria_from_time' placeholder="" style="width: 100%;">
+
+                </span>
+              </span>
+
+                </div>
+                <div class="col-md-6">
+
+              <span class="information-input">
+                <h3 class="skill-item-title">Tên cuộc thi:</h3>
+                <span class="three_fifth">
+                  <i class="fa fa-flag" aria-hidden="true"></i>
+                <input type='text' id='wpjobus_resume_award[<?php echo $i; ?>][1]' name='wpjobus_resume_award[<?php echo $i; ?>][1]' value='<?php if (!empty($wpjobus_resume_award[$i][1])) echo $wpjobus_resume_award[$i][1]; ?>' class='criteria_name_two' placeholder="" style="width: 100%;">
+
+                </span>
+              </span>
+
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Tỉnh thành:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <input type='text' id='wpjobus_resume_award[<?php echo $i; ?>][3]' name='wpjobus_resume_award[<?php echo $i; ?>][3]' value='<?php if (!empty($wpjobus_resume_award[$i][3])) echo $wpjobus_resume_award[$i][3]; ?>' class='criteria_location' placeholder="" style="width: 100%;">
+
+                </span>
+              </span>
+                </div>
+
+            </div>
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_education', 'add_education');
+add_action('wp_ajax_nopriv_add_education', 'add_education');
+
+function add_education()
+{
+    $education = $_POST["data"];
+    $num_education = $education + 1;
+
+    for ($i = 0; $i < $num_education; $i++) {
+
+        ?>
+        <div class="row_resume_education">
+            <div class="row_resume_education">
+                <span class="information-input">
+            <h3>Tổ chức giáo dục <?php echo $i+1;?></h3>
+          </span>
+                <div class="row">
+                    <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3>Tên tổ chức giáo dục</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+
+  <input type='text' id="wpjobus_resume_education[<?php echo $i; ?>][0]" class="criteria_name" name='wpjobus_resume_education[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_resume_education[$i][0])) echo $wpjobus_resume_education[$i][0]; ?>' placeholder="" />
+
+                </span>
+              </span>
+                        <span class="information-input">
+                <span class="label-title">
+                  <h3>Giai đoạn</h3>
+                </span>
+                <span class="three_fifth">
+          <input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][2]' name='wpjobus_resume_education[<?php echo $i; ?>][2]' value='<?php if (!empty($wpjobus_resume_education[$i][2])) echo $wpjobus_resume_education[$i][2]; ?>' class='criteria_from_time' placeholder="" style="width: 40%"> <span style="float: left; margin: 10px;">-</span> <input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][3]' name='wpjobus_resume_education[<?php echo $i; ?>][3]' value='<?php if (!empty($wpjobus_resume_education[$i][3])) echo $wpjobus_resume_education[$i][3]; ?>' class='criteria_to_time' placeholder="" style="width: 40%">
+
+                </span>
+              </span>
+                        <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Tỉnh thành:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+               	<input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][4]' name='wpjobus_resume_education[<?php echo $i; ?>][4]' value='<?php if (!empty($wpjobus_resume_education[$i][4])) echo $wpjobus_resume_education[$i][4]; ?>' class='criteria_location' placeholder="" style="width: 100%;">
+
+                </span>
+              </span>
+                    </div>
+                    <div class="col-md-6">
+
+              <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Chuyên môn</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                 <input type='text' id='wpjobus_resume_education[<?php echo $i; ?>][1]' name='wpjobus_resume_education[<?php echo $i; ?>][1]' value='<?php if (!empty($wpjobus_resume_education[$i][1])) echo $wpjobus_resume_education[$i][1]; ?>' class='criteria_name_two' placeholder="" style="width: 100%;">
+
+                </span>
+              </span>
+                        <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Ghi chú</h3>
+                </span>
+                <span class="three_fifth">
+               <textarea class="criteria_notes" name="wpjobus_resume_education[<?php echo $i; ?>][5]" id='wpjobus_resume_education[<?php echo $i; ?>][5]' cols="70" rows="4" ><?php if (!empty($wpjobus_resume_education[$i][5])) echo $wpjobus_resume_education[$i][5]; ?></textarea>
+
+                </span>
+              </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_resume_language', 'add_resume_language');
+add_action('wp_ajax_nopriv_add_resume_language', 'add_resume_language');
+
+function add_resume_language()
+{
+    $resume_language = $_POST["data"];
+    $num_resume_language = $resume_language + 1;
+
+    for ($i = 0; $i < $num_resume_language; $i++) {
+
+        ?>
+        <div class="row_resume_language">
+            <div class="col-xs-6">
+                <div class="contact-input">
+                <span class="information-input">
+                  <span class="label-title">
+                    <h3>Ngôn ngữ <?php echo $i+1;?>:</h3>
+                  </span>
+                  <span class="three_fifth">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <input type='text' id="wpjobus_resume_languages[<?php echo $i; ?>][0]" class="resume_lang_title" name='wpjobus_resume_languages[<?php echo $i; ?>][0]' style="width: 100%; float: left;" value='<?php if (!empty($wpjobus_resume_languages[$i][0])) echo $wpjobus_resume_languages[$i][0]; ?>' placeholder="" />
+
+                  </span>
+                </span>
+                    <span class="information-input">
+                  <span class="label-title">
+                    <h3>Kĩ năng nói:</h3>
+                  </span>
+                  <span class="three_fifth">
+                    <i class="fa fa-bullhorn"></i>
+               <select class="resume_lang_speaking" name="wpjobus_resume_languages[<?php echo $i; ?>][2]" id="wpjobus_resume_languages[<?php echo $i; ?>][2]" style="width: 100%; margin-right: 10px;">
+											<option value='Level 1' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+											<option value='Level 2' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+											<option value='Level 3' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+											<option value='Level 4' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+											<option value='Level 5' <?php if(!empty($wpjobus_resume_languages[$i][2])) { selected( $wpjobus_resume_languages[$i][2], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+										</select>
+                  </span>
+                </span>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="contact-input">
+                <span class="information-input">
+                  <span class="label-title">
+                    <h3>Thông thạo:</h3>
+                  </span>
+                  <span class="three_fifth">
+                    <i class="fa fa-cubes" aria-hidden="true"></i>
+                <select class="resume_lang_understanding" name="wpjobus_resume_languages[<?php echo $i; ?>][1]" id="wpjobus_resume_languages[<?php echo $i; ?>][1]" style="width: 100%; margin-right: 10px;">
+											<option value='Level 1' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+											<option value='Level 2' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+											<option value='Level 3' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+											<option value='Level 4' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+											<option value='Level 5' <?php if(!empty($wpjobus_resume_languages[$i][1])) { selected( $wpjobus_resume_languages[$i][1], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+										</select>
+                  </span>
+                </span>
+                    <span class="information-input">
+                  <span class="label-title">
+                    <h3>Kĩ năng viết:</h3>
+                  </span>
+                  <span class="three_fifth">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  <select class="resume_lang_writing" name="wpjobus_resume_languages[<?php echo $i; ?>][3]" id="wpjobus_resume_languages[<?php echo $i; ?>][3]" style="width: 100%; margin-right: 10px;">
+											<option value='Level 1' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 1" ); } ?>><?php _e( 'Level 1', 'themesdojo' ); ?></option>
+											<option value='Level 2' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 2" ); } ?>><?php _e( 'Level 2', 'themesdojo' ); ?></option>
+											<option value='Level 3' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 3" ); } ?>><?php _e( 'Level 3', 'themesdojo' ); ?></option>
+											<option value='Level 4' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 4" ); } ?>><?php _e( 'Level 4', 'themesdojo' ); ?></option>
+											<option value='Level 5' <?php if(!empty($wpjobus_resume_languages[$i][3])) { selected( $wpjobus_resume_languages[$i][3], "Level 5" ); } ?>><?php _e( 'Level 5', 'themesdojo' ); ?></option>
+										</select>
+                  </span>
+                </span>
+                </div>
+            </div>
+
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_resume_skill', 'add_resume_skill');
+add_action('wp_ajax_nopriv_add_resume_skill', 'add_resume_skill');
+
+function add_resume_skill()
+{
+    $resume_skill = $_POST["data"];
+    $num_resume_skill = $resume_skill + 1;
+
+    for ($i = 0; $i < $num_resume_skill; $i++) {
+
+        ?>
+        <div class="row_resume_skill">
+            <div class="col-md-6">
+                <div class="Skills-needed-1">
+              <span class="label-title">
+                <h3>Kĩ năng <?php echo $i + 1; ?> :</h3>
+              </span>
+                    <span class="Skills-needed-2">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+				<input type='text' id='wpjobus_resume_skills[<?php echo $i; ?>][0]' name='wpjobus_resume_skills[<?php echo $i; ?>][0]' value='<?php if (!empty($wpjobus_resume_skills[$i][0])) echo $wpjobus_resume_skills[$i][0]; ?>' class='criteria_name' placeholder="Title">
+              </span>
+                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="Skills-needed-1">
+              <span class="label-title">
+                <h3>Giá trị:</h3>
+              </span>
+                    <span class="Skills-needed-2">
+                <i class="fa fa-line-chart" aria-hidden="true"></i>
+				<input type='text' id='wpjobus_resume_skills[<?php echo $i; ?>][1]' name='wpjobus_resume_skills[<?php echo $i; ?>][1]' value='<?php if (!empty($wpjobus_resume_skills[$i][1])) {echo $wpjobus_resume_skills[$i][1];} ?>' class='slider_value' placeholder="70%">
+              </span>
+                    <p id="error" style="color: red;display:none;font-size: 16px;"></p>
+                </div>
+            </div>
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_client', 'add_client');
+add_action('wp_ajax_nopriv_add_client', 'add_client');
+
+function add_client()
+{
+    $client = $_POST["data"];
+    $num_client = $client + 1;
+
+    for ($i = 0; $i < $num_client; $i++) {
+
+        ?>
+        <div class="row_client">
+                 <span class="information-input">
+                <h3>Khách hàng <?php echo $i+1; ?></h3>
+              </span>
+            <div class="row">
+                <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3>Tên khách hàng</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  <input type="text" class="input-textarea" name='wpjobus_company_clients[<?php echo $i; ?>][0]' value="<?php if (!empty($wpjobus_company_clients[$i][0])) echo $wpjobus_company_clients[$i][0]; ?>" placeholder="" vk_162b1="subscribed"
+                         vk_17ced="subscribed">
+                </span>
+              </span>
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3>Giai đoạn</h3>
+                </span>
+                <span class="three_fifth">
+                  <input type="text" class="input-textarea wpjobus_resume_education" name="name='wpjobus_company_clients[<?php echo $i; ?>][2]'"
+                         value="<?php if (!empty($wpjobus_company_clients[$i][2])) echo $wpjobus_company_clients[$i][2]; ?>" placeholder="" vk_162b1="subscribed" vk_17ced="subscribed"> -
+                  <input type="text" class="input-textarea wpjobus_resume_education" name="name='wpjobus_company_clients[<?php echo $i; ?>][3]'"
+                         value="<?php if (!empty($wpjobus_company_clients[$i][3])) echo $wpjobus_company_clients[$i][3]; ?>" placeholder="" vk_162b1="subscribed" vk_17ced="subscribed">
+                </span>
+              </span>
+
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Website khách hàng:</h3>
+                </span>
+                <span class="three_fifth">
+                   <i class="fa fa-list-alt" aria-hidden="true"></i>
+                      <input type="text" id="wpjobus_company_clients[<?php echo $i; ?>][4]" name="wpjobus_company_clients[<?php echo $i; ?>][4]"
+                             value="<?php if (!empty($wpjobus_company_clients[$i][4])) echo $wpjobus_company_clients[$i][4]; ?>" class="criteria_location" placeholder="" style="width: 100%;">
+                   </span>
+              </span>
+                </div>
+                <div class="col-md-6">
+
+              <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Ký hợp đồng thực hiện:</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                  <input type="text" id="wpjobus_resume_education[<?php echo $i; ?>][1]" name="wpjobus_company_clients[<?php echo $i; ?>][1]" value="<?php if (!empty($wpjobus_company_clients[$i][1])) echo $wpjobus_company_clients[$i][1]; ?>"
+                         class="criteria_name_two" placeholder="" style="width: 100%;">
+                </span>
+              </span>
+                    <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Ghi chú</h3>
+                </span>
+                <span class="three_fifth">
+                  <textarea class="criteria_notes" name="wpjobus_company_clients[<?php echo $i; ?>][5]"
+                            id="wpjobus_resume_education[<?php echo $i; ?>][5]" cols="70" rows="4">
+                      <?php if (!empty($wpjobus_company_clients[$i][5])) echo $wpjobus_company_clients[$i][5]; ?>
+                  </textarea>
+                </span>
+              </span>
+                </div>
+
+            </div>
+        </div>
+
+        <?php
+    }
+    die();
+}
+add_action('wp_ajax_add_service', 'add_service');
+add_action('wp_ajax_nopriv_add_service', 'add_service');
+
+function add_service() {
+    $pos=$_POST["data"];
+    $num_row=$pos+1;
+
+for ($i = 0; $i < $num_row; $i++) {
+
+    ?>
+    <div class="row_services">
+    <span class="information-input">
+              <h3>Dịch vụ <?php echo $i+1;?></h3>
+          </span>
+    <div class="row">
+
+        <div class="col-md-6">
+              <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Tên dịch vụ</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      <input type="text" id="wpjobus_company_services[<?php echo $i; ?>][0]" class="criteria_name"
+                             name="wpjobus_company_services[<?php echo $i; ?>][0]" style="width: 100%; float: left;" value="<?php if (!empty($wpjobus_company_services[$i][0])) echo $wpjobus_company_services[$i][0]; ?>"
+                             placeholder="">
+                   </span>
+              </span>
+
+            <span class="information-input">
+                <span class="label-title">
+                  <h3 class="skill-item-title">Mã code</h3>
+                </span>
+                <span class="three_fifth">
+                  <i class="fa fa-qrcode" aria-hidden="true"></i>
+                      <input type="text" id="wpjobus_company_services[<?php echo $i; ?>][1]" class="criteria_name_two"
+                             name="wpjobus_company_services[<?php echo $i; ?>][1]" style="width: 100%; float: left;" value="<?php if (!empty($wpjobus_company_services[$i][1])) echo $wpjobus_company_services[$i][1]; ?>"
+                             placeholder="">
+                   </span>
+              </span>
+
+        </div>
+
+        <div class="col-md-6">
+              <span class="information-input">
+                 <span class="label-title">
+                 <h3 class="skill-item-title">Nội dung</h3>
+                </span>
+                <span class="three_fifth">
+                   <textarea class="criteria_notes" name="wpjobus_company_services[<?php echo $i; ?>][2]"
+                             id="wpjobus_company_services[<?php echo $i; ?>][2]" rows="5"><?php if (!empty($wpjobus_company_services[$i][2])) echo $wpjobus_company_services[$i][2]; ?></textarea>
+               </span>
+              </span>
+        </div>
+    </div>
+
+        <?php
+        }
+
+    die();
+
 }
 add_action('wp_ajax_check_user_pick_job', 'check_user_pick_job');
 add_action('wp_ajax_nopriv_check_user_pick_job', 'check_user_pick_job');
@@ -2633,6 +3832,28 @@ function like_action() {
         )
     );
     echo "<i class='fa fa-floppy-o'></i> Đã lưu";
+    die();
+
+}
+add_action('wp_ajax_delete_post', 'delete_post');
+add_action('wp_ajax_nopriv_delete_post', 'delete_post');
+
+function delete_post() {
+    $id_del=$_POST["data"];
+    if($id_del !="") {
+        wp_delete_post($id_del);
+        ?>
+        <script>
+            jQuery(document).ready(function ($) {
+                swal({
+                    type: 'success',
+                    html: 'Xóa thành công'
+                })
+            });
+        </script>
+        <?php
+    }
+
     die();
 
 }

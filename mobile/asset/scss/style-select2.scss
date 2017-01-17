@@ -77,11 +77,11 @@ span.select2-selection.select2-selection--multiple {
     padding-left: 31px !important;
 }
  
-.select2-container {
+/*.select2-container {
     
     width: 100% !important;
     
-}
+}*/
 .select2-container--default .select2-search--inline .select2-search__field {
    
     width: 100% !important;
@@ -264,3 +264,19 @@ span.three_fifth.select-wrapper {
     margin-right: 5px;
 }
 /*--------------------------------------------------------------------------------*/
+.sidebar-widget-bottom-line {
+    height: 40px;
+    margin-bottom: 20px;
+}
+/*---------------------------none input-------------------*/
+input.select2-search__field {
+    display: none;
+}
+/*-------------------------------*/
+.listting_content {
+    padding: 10px 0;
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    }

@@ -23,3 +23,22 @@ if ( !is_user_logged_in() ) {
 
     get_footer();
 ?>
+<script>
+
+    jQuery(document).ready(function($) {
+        $(".delete_post").click(function() {
+            var del_id= $(this).attr('id');
+            $.ajax({
+                type : 'POST',
+                data : {'action' : 'delete_post', 'data' :del_id},
+                url : '<?php echo admin_url( "admin-ajax.php" ); ?>',
+                success : function (resp){
+                    $("#row-"+del_id).html(resp);
+
+                }
+            });
+        });
+    });
+
+
+</script>

@@ -73,8 +73,16 @@
                                         $dictrict=$dictrict.' - ';
                                     }else{$dictrict='';}
                                     ?>
-                                    <span class="map"><i class="fa fa-map-marker"></i><?php echo $dictrict.$td_job_location; ?><span class="view"><i
-                                                    class="fa fa-eye" aria-hidden="true"></i>58</span></span>
+                                    <span class="map"><i class="fa fa-map-marker"></i><?php echo $dictrict.$td_job_location; ?><span class="view"><i class="fa fa-eye" aria-hidden="true"></i>
+                                            <?php
+                                            if (wpb_get_post_views($job_id) == 0) {
+                                                echo '1';
+                                            } else {
+                                                echo wpb_get_post_views($job_id);
+                                            }
+
+                                            ?>
+                                        </span></span>
                                 </div>
                             </div>
                         </div>

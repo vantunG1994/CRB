@@ -144,7 +144,7 @@ $job_field=$wpdb->get_results('select * from job_field LIMIT 16 ');
 					<?php
 					}
 					?>
-					<li class="item-sub sub-all"><a href="">Xem tất cả</a></li>
+					<li class="item-sub sub-all"><a href="<?php echo home_url();?>/ung-vien/">Xem tất cả</a></li>
 					
 				</ul>
 			</li>
@@ -158,7 +158,7 @@ $job_field=$wpdb->get_results('select * from job_field LIMIT 16 ');
 					<?php
 					}
 					?>
-					<li class="item-sub sub-all"><a href="">Xem tất cả</a></li>
+					<li class="item-sub sub-all"><a href="<?php echo home_url();?>/tuyen-dung/">Xem tất cả</a></li>
 					
 				</ul>
 			</li>

@@ -360,7 +360,7 @@ function sw_human_time_diff($id_post) {
     $newer_date = ( !$newer_date ) ? strtotime( $current_time ) : $newer_date;
     $since = $newer_date - $date;
     if ( 0 > $since )
-        return __( 'Gần đây', 'swhtd' );
+        return __( 'Mới đây', 'swhtd' );
     for ( $i = 0, $j = count($chunks); $i < $j; $i++) {
         $seconds = $chunks[$i][0];
         if ( ( $count = floor($since / $seconds) ) != 0 )
@@ -374,7 +374,7 @@ function sw_human_time_diff($id_post) {
 
     if(strrpos($output,"ngày") >0)
     {
-        $output="Gần đây";
+        $output="Mới đây";
     }
     return $output;
 }
@@ -610,6 +610,34 @@ function the_slug_exists($post_name) {
 require get_template_directory() . '/inc/function_ajax.php';
 if ( ! current_user_can( 'manage_options' ) ) {
     show_admin_bar( false );
+}
+
+add_action( 'admin_menu', 'pick_menu' );
+
+function pick_menu()
+{
+    add_menu_page(
+        'MVL VIP',
+        'MVL VIP',
+        'moderate_comments',
+        'mvl-vip',
+        'pick_option'
+    );
+    add_submenu_page( 'mvl-vip', 'User VIP', 'User VIP',
+        'moderate_comments', 'mvl-vip');
+    add_submenu_page( 'mvl-vip', 'Tin Đặc biệt', 'Tin Đặc biệt',
+        'moderate_comments', 'mvl-job','mvl_job');
+
+}
+function pick_option()
+{
+
+    require get_template_directory() . '/template_pick_mvl.php';
+}
+
+function mvl_job()
+{
+    require get_template_directory() . '/template_pick_mvl.php';
 }
 ?>
 

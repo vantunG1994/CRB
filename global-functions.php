@@ -47,139 +47,8 @@ function load_resumes(){
 add_filter('wp_title', 'filter_pagetitle');
 function filter_pagetitle($title) {
     global $post,$wpdb;
-    if($post->ID==2966)
-    {
-        $url_page=$_SERVER["REQUEST_URI"];
-        $pos=strrpos($url_page,"?");
-        if($pos !="")
-        {
-            $url_page=substr($url_page,0,$pos);
-            $url_page = rtrim($url_page, "/");
-        }
-        else{
-            $url_page=$_SERVER["REQUEST_URI"];
-        }
-        $url_page= rtrim( $url_page, "/");
-        $pos = strrpos( $url_page, "/");
-        $num = substr( $url_page, $pos + 1);
-        if($num !="" && (is_numeric($num)) )
-        {
-            $page=" Trang ".$num;
-        }
-        $name="Tìm kiếm việc làm";
-        if (isset($_GET['nganh'])) {
-            $job_type = $_GET['nganh'];
-        } else {
-            $job_type = "";
-        }
-        $result_job_type='';
-        if($job_type !="")
-        {
-
-            $result_job_type .= ''.$job_type[0].'';
-            $key_industry=" Ngành nghề ".$result_job_type;
-        }else{$key_industry ="";}
-        if (isset($_GET['job_location'])) {
-            $td_job_location = $_GET['job_location'];
-        } else {
-            $td_job_location = "";
-        }
-        if($td_job_location !="")
-        {
-            $result_job_location='';
-            foreach($td_job_location as $v1) {
-                $result_job_location .= ''.$v1.'' . ',';
-            }
-            $key_location=" Việc làm tại ".$result_job_location;
-
-        }
-        else{
-
-            $key_location='';
-
-        }
-        if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-        } else {
-            $keyword = "";
-        }
-        if(($keyword)!="")
-        {
-            $key_string=" Từ khoá  ".$keyword;
-        }else{
-            $key_string='';
-
-        }
-        $title= "Tìm việc làm  ".$key_string.$key_industry.$key_location.$page."  ";
-
-    }
-
-    if($post->ID==3126)
-    {
-        $url_page=$_SERVER["REQUEST_URI"];
-        $pos=strrpos($url_page,"?");
-        if($pos !="")
-        {
-            $url_page=substr($url_page,0,$pos);
-            $url_page = rtrim($url_page, "/");
-        }
-        else{
-            $url_page=$_SERVER["REQUEST_URI"];
-        }
-        $url_page= rtrim( $url_page, "/");
-        $pos = strrpos( $url_page, "/");
-        $num = substr( $url_page, $pos + 1);
-        if($num !="" && (is_numeric($num)) )
-        {
-            $page="  Trang ".$num;
-        }
-        $name="Tìm kiếm ứng viên";
-        if (isset($_GET['nganh'])) {
-            $job_type = $_GET['nganh'];
-        } else {
-            $job_type = "";
-        }
-        $result_job_type='';
-        if($job_type !="")
-        {
-
-            $result_job_type .= ''.$job_type[0].'';
-            $key_industry=" Ngành nghề ".$result_job_type;
-        }else{$key_industry ="";}
-        if (isset($_GET['resume_location'])) {
-            $td_job_location = $_GET['resume_location'];
-        } else {
-            $td_job_location = "";
-        }
-        if($td_job_location !="")
-        {
-            $result_job_location='';
-            foreach($td_job_location as $v1) {
-                $result_job_location .= ''.$v1.'' . ',';
-            }
-            $key_location=" Ứng viên tại ".$result_job_location;
-
-        }
-        else{
-
-            $key_location='';
-
-        }
-        if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-        } else {
-            $keyword = "";
-        }
-        if(($keyword)!="")
-        {
-            $key_string=" Từ khoá  ".$keyword;
-        }else{
-            $key_string='';
-
-        }
-        $title= "Tìm kiếm viên ".$key_string.$key_industry.$key_location.$page."  ";
-
-    }
+    $job_field=$wpdb->get_results('select * from job_field ');
+    $job_province=$wpdb->get_results('select * from job_province ');
     if($post->ID==3186)
     {
         $pos=strrpos(get_pagenum_link(),"?");
@@ -226,7 +95,70 @@ function filter_pagetitle($title) {
             $page="  Trang ".$num;
         }
         else{$page="";}
-        $title= "Ứng viên  ".$job_type.$page."  ";
+        if(($_GET["resume_location"])!="")
+        {
+            $locations=$_GET["resume_location"];
+
+            $location=$locations;
+
+        }else{
+            $location='';
+        }
+        if(($_GET["salary"])!="")
+        {
+            $salarys=$_GET["salary"];
+            $salary=$salarys;
+
+            if($salary==2500000)
+            {
+                $salary_name="1-3 triệu";
+            }
+            if($salary==4000000)
+            {
+                $salary_name="3-5 triệu";
+            }
+            if($salary==6000000)
+            {
+                $salary_name="5-7 triệu";
+            }
+            if($salary==8500000)
+            {
+                $salary_name="7-10 triệu";
+            }
+            if($salary==11000000)
+            {
+                $salary_name="10-12 triệu";
+            }
+            if($salary==13500000)
+            {
+                $salary_name="12-15 triệu";
+            }
+            if($salary==17500000)
+            {
+                $salary_name="15-20 triệu";
+            }
+            if($salary==22500000)
+            {
+                $salary_name="20-25 triệu";
+            }
+            if($salary==27500000)
+            {
+                $salary_name="25-30 triệu";
+            }
+            if($salary==30000000)
+            {
+                $salary_name="30 triệu trở lên";
+            }
+
+
+        }
+        else{
+
+            $salary_name='';
+
+
+        }
+        $title= "Ứng viên  ".$job_type." ".$location." ".$salary_name." ".$page."  ";
 
     }
     if($post->ID==3176)
@@ -265,7 +197,70 @@ function filter_pagetitle($title) {
             $page="  Trang ".$num;
         }
         else{$page="";}
-        $title= "Tuyển dụng  ".$job_type.$page."  ";
+        if(($_GET["resume_location"])!="")
+        {
+            $locations=$_GET["resume_location"];
+
+            $location=$locations;
+
+        }else{
+            $location='';
+        }
+        if(($_GET["salary"])!="")
+        {
+            $salarys=$_GET["salary"];
+            $salary=$salarys;
+
+            if($salary==2500000)
+            {
+                $salary_name="1-3 triệu";
+            }
+            if($salary==4000000)
+            {
+                $salary_name="3-5 triệu";
+            }
+            if($salary==6000000)
+            {
+                $salary_name="5-7 triệu";
+            }
+            if($salary==8500000)
+            {
+                $salary_name="7-10 triệu";
+            }
+            if($salary==11000000)
+            {
+                $salary_name="10-12 triệu";
+            }
+            if($salary==13500000)
+            {
+                $salary_name="12-15 triệu";
+            }
+            if($salary==17500000)
+            {
+                $salary_name="15-20 triệu";
+            }
+            if($salary==22500000)
+            {
+                $salary_name="20-25 triệu";
+            }
+            if($salary==27500000)
+            {
+                $salary_name="25-30 triệu";
+            }
+            if($salary==30000000)
+            {
+                $salary_name="30 triệu trở lên";
+            }
+
+
+        }
+        else{
+
+            $salary_name='';
+
+
+        }
+        $title= "Tuyển dụng ".$job_type." ".$location." ".$salary_name." ".$page."  ";
 
 
     }
@@ -292,8 +287,87 @@ function filter_pagetitle($title) {
         if($post->ID==3173){$name="Tuyển dụng";}
         if($post->ID==571){$name="Ứng viên";}
         if($post->ID==557){$name="Doanh nghiệp";}
+        if(($_GET["resume_location"])!="")
+        {
+            $locations=$_GET["resume_location"];
 
-        $title= $name.$page."  ";
+            $location=$locations;
+
+        }else{
+            $location='';
+        }
+        if(($_GET["salary"])!="")
+        {
+            $salarys=$_GET["salary"];
+            $salary=$salarys;
+
+                if($salary==2500000)
+                {
+                    $salary_name="1-3 triệu";
+                }
+                if($salary==4000000)
+                {
+                    $salary_name="3-5 triệu";
+                }
+                if($salary==6000000)
+                {
+                    $salary_name="5-7 triệu";
+                }
+                if($salary==8500000)
+                {
+                    $salary_name="7-10 triệu";
+                }
+                if($salary==11000000)
+                {
+                    $salary_name="10-12 triệu";
+                }
+                if($salary==13500000)
+                {
+                    $salary_name="12-15 triệu";
+                }
+                if($salary==17500000)
+                {
+                    $salary_name="15-20 triệu";
+                }
+                if($salary==22500000)
+                {
+                    $salary_name="20-25 triệu";
+                }
+                if($salary==27500000)
+                {
+                    $salary_name="25-30 triệu";
+                }
+                if($salary==30000000)
+                {
+                    $salary_name="30 triệu trở lên";
+                }
+
+
+        }
+        else{
+
+            $salary_name='';
+
+
+        }
+        if(($_GET["industry"])!="" )
+        {
+            $job_types=$_GET["industry"];
+            $job_type="";
+
+            foreach ($job_field as $industry) {
+                if ($job_types == $industry->slug) {
+                    $job_type .= $industry->name;
+                }
+            }
+
+        }else{
+
+            $job_type='';
+
+        }
+
+        $title= $name." ".$job_type." ".$location." ".$salary_name." ".$page."  ";
 
 
     }
@@ -322,6 +396,8 @@ function filter_pagetitle($title) {
 
 function add_meta_tags() {
     global $post,$wpdb;
+    $job_field=$wpdb->get_results('select * from job_field ');
+
     if($post->ID==3176) {
         $pos=strrpos(get_pagenum_link(),"?");
         if($pos !="")
@@ -338,9 +414,72 @@ function add_meta_tags() {
         $job_field=$wpdb->get_row('SELECT * FROM `job_field` WHERE `slug`= "'.$sub_string.'" ');
 
         $job_type=$job_field->name;
+        if(($_GET["resume_location"])!="")
+        {
+            $locations=$_GET["resume_location"];
+
+            $location=" ".$locations;
+
+        }else{
+            $location='';
+        }
+        if(($_GET["salary"])!="")
+        {
+            $salarys=$_GET["salary"];
+            $salary=$salarys;
+
+            if($salary==2500000)
+            {
+                $salary_name=" 1-3 triệu";
+            }
+            if($salary==4000000)
+            {
+                $salary_name=" 3-5 triệu";
+            }
+            if($salary==6000000)
+            {
+                $salary_name=" 5-7 triệu";
+            }
+            if($salary==8500000)
+            {
+                $salary_name=" 7-10 triệu";
+            }
+            if($salary==11000000)
+            {
+                $salary_name=" 10-12 triệu";
+            }
+            if($salary==13500000)
+            {
+                $salary_name=" 12-15 triệu";
+            }
+            if($salary==17500000)
+            {
+                $salary_name=" 15-20 triệu";
+            }
+            if($salary==22500000)
+            {
+                $salary_name=" 20-25 triệu";
+            }
+            if($salary==27500000)
+            {
+                $salary_name=" 25-30 triệu";
+            }
+            if($salary==30000000)
+            {
+                $salary_name=" 30 triệu trở lên";
+            }
+
+
+        }
+        else{
+
+            $salary_name='';
+
+
+        }
         $meta_description="Hàng 100.000+ việc làm ".$job_type." chất lượng lương cao, tuyển dụng nhanh và đãi ngộ cực tốt từ hàng trăm ngàn nhà tuyển dụng hàng đầu. Truy cập ngay để tìm việc và ứng tuyển, miễn phí cực hot!";
-        $meta = "Tuyển dụng - ".$job_type."-".$meta_description;
-        $metakeywords = "Tuyển dụng ".$job_type.",".get_option( 'blogname' ).",".get_option( 'blogdescription' );
+        $meta = "Tuyển dụng - ".$job_type."-".$location."-".$salary_name."-".$meta_description;
+        $metakeywords = "Tuyển dụng ".$job_type.$job_type.",".$location.",".$salary_name.",".get_option( 'blogname' ).",".get_option( 'blogdescription' );
 
         echo '<meta name="description" content="' . $meta . '" />' . "\n";
         echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
@@ -389,11 +528,73 @@ function add_meta_tags() {
         $pos = strrpos($url, "/");
         $sub_string = substr($url, $pos + 1);
         $job_field=$wpdb->get_row('SELECT * FROM `job_field` WHERE `slug`= "'.$sub_string.'" ');
+        if(($_GET["resume_location"])!="")
+        {
+            $locations=$_GET["resume_location"];
 
+            $location=" ".$locations;
+
+        }else{
+            $location='';
+        }
+        if(($_GET["salary"])!="")
+        {
+            $salarys=$_GET["salary"];
+            $salary=$salarys;
+
+            if($salary==2500000)
+            {
+                $salary_name=" 1-3 triệu";
+            }
+            if($salary==4000000)
+            {
+                $salary_name=" 3-5 triệu";
+            }
+            if($salary==6000000)
+            {
+                $salary_name=" 5-7 triệu";
+            }
+            if($salary==8500000)
+            {
+                $salary_name=" 7-10 triệu";
+            }
+            if($salary==11000000)
+            {
+                $salary_name=" 10-12 triệu";
+            }
+            if($salary==13500000)
+            {
+                $salary_name=" 12-15 triệu";
+            }
+            if($salary==17500000)
+            {
+                $salary_name=" 15-20 triệu";
+            }
+            if($salary==22500000)
+            {
+                $salary_name=" 20-25 triệu";
+            }
+            if($salary==27500000)
+            {
+                $salary_name=" 25-30 triệu";
+            }
+            if($salary==30000000)
+            {
+                $salary_name=" 30 triệu trở lên";
+            }
+
+
+        }
+        else{
+
+            $salary_name='';
+
+
+        }
         $job_type=$job_field->name;
         $meta_description="Hơn 1.000.000+ hồ sơ người tìm việc và cv ứng viên ".$job_type." tài năng, chất lượng cao, năng động và đầy đủ thông tin được cập nhật mới hàng ngày. Truy cập ngay để tuyển dụng nhanh, cực hot!";
-        $meta = "Ứng viên - ".$job_type."-".$meta_description;
-        $metakeywords = "Ứng viên ".$job_type.",".get_option( 'blogname' ).",".get_option( 'blogdescription' );
+        $meta = "Ứng viên - ".$job_type."-".$location."-".$salary_name."-".$meta_description;
+        $metakeywords = "Ứng viên ".$job_type.",".$location.",".$salary_name.",".get_option( 'blogname' ).",".get_option( 'blogdescription' );
 
         echo '<meta name="description" content="' . $meta . '" />' . "\n";
         echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
@@ -430,151 +631,94 @@ function add_meta_tags() {
             $meta_description=get_option('blogname') . "-" . get_option('blogdescription');
 
         }
-
-        $meta = $name.$page. "-" . $meta_description;
-        $metakeywords =$name. $page . "," . get_option('blogname') . "," . get_option('blogdescription');
-
-        echo '<meta name="description" content="' . $meta . '" />' . "\n";
-        echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
-    }
-    if($post->ID==3126) {
-        $url_page=$_SERVER["REQUEST_URI"];
-        $pos=strrpos($url_page,"?");
-        if($pos !="")
+        if(($_GET["resume_location"])!="")
         {
-            $url_page=substr($url_page,0,$pos);
-            $url_page = rtrim($url_page, "/");
-        }
-        else{
-            $url_page=$_SERVER["REQUEST_URI"];
-        }
-        $url_page= rtrim( $url_page, "/");
-        $pos = strrpos( $url_page, "/");
-        $num = substr( $url_page, $pos + 1);
-        if($num !="" && (is_numeric($num)) )
-        {
-            $page=" - Trang ".$num;
-        }
-        $name="Tìm kiếm ứng viên";
-        if (isset($_GET['nganh'])) {
-            $job_type = $_GET['nganh'];
-        } else {
-            $job_type = "";
-        }
-        $result_job_type='';
-        if($job_type !="")
-        {
+            $locations=$_GET["resume_location"];
 
-            $result_job_type .= ''.$job_type[0].'';
-            $key_industry="Ngành nghề ".$result_job_type;
-        }else{$key_industry ="";}
-        if (isset($_GET['resume_location'])) {
-            $td_job_location = $_GET['resume_location'];
-        } else {
-            $td_job_location = "";
-        }
-        if($td_job_location !="")
-        {
-            $result_job_location='';
-            foreach($td_job_location as $v1) {
-                $result_job_location .= ''.$v1.'' . ',';
-            }
-            $key_location="Ứng viên tại ".$result_job_location;
+            $location=" ".$locations;
 
-        }
-        else{
-
-            $key_location='';
-
-        }
-        if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-        } else {
-            $keyword = "";
-        }
-        if(($keyword)!="")
-        {
-            $key_string="Từ khoá  ".$keyword;
         }else{
-            $key_string='';
+            $location='';
+        }
+        if(($_GET["salary"])!="")
+        {
+            $salarys=$_GET["salary"];
+            $salary=$salarys;
 
-        }
-        $meta_description="Hồ sơ người tìm việc và cv ứng viên ".$key_string." ".$key_industry." ".$key_location." tài năng, chất lượng cao, năng động và đầy đủ thông tin được cập nhật mới hàng ngày. Truy cập ngay để tuyển dụng nhanh, cực hot!";
-        $meta = $name.$page. "-" . $meta_description;
-        $metakeywords =$name. $page . "," . get_option('blogname') . "," . get_option('blogdescription');
-
-        echo '<meta name="description" content="' . $meta . '" />' . "\n";
-        echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
-    }
-    if($post->ID==2966) {
-        $url_page=$_SERVER["REQUEST_URI"];
-        $pos=strrpos($url_page,"?");
-        if($pos !="")
-        {
-            $url_page=substr($url_page,0,$pos);
-            $url_page = rtrim($url_page, "/");
-        }
-        else{
-            $url_page=$_SERVER["REQUEST_URI"];
-        }
-        $url_page= rtrim( $url_page, "/");
-        $pos = strrpos( $url_page, "/");
-        $num = substr( $url_page, $pos + 1);
-        if($num !="" && (is_numeric($num)) )
-        {
-            $page=" - Trang ".$num;
-        }
-        $name="Tìm kiếm việc làm";
-        if (isset($_GET['nganh'])) {
-            $job_type = $_GET['nganh'];
-        } else {
-            $job_type = "";
-        }
-        $result_job_type='';
-        if($job_type !="")
-        {
-
-            $result_job_type .= ''.$job_type[0].'';
-            $key_industry="Ngành nghề ".$result_job_type;
-        }else{$key_industry ="";}
-        if (isset($_GET['resume_location'])) {
-            $td_job_location = $_GET['resume_location'];
-        } else {
-            $td_job_location = "";
-        }
-        if($td_job_location !="")
-        {
-            $result_job_location='';
-            foreach($td_job_location as $v1) {
-                $result_job_location .= ''.$v1.'' . ',';
+            if($salary==2500000)
+            {
+                $salary_name=" 1-3 triệu";
             }
-            $key_location="Tuyền dụng tại ".$result_job_location;
+            if($salary==4000000)
+            {
+                $salary_name=" 3-5 triệu";
+            }
+            if($salary==6000000)
+            {
+                $salary_name=" 5-7 triệu";
+            }
+            if($salary==8500000)
+            {
+                $salary_name=" 7-10 triệu";
+            }
+            if($salary==11000000)
+            {
+                $salary_name=" 10-12 triệu";
+            }
+            if($salary==13500000)
+            {
+                $salary_name=" 12-15 triệu";
+            }
+            if($salary==17500000)
+            {
+                $salary_name=" 15-20 triệu";
+            }
+            if($salary==22500000)
+            {
+                $salary_name=" 20-25 triệu";
+            }
+            if($salary==27500000)
+            {
+                $salary_name=" 25-30 triệu";
+            }
+            if($salary==30000000)
+            {
+                $salary_name=" 30 triệu trở lên";
+            }
+
 
         }
         else{
 
-            $key_location='';
+            $salary_name='';
+
 
         }
-        if (isset($_GET['keyword'])) {
-            $keyword = $_GET['keyword'];
-        } else {
-            $keyword = "";
-        }
-        if(($keyword)!="")
+        if(($_GET["industry"])!="" )
         {
-            $key_string="Từ khoá  ".$keyword;
+            $job_types=$_GET["industry"];
+            $job_type="";
+
+            foreach ($job_field as $industry) {
+                if ($job_types == $industry->slug) {
+                    $job_type .=" ".$industry->name;
+                }
+            }
+
         }else{
-            $key_string='';
+
+            $job_type='';
 
         }
-        $meta_description=" việc làm ".$key_string." ".$key_industry." ".$key_location." chất lượng lương cao, tuyển dụng nhanh và đãi ngộ cực tốt từ hàng trăm ngàn nhà tuyển dụng hàng đầu. Truy cập ngay để tìm việc và ứng tuyển, miễn phí cực hot!";
-        $meta = $name.$page. "-" . $meta_description;
-        $metakeywords =$name. $page . "," . get_option('blogname') . "," . get_option('blogdescription');
+
+
+        $meta = $name. " " .$job_type." ".$location." ".$salary_name."-" . $meta_description;
+        $metakeywords =$name.$job_type.$location.$salary_name." " . get_option('blogname') . "," . get_option('blogdescription');
 
         echo '<meta name="description" content="' . $meta . '" />' . "\n";
         echo '<meta name="keywords" content="' . $metakeywords . '" />' . "\n";
     }
+
 
 }
 add_action( 'wp_head', 'add_meta_tags' , 2 );
@@ -841,3 +985,274 @@ function new_resume()
 {
     require get_template_directory() . '/inc/send_mail_robot.php';
 }
+// Post views
+function wpb_set_post_views($postID) {
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+//To keep the count accurate, lets get rid of prefetching
+
+
+function WPJobus_track_post_views ($td_post_id) {
+    if ( !is_single() ) return;
+    if ( empty ( $td_post_id) ) {
+        global $post;
+        $td_post_id = $post->ID;
+    }
+    wpb_set_post_views($td_post_id);
+}
+
+
+function wpb_get_post_views($postID){
+    $count_key = 'wpb_post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        return "0";
+    }
+    return $count;
+}
+
+
+
+// Profile views
+function wpb_set_profile_views($authorID) {
+    $count_key = 'wpb_profile_views_count';
+    $count = get_user_meta($authorID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_user_meta($authorID, $count_key);
+        update_user_meta($authorID, $count_key, '0');
+    }else{
+        $count++;
+        update_user_meta($authorID, $count_key, $count);
+    }
+}
+
+function wpb_get_profile_views($authorID){
+    $count_key = 'wpb_profile_views_count';
+    $count = get_user_meta($authorID, $count_key, true);
+    if($count==''){
+        delete_user_meta($authorID, $count_key);
+        update_user_meta($authorID, $count_key, '0');
+        return "0";
+    }
+    return $count;
+}
+function ajax_login_init(){
+
+wp_register_script('ajax-login-script', get_template_directory_uri() . '/ajax-login-script.js', array('jquery') );
+    wp_enqueue_script('ajax-login-script');
+
+    wp_localize_script( 'ajax-login-script', 'ajax_login_object', array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'redirecturl' => home_url(),
+        'loadingmessage' => __('Sending user info, please wait...')
+    ));
+
+    // Enable the user with no privileges to run ajax_login() in AJAX
+    add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
+}
+
+// Execute the action only if the user isn't logged in
+if (!is_user_logged_in()) {
+    add_action('init', 'ajax_login_init');
+}
+function ajax_login(){
+
+    // First check the nonce, if it fails the function will break
+    check_ajax_referer( 'ajax-login-nonce', 'security' );
+
+    // Nonce is checked, get the POST data and sign user on
+    $info = array();
+    $info['user_login'] = $_POST['username'];
+    $info['user_password'] = $_POST['password'];
+    $info['remember'] = true;
+
+    $user_signon = wp_signon( $info, false );
+    if ( is_wp_error($user_signon) ){
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Tên đăng nhập hoặc mật khẩu không đúng.')));
+    } else {
+        echo json_encode(array('loggedin'=>true, 'message'=>__('Đăng nhập thành công.')));
+    }
+
+    die();
+}
+// Hide text editor in resume back end
+add_action('init', 'init_remove_support_resume',100);
+function init_remove_support_resume(){
+    $post_type = 'resume';
+    remove_post_type_support( $post_type, 'editor');
+}
+
+// Hide text editor in job back end
+add_action('init', 'init_remove_support_job',100);
+function init_remove_support_job(){
+    $post_type = 'job';
+    remove_post_type_support( $post_type, 'editor');
+}
+
+// Hide text editor in job back end
+add_action('init', 'init_remove_support_company',100);
+function init_remove_support_company(){
+    $post_type = 'company';
+    remove_post_type_support( $post_type, 'editor');
+}
+
+
+function WPJobus_getUrl() {
+    $url  = @( $_SERVER["HTTPS"] != 'on' ) ? 'http://'.$_SERVER["SERVER_NAME"] :  'https://'.$_SERVER["SERVER_NAME"];
+    $url .= ( $_SERVER["SERVER_PORT"] !== 80 ) ? ":".$_SERVER["SERVER_PORT"] : "";
+    $url .= $_SERVER["REQUEST_URI"];
+    return $url;
+}
+
+
+function user_vip_view_resume()
+{
+    global $current_user,$post;
+    $current_user =  wp_get_current_user();
+    $user_id= $current_user->ID ;
+
+    $count_view_resume=get_user_meta($user_id, 'user_cv_view_count', true);
+    $date_expierd=get_user_meta($user_id, 'vip_expire', true);
+    $date_expierd=strtotime($date_expierd);
+    $today = date('Y-m-d');
+    $date_expierd = strftime("%Y-%m-%d",$date_expierd);
+    $up_package_id=get_user_meta($user_id, 'up_package_id',true);
+    $user_up_count=get_user_meta($user_id, 'user_up_count',true);
+    $user_up_expire=get_user_meta($user_id, 'user_up_expire',true);
+    if($user_up_expire <= $today )
+    {
+        delete_user_meta($user_id, 'up_package_id');
+        delete_user_meta($user_id, 'user_up_count');
+        delete_user_meta($user_id, 'user_up_expire');
+    }
+    if($date_expierd <= $today )
+    {
+        delete_user_meta($user_id, 'vip_level');
+        delete_user_meta($user_id, 'vip_package_id');
+        delete_user_meta($user_id, 'vip_star');
+        delete_user_meta($user_id, 'vip_expire');
+        delete_user_meta($user_id, 'user_daily_max_post');
+        delete_user_meta($user_id, 'user_monthly_max_post');
+        delete_user_meta($user_id, 'user_cv_view_expire');
+        delete_user_meta($user_id, 'user_cv_view_count');
+
+    }
+
+
+}
+add_action('wp_head','user_vip_view_resume');
+
+function change_pos_auth($post_id){
+    if ( ! wp_is_post_revision( $post_id ) ){
+
+        remove_action('save_post','change_pos_auth');
+
+    }
+}
+add_action('save_post', 'change_pos_auth');
+function encrypt_phone($phone){
+    $string_array=str_split($phone);
+    $rand=rand(0,6);
+    foreach( $string_array as $char){
+        $hashstring.=dechex(rand(1,15)).strval(dechex(intval($char)+$rand)).dechex(rand(1,15));
+    }
+    $hashstring.=dechex($rand+9);
+    return $hashstring;
+}
+add_filter('manage_edit-resume_columns', 'my_columns_resume');
+function my_columns_resume($columns) {
+    $columns['views'] = 'Tác giả';
+    return $columns;
+}
+add_action( 'manage_resume_posts_custom_column', 'my_manage_resume_columns', 10, 2 );
+
+function my_manage_resume_columns( $column, $post_id ) {
+    global $post;
+
+    switch( $column ) {
+        case 'views' :
+            $author = get_post_field( 'post_author', $post_id );
+            $name_author =the_author_meta( 'user_login' , $author );
+
+            echo $name_author;
+
+            break;
+    }
+}
+add_filter('manage_edit-job_columns', 'my_columns');
+function my_columns($columns) {
+    $columns['views'] = 'Tác giả';
+    return $columns;
+}
+add_action( 'manage_job_posts_custom_column', 'my_manage_job_columns', 10, 2 );
+
+function my_manage_job_columns( $column, $post_id ) {
+    global $post;
+
+    switch( $column ) {
+        case 'views' :
+            $author = get_post_field( 'post_author', $post_id );
+            $name_author =the_author_meta( 'user_login' , $author );
+
+            echo $name_author;
+
+            break;
+    }
+}
+add_filter('manage_edit-company_columns', 'my_columns_company');
+function my_columns_company($columns) {
+    $columns['views'] = 'Tác giả';
+    return $columns;
+}
+add_action( 'manage_company_posts_custom_column', 'my_manage_company_columns', 10, 2 );
+
+function my_manage_company_columns( $column, $post_id ) {
+    global $post;
+
+    switch( $column ) {
+        case 'views' :
+            $author = get_post_field( 'post_author', $post_id );
+            $name_author =the_author_meta( 'user_login' , $author );
+
+            echo $name_author;
+
+            break;
+    }
+}
+
+function save_crb_wp2es($post_id){
+    global $wpdb;
+    $author = get_post_field( 'post_author', $post_id );
+    $crb_wp2es_up = $wpdb->get_var("SELECT * FROM crb_wp2es WHERE post_id = '$post_id' AND uid= '$author' AND sync_type ='edit'");
+
+    if($crb_wp2es_up==""||$crb_wp2es_up==0) {
+        $wpdb->insert("crb_wp2es", array(
+            "uid" =>$author,
+            "is_synced" => 1,
+            "sync_type" => "edit",
+            "post_id" => $post_id,
+            "sync_at" => date('Y-m-d H:i:s'),
+        ));
+
+    }
+    else{
+        $wpdb->update("crb_wp2es", array(
+                "is_synced" => 1,
+                "sync_at" => date('Y-m-d H:i:s'))
+            ,array("uid" =>$author, "post_id" =>$post_id,"sync_type" => "edit")
+        );
+    }
+}
+add_action('save_post', 'save_crb_wp2es');

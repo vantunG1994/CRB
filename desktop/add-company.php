@@ -456,29 +456,131 @@ else {
                           display: block;
                           width: 100%;
                           height: 470px;
+                          position: relative;
+                          margin-bottom: 10px;
                       }
 
                   </style>
 
                   <script type="text/javascript">
 
-                      // Function khởi tạo google map
-                      function initialize() {
-                          // Config google map
-                          var mapOptions = {
-                              // Tọa độ muốn hiển thị ban đầu (tung độ,vỹ độ)
-                              center: new google.maps.LatLng(<?php echo $wpjobus_company_latitude?:10.771971; ?>, <?php echo $wpjobus_company_longitude?:106.697845; ?> ),
-                              // Mức độ zoom
-                              zoom: 8
-                          };
+                      jQuery(document).ready(function($) {
 
-                          // Hiển thị map lên bản đồ (div#map-canvas)
-                          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-                      }
+                          var geocoder;
+                          var map;
+                          var marker;
 
-                      // Gán hàm initialize vào trong sự kiện load dom google map
-                      google.maps.event.addDomListener(window, 'load', initialize);
+                          var geocoder = new google.maps.Geocoder();
+
+                          function geocodePosition(pos) {
+                              geocoder.geocode({
+                                  latLng: pos
+                              }, function(responses) {
+                                  if (responses && responses.length > 0) {
+                                      updateMarkerAddress(responses[0].formatted_address);
+                                  } else {
+                                      updateMarkerAddress('Cannot determine address at this location.');
+                                  }
+                              });
+                          }
+
+                          function updateMarkerPosition(latLng) {
+                              jQuery('#latitude').val(latLng.lat());
+                              jQuery('#longitude').val(latLng.lng());
+                          }
+
+                          function updateMarkerAddress(str) {
+                              jQuery('#address').val(str);
+                          }
+
+                          function initialize() {
+
+                              var latlng = new google.maps.LatLng(<?php echo $wpjobus_company_latitude; ?>, <?php echo $wpjobus_company_longitude; ?>);
+                              var mapOptions = {
+                                  zoom: 16,
+                                  center: latlng
+                              }
+
+                              map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                              geocoder = new google.maps.Geocoder();
+
+                              marker = new google.maps.Marker({
+                                  position: latlng,
+                                  map: map,
+                                  draggable: true
+                              });
+
+                              // Add dragging event listeners.
+                              google.maps.event.addListener(marker, 'dragstart', function() {
+                                  updateMarkerAddress('Dragging...');
+                              });
+
+                              google.maps.event.addListener(marker, 'drag', function() {
+                                  updateMarkerPosition(marker.getPosition());
+                              });
+
+                              google.maps.event.addListener(marker, 'dragend', function() {
+                                  geocodePosition(marker.getPosition());
+                              });
+
+                          }
+
+                          google.maps.event.addDomListener(window, 'load', initialize);
+
+                          jQuery(document).ready(function() {
+
+                              initialize();
+
+                              jQuery(function() {
+                                  jQuery("#address").autocomplete({
+                                      //This bit uses the geocoder to fetch address values
+                                      source: function(request, response) {
+                                          geocoder.geocode( {'address': request.term }, function(results, status) {
+                                              response(jQuery.map(results, function(item) {
+                                                  return {
+                                                      label:  item.formatted_address,
+                                                      value: item.formatted_address,
+                                                      latitude: item.geometry.location.lat(),
+                                                      longitude: item.geometry.location.lng()
+                                                  }
+                                              }));
+                                          })
+                                      },
+                                      //This bit is executed upon selection of an address
+                                      select: function(event, ui) {
+                                          jQuery("#latitude").val(ui.item.latitude);
+                                          jQuery("#longitude").val(ui.item.longitude);
+
+                                          var location = new google.maps.LatLng(ui.item.latitude, ui.item.longitude);
+
+                                          marker.setPosition(location);
+                                          map.setZoom(16);
+                                          map.setCenter(location);
+
+                                      }
+                                  });
+                              });
+
+                              //Add listener to marker for reverse geocoding
+                              google.maps.event.addListener(marker, 'drag', function() {
+                                  geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
+                                      if (status == google.maps.GeocoderStatus.OK) {
+                                          if (results[0]) {
+                                              jQuery('#address').val(results[0].formatted_address);
+                                              jQuery('#latitude').val(marker.getPosition().lat());
+                                              jQuery('#longitude').val(marker.getPosition().lng());
+                                          }
+                                      }
+                                  });
+                              });
+
+                          });
+
+                      });
+
                   </script>
+
                   <div class="row">
               <div class="col-md-6">
                 <div class="Skills-needed-1">
@@ -487,7 +589,7 @@ else {
                   </span>
                   <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
-                    <input type="text" id="latitude" name="wpjobus_company_latitude" value="0" class="input-textarea">
+                    <input type="text" id="latitude" name="wpjobus_company_latitude" value="<?php echo $wpjobus_company_latitude; ?>" class="input-textarea">
                  </span>
                   <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                 </div>
@@ -499,7 +601,7 @@ else {
                   </span>
                   <span class="Skills-needed-2">
                     <i class="fa fa-bar-chart-o"></i>
-                    <input type="text" id="longitude" name="wpjobus_company_longitude" value="0" class="input-textarea valid">
+                    <input type="text" id="longitude" name="wpjobus_company_longitude" value="<?php echo $wpjobus_company_longitude; ?>" class="input-textarea valid">
                    </span>
                   <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                 </div>
@@ -514,6 +616,7 @@ else {
             <h1 class="resume-section-title"><i class="fa fa-bar-chart-o"></i>  Dịch vụ</h1>
             <h3 class="resume-section-subtitle" >Mô tả dịch vụ và chuyên môn của công ty bạn.</h3>
           </div>
+             <div class="company_services">
              <?php
 
              $wpjobus_company_services = get_post_meta($postID, 'wpjobus_company_services',true);
@@ -521,8 +624,9 @@ else {
              for ($i = 0; $i < (count($wpjobus_company_services)); $i++) {
 
                  ?>
+                 <div class="row_services">
                  <span class="information-input">
-              <h3>Dịch vụ <?php $i+1;?></h3>
+              <h3>Dịch vụ <?php echo  $i+1;?></h3>
           </span>
                  <div class="row">
 
@@ -564,18 +668,22 @@ else {
                </span>
               </span>
                      </div>
+                 </div>
+
                      <?php
                      }
                      ?>
 
-                     <div class="delete-add">
-                         <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                         <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm dịch vụ
-                             mới</a>
-                     </div>
-                     <div class="divider"></div>
+                 </div>
+
 
                  </div>
+             <div class="delete-add">
+                 <button type="button" class="delete_service"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                 <button type="button" class="add_service"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm dịch vụ mới</button>
+             </div>
+             <div class="divider"></div>
+
                  <div class="additional">
                      <div class="information-input">
               <span class="label-title">
@@ -596,6 +704,7 @@ else {
             <h1 class="resume-section-title"><i class="fa fa-users" aria-hidden="true"></i>  Khách hàng</h1>
             <h3 class="resume-section-subtitle" >Liệt kê danh sách các khách hàng, đối tác của công ty bạn</h3>
           </div>
+             <div class="company_clients">
              <?php
 
              $wpjobus_company_clients = get_post_meta($postID, 'wpjobus_company_clients',true);
@@ -603,9 +712,10 @@ else {
              for ($i = 0; $i < (count($wpjobus_company_clients)); $i++) {
 
                  ?>
+                 <div class="row_client">
                  <span class="information-input">
-            <h3>khách hàng <?php echo $i+1; ?></h3>
-          </span>
+                <h3>Khách hàng <?php echo $i+1; ?></h3>
+              </span>
                  <div class="row">
                      <div class="col-md-6">
               <span class="information-input">
@@ -665,21 +775,25 @@ else {
                 </span>
               </span>
                      </div>
-                     <div class="delete-add">
-                         <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                         <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách hàng mới</a>
-                     </div>
+
+                 </div>
                  </div>
                  <?php
              }
              ?>
         </div>
+             <div class="delete-add">
+                 <button type="button" class="delete_client"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                 <button type="button" class="add_client"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm khách hàng mới</button>
+             </div>
+         </div>
         <div class="divider"></div>
         <div class="personal-project">
           <div class="title-top">
-            <h1 class="resume-section-title"><i class="fa fa-bookmark"></i>  Chứng Thực</h1>
+            <h1 class="resume-section-title"><i class="fa fa-bookmark"></i>Chứng Thực</h1>
             <h3 class="resume-section-subtitle" >Hãy nhập thông tin chứng thực về doanh nghiệp của bạn.</h3>
           </div>
+            <div class="company_testimonials">
             <?php
 
             $wpjobus_company_testimonials = get_post_meta($postID, 'wpjobus_company_testimonials',true);
@@ -687,6 +801,7 @@ else {
             for ($i = 0; $i < (count($wpjobus_company_testimonials)); $i++) {
 
                 ?>
+                <div class="row_testimonial">
 
                 <span class="information-input">
               <h3>Dự án <?php echo $i+1;?></h3>
@@ -781,16 +896,17 @@ else {
                 </span>
               </span>
                     </div>
-                    <div class="delete-add">
-                        <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                        <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm lời chứng thực
-                            mới</a>
-                    </div>
+
+                </div>
                 </div>
                 <?php
-
             }
             ?>
+        </div>
+        </div>
+        <div class="delete-add">
+            <button type="button" class="delete_testimonial"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+            <button type="button" class="add_testimonial"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm lời chứng thực mới</button>
         </div>
 
          <div class="divider"></div>
@@ -800,6 +916,7 @@ else {
             <h1 class="resume-section-title"><i class="fa fa-bookmark"></i>  Sản phẩm doanh nghiệp</h1>
             <h3 class="resume-section-subtitle" >Tải lên những dự án tốt nhất của bạn</h3>
           </div>
+            <div class="company_portfolio">
             <?php
 
             $wpjobus_company_portfolio = get_post_meta($postID, 'wpjobus_company_portfolio',true);
@@ -807,42 +924,48 @@ else {
             for ($i = 0; $i < (count($wpjobus_company_portfolio)); $i++) {
 
                 ?>
-                <span class="information-input">
+                <div class="row_portfolio">
+        <span class="information-input">
               <h3>Dự án 1</h3>
           </span>
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-6">
               <span class="information-input">
                 <span class="label-title">
                   <h3>Tên dự án:</h3>
                 </span>
                 <span class="three_fifth">
                   <i class="fa fa-users" aria-hidden="true"></i>
-                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i;?>][0]" name="wpjobus_company_portfolio[<?php echo $i;?>][0]"
-                         value="<?php if (!empty($wpjobus_company_portfolio[$i][0])) echo $wpjobus_company_portfolio[$i][0]; ?>" class="criteria_name" placeholder="" style="width: 100%;">
+                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i; ?>][0]"
+                         name="wpjobus_company_portfolio[<?php echo $i; ?>][0]"
+                         value="<?php if (!empty($wpjobus_company_portfolio[$i][0])) echo $wpjobus_company_portfolio[$i][0]; ?>"
+                         class="criteria_name" placeholder="" style="width: 100%;">
                    </span>
               </span>
-                        <span class="information-input">
+                            <span class="information-input">
                 <span class="label-title">
                   <h3>Danh mục</h3>
                 </span>
                 <span class="three_fifth">
                    <i class="fa fa-th-large" aria-hidden="true"></i>
-                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i;?>][1]" name="wpjobus_company_portfolio[<?php echo $i;?>][1]"
-                         value="<?php if (!empty($wpjobus_company_portfolio[$i][1])) echo $wpjobus_company_portfolio[$i][1]; ?>" class="criteria_name_two" placeholder="" style="width: 100%;">
+                  <input type="text" id="wpjobus_resume_portfolio[<?php echo $i; ?>][1]"
+                         name="wpjobus_company_portfolio[<?php echo $i; ?>][1]"
+                         value="<?php if (!empty($wpjobus_company_portfolio[$i][1])) echo $wpjobus_company_portfolio[$i][1]; ?>"
+                         class="criteria_name_two" placeholder="" style="width: 100%;">
                     </span>
               </span>
-                        <span class="information-input">
+                            <span class="information-input">
                 <span class="label-title">
                   <h3 class="skill-item-title">Ghi chú:</h3>
                 </span>
                 <span class="three_fifth">
-                 <textarea class="criteria_notes" name="wpjobus_company_portfolio[<?php echo $i;?>][2]"
-                           id="wpjobus_resume_portfolio[<?php echo $i;?>][2]" cols="70" rows="4"><?php if (!empty($wpjobus_company_portfolio[$i][2])) echo $wpjobus_company_portfolio[$i][2]; ?></textarea>
+                 <textarea class="criteria_notes" name="wpjobus_company_portfolio[<?php echo $i; ?>][2]"
+                           id="wpjobus_resume_portfolio[<?php echo $i; ?>][2]" cols="70"
+                           rows="4"><?php if (!empty($wpjobus_company_portfolio[$i][2])) echo $wpjobus_company_portfolio[$i][2]; ?></textarea>
                   </span>
               </span>
-                    </div>
-                    <div class="col-md-6">
+                        </div>
+                        <div class="col-md-6">
               <span class="img-upload">
                 <span class="label-title">
                   <h3 class="skill-item-title">
@@ -851,17 +974,17 @@ else {
                     <?php if (!empty($wpjobus_company_portfolio[$i][3])) {
 
                         ?>
-                        <img id="img_product" src="<?php  echo $wpjobus_company_portfolio[$i][3];?>" width="200"/>
+                        <img id="img_product" src="<?php echo $wpjobus_company_portfolio[$i][3]; ?>" width="200"/>
                         <?php
-                    }
-                    else{
+                    } else {
                         ?>
                         <img id="img_product" src="" width="200" style="display:none;"/>
-                    <?php
+                        <?php
                     }
                     ?>
 
-                <input name="wpjobus_company_portfolio[<?php echo $i;?>][3]" type="hidden" id="portfolio_name" value="<?php echo $wpjobus_company_portfolio[$i][3];?>">
+                    <input name="wpjobus_company_portfolio[<?php echo $i; ?>][3]" type="hidden" id="portfolio_name"
+                           value="<?php echo $wpjobus_company_portfolio[$i][3]; ?>">
 
                       <script>
                              function upload_product() {
@@ -886,22 +1009,27 @@ else {
                              }
                              $('#file_product').change(function (event) {
                                  $("#img_product").fadeIn("fast").attr('src', URL.createObjectURL(event.target.files[0]));
-                                 var src= $('#file_product').val();
-                                 var file= src.match(/[-_\w]+[.][\w]+$/i)[0];
-                                 var upload_file="<?php echo $upload_dir['url'];?>/"+ file;
+                                 var src = $('#file_product').val();
+                                 var file = src.match(/[-_\w]+[.][\w]+$/i)[0];
+                                 var upload_file = "<?php echo $upload_dir['url'];?>/" + file;
                                  $('#portfolio_name').val(upload_file);
 
                              });
                       </script>
                 </span>
               </span>
+                        </div>
                     </div>
-<?php
-                    }
-                    ?>
+                </div>
+                <?php
+            }
+                ?>
+
+            </div>
+
                     <div class="delete-add">
-                        <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                        <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm lời chứng thực mới</a>
+                        <button type="button" class="delete_portfolio"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                        <button type="button" class="add_portfolio"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm dự án</button>
                     </div>
                 </div>
 

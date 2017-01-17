@@ -1,0 +1,151 @@
+.list-job-detail {
+  margin-bottom: 15px; }
+  .list-job-detail .bg-fff {
+    background: #fff; }
+  .list-job-detail .title {
+    font-weight: 600;
+    color: #008cd8; }
+  .list-job-detail a {
+    text-decoration: none; }
+  .list-job-detail .input-search {
+    padding-top: 20px; }
+    .list-job-detail .input-search .form-search .input-group .btn-search {
+      height: 45px;
+      background-color: #008cd8; }
+    .list-job-detail .input-search .form-search .input-group input {
+      height: 45px; }
+    .list-job-detail .input-search .form-search .input-group .btn-search i {
+      font-size: 20px;
+      color: #fff; }
+  .list-job-detail .category-menu {
+    padding-top: 20px; }
+    .list-job-detail .category-menu .menu-title {
+      padding-left: 0; }
+      .list-job-detail .category-menu .menu-title .title {
+        height: 45px;
+        line-height: 36px;
+        background: #008cd8;
+        text-transform: uppercase;
+        color: #fff;
+        padding-left: 10px;
+        font-size: 16px; }
+      .list-job-detail .category-menu .menu-title li {
+        list-style: none;
+        padding-top: 5px;
+        line-height: 45px;
+        height: 45px;
+        text-transform: uppercase;
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFF), color-stop(1, #F6F6F6));
+        padding-left: 25px; }
+        .list-job-detail .category-menu .menu-title li a {
+          color: #484848;
+          font-weight: 600; }
+          .list-job-detail .category-menu .menu-title li a:hover {
+            color: #1f6797;
+            font-weight: 600; }
+  .list-job-detail .box-img img {
+    width: 100%; }
+  .list-job-detail .content-1 {
+    font-size: 16px;
+    line-height: 25px;
+    color: #636363; }
+  .list-job-detail .author-content {
+    padding: 15px; }
+    .list-job-detail .author-content .post {
+      font-size: 13px;
+      padding: 10px; }
+      .list-job-detail .author-content .post a {
+        color: #4f5357; }
+      .list-job-detail .author-content .post:first-child {
+        padding-left: 0; }
+      .list-job-detail .author-content .post i {
+        padding-right: 5px; }
+  .list-job-detail .text-content-full {
+    line-height: 30px;
+    padding-left: 15px;
+    color: #636363;
+    font-size: 16px;
+    padding-right: 15px; }
+    .list-job-detail .text-content-full img {
+      width: 100%; }
+    .list-job-detail .text-content-full span {
+      margin-top: 20px;
+      display: block;
+      margin-bottom: 10px; }
+  .list-job-detail .post-tag {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-left: 15px;
+    padding-right: 15px; }
+    .list-job-detail .post-tag i {
+      padding-right: 10px; }
+    .list-job-detail .post-tag a {
+      padding: 10px 10px; }
+  .list-job-detail .post-comment {
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px; }
+    .list-job-detail .post-comment .pc-title {
+      padding-top: 15px; }
+      .list-job-detail .post-comment .pc-title span {
+        color: #484848;
+        font-size: 28px; }
+    .list-job-detail .post-comment .avt {
+      width: 75px;
+      height: 75px;
+      display: inline-block;
+      margin-top: 15px; }
+      .list-job-detail .post-comment .avt img {
+        width: 100%; }
+    .list-job-detail .post-comment .fn {
+      padding-left: 15px; }
+    .list-job-detail .post-comment .comment-metadata {
+      float: right;
+      padding-top: 15px; }
+      .list-job-detail .post-comment .comment-metadata a {
+        color: #34495e; }
+    .list-job-detail .post-comment .comment-content {
+      padding-top: 15px;
+      padding-bottom: 15px; }
+    .list-job-detail .post-comment .comment-meta {
+      margin-left: 80px;
+      padding-top: 15px;
+      border-top: 1px solid #ccc; }
+    .list-job-detail .post-comment .reply {
+      padding-top: 10px; }
+      .list-job-detail .post-comment .reply a.comment-reply-link {
+        background: none;
+        border: none;
+        border: 2px solid #c0392b;
+        border-radius: 5px;
+        color: #c0392b;
+        display: inline-block;
+        padding: 7px 14px;
+        text-decoration: none;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        -ms-transition: all 0.2s ease;
+        transition: all 0.2s ease; }
+        .list-job-detail .post-comment .reply a.comment-reply-link:hover {
+          background-color: #c0392b;
+          color: #fff; }
+    .list-job-detail .post-comment .title-reply {
+      padding-top: 10px; }
+      .list-job-detail .post-comment .title-reply span {
+        display: block; }
+      .list-job-detail .post-comment .title-reply .tl {
+        font-size: 20px;
+        padding-left: 15px;
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        border-left: 3px solid #008cd8; }
+      .list-job-detail .post-comment .title-reply a {
+        font-size: 18px; }
+    .list-job-detail .post-comment .text-cmt {
+      padding-top: 15px; }
+      .list-job-detail .post-comment .text-cmt label {
+        color: #636363; }
+
+/*# sourceMappingURL=list-job-detail.css.map */

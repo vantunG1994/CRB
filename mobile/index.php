@@ -2,18 +2,21 @@
 global $wp2es;
 $cond_job=array('post_status'=>'publish','post_type'=>'job');
 $order_count=array('up_at'=>'desc','post_modified'=>'desc');
-$limit_count=array('size'=>10,'page'=>2);
+$limit_count=array('size'=>8,'page'=>2);
 $result_job = $wp2es->and_simple_search($cond_job,$order_count,$limit_count);
+$td_total_job = $result_job["0"]["es_total_result"];
 
 $cond_resume=array('post_status'=>'publish','post_type'=>'resume');
 $order_count_resume=array('up_at'=>'desc','post_modified'=>'desc');
-$limit_count_resume=array('size'=>12,'page'=>1);
+$limit_count_resume=array('size'=>8,'page'=>1);
 $result_resume = $wp2es->and_simple_search($cond_resume,$order_count_resume,$limit_count_resume);
+$td_total_resume = $result_resume["0"]["es_total_result"];
 
 $cond_company=array('post_status'=>'publish','post_type'=>'company');
 $order_count_company=array('up_at'=>'desc','post_modified'=>'desc');
-$limit_count_company=array('size'=>12,'page'=>1);
+$limit_count_company=array('size'=>8,'page'=>1);
 $result_company = $wp2es->and_simple_search($cond_company,$order_count_company,$limit_count_company);
+$td_total_company = $result_company["0"]["es_total_result"];
 ?>
 <div class="clearfix"></div>
 <div class="main-content">
@@ -45,7 +48,7 @@ $result_company = $wp2es->and_simple_search($cond_company,$order_count_company,$
                     }
                     ?>
                 </section>
-                 <div class="more"><a href=""> +Xem Thêm 967.453 Hồ Sơ Ứng Viên</a></div>
+                <div class="more"><a href="<?php echo home_url();?>/ung-vien/"> +Xem Thêm <?php echo number_format($td_total_resume ,0,0,'.'); ?> Hồ Sơ Ứng Viên</a></div>
             </div>
 
             <div class="index_listting" id="list-job">
@@ -57,7 +60,7 @@ $result_company = $wp2es->and_simple_search($cond_company,$order_count_company,$
                             }
                             ?>
                         </section>
-                        <div class="more"><a href=""> +Xem Thêm 967.453 Tin Tuyển Dụng</a></div>
+                <div class="more"><a href="<?php echo home_url();?>/tuyen-dung/"> +Xem Thêm <?php echo number_format($td_total_job ,0,0,'.'); ?> Tin Tuyển Dụng</a></div>
                     </div>
            
         </div>

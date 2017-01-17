@@ -47,7 +47,7 @@ if(($_GET["resume_location"])!="")
     $location='';
     $locations=$_GET["resume_location"];
 
-    $location .=$locations[0];
+    $location =$locations;
 
 
 
@@ -65,11 +65,9 @@ if(($_GET["salary"])!="")
     $salary='';
     $salarys=$_GET["salary"];
 
-    foreach($salarys as $v1) {
-        $salary .= ''.$v1.'' . ',';
 
+    $salary =$salarys;
 
-    }
     $wpjobus_job_remuneration='wpjobus_job_remuneration';
 
 }
@@ -86,13 +84,13 @@ if(($_GET["industry"])!="" )
     $job_typess=$_GET["industry"];
     $job_types="";
 
-    $industry = $job_typess[0];
+    $industry = $job_typess;
 
 
     if(count($job_typess)==1 &&$industry !=$job_type)
     {
 
-        $query = str_replace( '&industry%5B%5D='.$industry.'', '', $_SERVER['QUERY_STRING'] );
+        $query = str_replace( '&industry='.$industry.'', '', $_SERVER['QUERY_STRING'] );
 
 
 
@@ -199,7 +197,7 @@ if($td_total_pages >1000)
                         {
                             ?>
 
-                            <option selected value="<?php echo $locations[0]; ?>"><?php echo $locations[0]; ?></option>
+                            <option selected value="<?php echo $location; ?>"><?php echo $location; ?></option>
                             <?php
 
                         }else{
@@ -268,7 +266,7 @@ if($td_total_pages >1000)
     jQuery(document).ready(function ($) {
         jQuery(".job_list_location").change(function () {
             var id = jQuery(".job_list_location").val();
-            var url = "<?php echo home_url('/')."nganh-nghe-tuyen-dung/".$sub_string;?>?resume_location[]=" + id;
+            var url = "<?php echo home_url('/')."nganh-nghe-tuyen-dung/".$sub_string;?>?resume_location=" + id;
             location.href = url;
         });
     });

@@ -1,5 +1,5 @@
 <?php
-global $wpdb;
+global $wpdb,$mvl_stats;
 $job_field=$wpdb->get_results('select * from job_field ');
 $job_province=$wpdb->get_results('select * from job_province ');
 ?>
@@ -13,7 +13,7 @@ $job_province=$wpdb->get_results('select * from job_province ');
             <div class="col-xs-12">
                 <section id="header-cover-image">
                     <div class="title-text">
-                        Hiện có <span>967.453</span> ứng viên và <span>10.874</span> tin đăng<!--, <b>1.067.830</b> tin mới hôm nay--> <font size="2">(tất cả miễn phí trọn đời)</font>
+                        Hiện có <span><?php echo number_format($mvl_stats['total_resume'] ,0,0,'.'); ?></span> ứng viên và <span><?php echo number_format($mvl_stats['total_job'] ,0,0,'.'); ?></span> tin đăng<!--, <b>1.067.830</b> tin mới hôm nay--> <font size="2">(tất cả miễn phí trọn đời)</font>
                     </div>
                     <div class="tab-wrapper">
                         <ul class="tab">
@@ -39,7 +39,7 @@ $job_province=$wpdb->get_results('select * from job_province ');
                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                         <div class="search-home ">
                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <select class="input-lg select2 job_location"  role="presentation" name="resume_location[]" id="job_location"  >
+                                            <select class="input-lg select2 job_location"  role="presentation" name="resume_location" id="job_location"  >
                                                 <option value="">Chọn Khu Vực</option>
                                                 <?php
                                                 foreach ($job_province as $location) {
@@ -56,7 +56,7 @@ $job_province=$wpdb->get_results('select * from job_province ');
                                     <div class="col-md-3 col-sm-6 col-xs-12">
                                         <div class="search-home ">
                                             <i class="fa fa-cog" aria-hidden="true"></i>
-                                             <select class="input-lg select2 job_type" name="industry[]"  role="presentation" id="job_type" style="width: 100%; margin-bottom: 0;">
+                                             <select class="input-lg select2 job_type" name="industry"  role="presentation" id="job_type" style="width: 100%; margin-bottom: 0;">
                                                 <option value="">Chọn Ngành Nghề</option>
                                                  <?php
                                                  foreach ($job_field as $industry) {
@@ -92,7 +92,7 @@ $job_province=$wpdb->get_results('select * from job_province ');
                                         <div class="col-md-3 col-sm-6 col-xs-12">
                                             <div class="search-home ">
                                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                                <select class="input-lg select2 job_location "  role="presentation" placeholder="Chọn khu vực" name="resume_location[]" id="job_location" tabindex="-1" aria-hidden="true">
+                                                <select class="input-lg select2 job_location "  role="presentation" placeholder="Chọn khu vực" name="resume_location" id="job_location" tabindex="-1" aria-hidden="true">
                                                     <option value="">Chọn Khu Vực</option>
                                                     <?php
                                                     foreach ($job_province as $location) {
@@ -108,7 +108,7 @@ $job_province=$wpdb->get_results('select * from job_province ');
                                             <div class="col-md-3 col-sm-6 col-xs-12">
                                                 <div class="search-home ">
                                                     <i class="fa fa-cog" aria-hidden="true"></i>
-                                                    <select class="input-lg select2 job_type "  role="presentation" name="industry[]" id="job_type"  tabindex="-1" aria-hidden="true">--&gt;
+                                                    <select class="input-lg select2 job_type "  role="presentation" name="industry" id="job_type"  tabindex="-1" aria-hidden="true">--&gt;
                                                         <option value="">Chọn Ngành Nghề</option>
 
                                                         <?php

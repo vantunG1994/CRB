@@ -11,11 +11,14 @@ $(document).ready(function(){
 	scrolltotop();
 
 	wdscroll();
-
+    kt_input_register();
+    
     kt_field_add_job();
     kt_field_add_resume();
     kt_field_add_company();
     isset_number("#wpjobus_job_phone");
+
+
 
 
 });
@@ -60,7 +63,6 @@ function isset_number($id){
 }
 function kt_sdt()
         {
-            alert("aaaaaaaaaa");
             if(frm.userName.value=="")
             {
                 $("#err").show();
@@ -101,7 +103,40 @@ function kt_sdt()
             }
 
         }
+function kt_input_register(){
+    $("#sb-register").click(function(){
+        var number = $("#userName").val();
+        var email = $("#email").val();
+        var password = $("#pwd1").val();
+      
+        var flag = true;
+        if (number == "") {
+            $("#err").text("Vui lòng nhập số điện thoại");
+            $("#userName").focus();
+            flag = false;
+        }else {
+            $("#err").text("");
+        }
 
+        if(email == ""){
+             $("#err_email").text("Vui lòng nhập địa chỉ Email");
+            $("#email").focus();
+            flag = false;
+        } else {
+             $("#err_email").text("");
+        }
+        if(password == "") {
+            $("#err_pass").text("Vui lòng nhập mật khẩu của bạn");
+            $("#pwd1").focus();
+            flag = false;
+        } else {
+                 $("#err_pass").text("");
+        }
+
+        return flag;
+
+    });
+}
 function kt_field_add_job(){
     $(".save_add_job").click(function() {
          var name_jobs= $("#information-inputName").val();
@@ -302,6 +337,7 @@ function mycarousel(id,itemdestop,itemtable,itemmobile,dots,autoplay){
 				loop:true,
 				dots:dots,
 				autoplay:autoplay,
+                paginationNumbers:true,
 				smartSpeed:1000,
 				responsive:{
 			        0:{
@@ -329,10 +365,10 @@ function mycarousel(id,itemdestop,itemtable,itemmobile,dots,autoplay){
 }
 function scrolltotop(){
 	$(window).scroll(function () {
-            if ($(this).scrollTop() > 50) {
-                $('#back-to-top').fadeIn();
+            if ($(this).scrollTop() > 300) {
+                $('#back-to-top').fadeIn('1000');
             } else {
-                $('#back-to-top').fadeOut();
+                $('#back-to-top').fadeOut('1000');
             }
         });
         // scroll body to 0px on click

@@ -718,6 +718,7 @@ if (empty($wpjobus_resume_latitude)) {
             </div>
           </div>
           <div class="divider"></div>
+            <div class="resume_skills">
             <?php
 
             $wpjobus_resume_skills = get_post_meta($postID, 'wpjobus_resume_skills',true);
@@ -725,6 +726,7 @@ if (empty($wpjobus_resume_latitude)) {
             for ($i = 0; $i < (count($wpjobus_resume_skills)); $i++) {
 
                 ?>
+                <div class="row_resume_skill">
                 <div class="col-md-6">
                     <div class="Skills-needed-1">
               <span class="label-title">
@@ -749,15 +751,17 @@ if (empty($wpjobus_resume_latitude)) {
                         <p id="error" style="color: red;display:none;font-size: 16px;"></p>
                     </div>
                 </div>
+                </div>
                 <?php
             }
             ?>
+            </div>
           <div class="divider"></div>
-          
-          <div class="delete-add">
-            <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-            <a href="them" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng</a>
-          </div>
+
+            <div class="delete-add">
+                <button type="button" class="delete_resume_skill"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                <button type="button" class="add_resume_skill"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kỹ năng mới</button>
+            </div>
           <div class="divider"></div>
           <div class="col-md-6">
             <div class="Skills-needed-1">
@@ -772,6 +776,7 @@ if (empty($wpjobus_resume_latitude)) {
             </div>
           </div>
           <div class="divider"></div>
+            <div class="resume_languages">
             <?php
 
             $wpjobus_resume_languages = get_post_meta($postID, 'wpjobus_resume_languages',true);
@@ -779,12 +784,12 @@ if (empty($wpjobus_resume_latitude)) {
             for ($i = 0; $i < (count($wpjobus_resume_languages)); $i++) {
 
                 ?>
-                <div class="row">
+                <div class="row_resume_language">
                     <div class="col-xs-6">
                         <div class="contact-input">
                 <span class="information-input">
                   <span class="label-title">
-                    <h3>Tên:</h3>
+                      <h3>Ngôn ngữ <?php echo $i+1;?>:</h3>
                   </span>
                   <span class="three_fifth">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
@@ -843,15 +848,16 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
                         </div>
                     </div>
-                    <div class="delete-add">
-                        <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                        <a href="them" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn
-                            ngữ</a>
-                    </div>
+
                 </div>
                 <?php
             }
             ?>
+            </div>
+            <div class="delete-add">
+                <button type="button" class="delete_resume_language"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                <button type="button" class="add_resume_language"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm ngôn ngữ mới</button>
+            </div>
           <div class="divider"></div>
           <div class="additional">
             <div class="information-input">
@@ -872,6 +878,7 @@ if (empty($wpjobus_resume_latitude)) {
             <h1 class="resume-section-title"><i class="fa fa-university"></i>  Giáo dục</h1>
             <h3 class="resume-section-subtitle" >Điền những thông tin về học vấn của bạn ở các mục bên dưới.</h3>
           </div>
+            <div class="resume_education">
             <?php
 
             $wpjobus_resume_education = get_post_meta($postID, 'wpjobus_resume_education',true);
@@ -879,6 +886,8 @@ if (empty($wpjobus_resume_latitude)) {
             for ($i = 0; $i < (count($wpjobus_resume_education)); $i++) {
 
                 ?>
+                <div class="row_resume_education">
+                <div class="row_resume_education">
                 <span class="information-input">
             <h3>Tổ chức giáo dục <?php echo $i+1;?></h3>
           </span>
@@ -937,15 +946,18 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
               </span>
                     </div>
-                    <div class="delete-add">
-                        <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                        <a href="them" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm một mô tả
-                            học vấn mới</a>
-                    </div>
+
+                </div>
+                </div>
                 </div>
                 <?php
             }
             ?>
+        </div>
+            <div class="delete-add">
+                <button type="button" class="delete_education"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                <button type="button" class="add_education"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm học vấn mới</button>
+            </div>
         </div>
         <div class="divider"></div>
         <div class="education">
@@ -953,6 +965,7 @@ if (empty($wpjobus_resume_latitude)) {
             <h1 class="resume-section-title"><i class="fa fa-trophy"></i>  Giải thưởng</h1>
             <h3 class="resume-section-subtitle" >Hãy để mọi người biết bạn giỏi như thế nào!</h3>
           </div>
+            <div class="resume_award">
             <?php
 
             $wpjobus_resume_award = get_post_meta($postID, 'wpjobus_resume_award',true);
@@ -960,6 +973,7 @@ if (empty($wpjobus_resume_latitude)) {
             for ($i = 0; $i < (count($wpjobus_resume_award)); $i++) {
 
                 ?>
+                <div class="row_resume_award">
                 <span class="information-input">
             <span class="label-title">
               <h3>Giải thưởng <?php echo $i+1; ?></h3>
@@ -1014,22 +1028,28 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
               </span>
                     </div>
-                    <div class="delete-add">
-                        <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                        <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm một mô tả
-                            học vấn mới</a>
-                    </div>
+
                 </div>
+                </div>
+
                 <?php
             }
             ?>
+            </div>
+            <div class="delete-add">
+                <button type="button" class="delete_award"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                <button type="button" class="add_award"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm giải thưởng mới</button>
+            </div>
         </div>
+
+
         <div class="divider"></div>
         <div class="education">
           <div class="title-top">
             <h1 class="resume-section-title"><i class="fa fa-building"></i>  Kinh nghiệm làm việc</h1>
             <h3 class="resume-section-subtitle" >Tên của các tổ chức giúp bạn có được những kinh nghiệm quý báu</h3>
           </div>
+            <div class="resume_work">
             <?php
 
             $wpjobus_resume_work = get_post_meta($postID, 'wpjobus_resume_work',true);
@@ -1037,6 +1057,7 @@ if (empty($wpjobus_resume_latitude)) {
             for ($i = 0; $i < (count($wpjobus_resume_work)); $i++) {
 
                 ?>
+                <div class="row_resume_work">
                 <span class="information-input">
             <span class="label-title">
               <h3>Kinh nghiệm làm việc <?php echo $i+1; ?></h3>
@@ -1060,7 +1081,7 @@ if (empty($wpjobus_resume_latitude)) {
                   <h3>Giai đoạn</h3>
                 </span>
                 <span class="three_fifth">
-          	<input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][2]' name='wpjobus_resume_work[<?php echo $i; ?>][2]' value='<?php if (!empty($wpjobus_resume_work[$i][2])) echo $wpjobus_resume_work[$i][2]; ?>' class='criteria_from_time' placeholder="" style="width: 40%;"> <span style="float: left; margin: 10px;">-</span> <input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][3]' name='wpjobus_resume_work[<?php echo $i; ?>][3]' value='<?php if (!empty($wpjobus_resume_work[$i][3])) echo $wpjobus_resume_work[$i][3]; ?>' class='criteria_to_time' placeholder="" style="width: 40%;">
+          	<input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][2]' name='wpjobus_resume_work[<?php echo $i; ?>][2]' value='<?php if (!empty($wpjobus_resume_work[$i][2])) echo $wpjobus_resume_work[$i][2]; ?>' class='criteria_from_time' placeholder="" style="width: 40%;"> <span style="float: left; margin: 10px;"></span> <input type='text' id='wpjobus_resume_work[<?php echo $i; ?>][3]' name='wpjobus_resume_work[<?php echo $i; ?>][3]' value='<?php if (!empty($wpjobus_resume_work[$i][3])) echo $wpjobus_resume_work[$i][3]; ?>' class='criteria_to_time' placeholder="" style="width: 40%;">
 
                 </span>
               </span>
@@ -1101,15 +1122,17 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
               </span>
                     </div>
-                    <div class="delete-add">
-                        <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                        <a href="them" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm một mô tả
-                            học vấn mới</a>
-                    </div>
+
+                </div>
                 </div>
                 <?php
             }
             ?>
+        </div>
+            <div class="delete-add">
+                <button type="button" class="delete_work"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                <button type="button" class="add_work"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm kinh nghiệm mới</button>
+            </div>
         </div>
         <div class="divider"></div>
         <div class="price-welfare">
@@ -1232,6 +1255,7 @@ if (empty($wpjobus_resume_latitude)) {
             <h1 class="resume-section-title"><i class="fa fa-bookmark"></i>  Dự án cá nhân</h1>
             <h3 class="resume-section-subtitle" >Tải lên những dự án tốt nhất của bạn</h3>
           </div>
+            <div class="resume_portfolio">
             <?php
 
             $wpjobus_resume_portfolio = get_post_meta($postID, 'wpjobus_resume_portfolio',true);
@@ -1239,6 +1263,7 @@ if (empty($wpjobus_resume_latitude)) {
             for ($i = 0; $i < (count($wpjobus_resume_portfolio)); $i++) {
 
                 ?>
+                <div class="row_resume_portfolio">
                 <span class="information-input">
               <h3>Dự án <?php echo $i+1; ?></h3>
           </span>
@@ -1327,15 +1352,17 @@ if (empty($wpjobus_resume_latitude)) {
                 </span>
               </span>
                     </div>
-                    <div class="delete-add">
-                        <a href="#" class="delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</a>
-                        <a href="#" class="add"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm một mô tả
-                            học vấn mới</a>
-                    </div>
+
+                </div>
                 </div>
                 <?php
             }
             ?>
+        </div>
+            <div class="delete-add">
+                <button type="button" class="delete_resume_portfolio"><i class="fa fa-trash-o" aria-hidden="true"></i> Xóa</button>
+                <button type="button" class="add_resume_portfolio"><i class="fa fa-plus-circle" aria-hidden="true"></i> Thêm dự án mới</button>
+            </div>
         </div>
         <div class="divider"></div>
         <div class="button">
@@ -1459,9 +1486,9 @@ if (isset($_POST['save_draf']))
     update_post_meta($td_post_id, 'wpjobus_resume_linkedin', $_POST['wpjobus_resume_linkedin']);
     update_post_meta($td_post_id, 'wpjobus_resume_twitter', $_POST['wpjobus_resume_twitter']);
     update_post_meta($td_post_id, 'wpjobus_resume_googleplus', $_POST['wpjobus_resume_googleplus']);
-    update_post_meta($td_post_id, 'wpjobus_resume_googleaddress', $_POST['wpjobus_resume_googleaddress']);
-    update_post_meta($td_post_id, 'wpjobus_resume_longitude', $_POST['wpjobus_resume_longitude']);
-    update_post_meta($td_post_id, 'wpjobus_resume_latitude', $_POST['wpjobus_resume_latitude']);
+//    update_post_meta($td_post_id, 'wpjobus_resume_googleaddress', $_POST['wpjobus_resume_googleaddress']);
+//    update_post_meta($td_post_id, 'wpjobus_resume_longitude', $_POST['wpjobus_resume_longitude']);
+//    update_post_meta($td_post_id, 'wpjobus_resume_latitude', $_POST['wpjobus_resume_latitude']);
 
     update_post_meta($td_post_id, 'wpjobus_resume_file', $_POST['wpjobus_resume_file']);
     update_post_meta($td_post_id, 'wpjobus_resume_file_name', $_POST['wpjobus_resume_file_name']);
@@ -1589,9 +1616,9 @@ if(isset($_POST['save_pending']))
     update_post_meta($td_post_id, 'wpjobus_resume_linkedin', $_POST['wpjobus_resume_linkedin']);
     update_post_meta($td_post_id, 'wpjobus_resume_twitter', $_POST['wpjobus_resume_twitter']);
     update_post_meta($td_post_id, 'wpjobus_resume_googleplus', $_POST['wpjobus_resume_googleplus']);
-    update_post_meta($td_post_id, 'wpjobus_resume_googleaddress', $_POST['wpjobus_resume_googleaddress']);
-    update_post_meta($td_post_id, 'wpjobus_resume_longitude', $_POST['wpjobus_resume_longitude']);
-    update_post_meta($td_post_id, 'wpjobus_resume_latitude', $_POST['wpjobus_resume_latitude']);
+//    update_post_meta($td_post_id, 'wpjobus_resume_googleaddress', $_POST['wpjobus_resume_googleaddress']);
+//    update_post_meta($td_post_id, 'wpjobus_resume_longitude', $_POST['wpjobus_resume_longitude']);
+//    update_post_meta($td_post_id, 'wpjobus_resume_latitude', $_POST['wpjobus_resume_latitude']);
 
     update_post_meta($td_post_id, 'wpjobus_resume_file', $_POST['wpjobus_resume_file']);
     update_post_meta($td_post_id, 'wpjobus_resume_file_name', $_POST['wpjobus_resume_file_name']);

@@ -9,7 +9,8 @@ if ($wpjobus_company_profile_picture == "") {
 }
 $wpjobus_job_remuneration = $list["wpjobus_job_remuneration"];
 $job_remuneration = format_gia($wpjobus_job_remuneration);
-$wpjobus_company_fullname = get_post_meta($td_job_company, 'wpjobus_company_fullname',true);
+$id_company = $list["job_company"];
+$wpjobus_company_fullname = get_post_meta($id_company, 'wpjobus_company_fullname',true);
 $job_industry = $list["job_industry"];
 if($job_industry !="") {
     ?>
@@ -24,25 +25,40 @@ if($job_industry !="") {
             </div>
             <div class="col-md-7">
                 <div class="infor_job">
+                    <?php
+                    if($list['wpjobus_job_fullname'] !=""){
+                    ?>
                     <div class="title">
                         <span><?php echo (isset($list['wpjobus_job_fullname']) && $list['wpjobus_job_fullname'] != null) ? $list['wpjobus_job_fullname'] : '1'; ?></span>
                     </div>
-<!--                    <div class="company"><i class="fa fa-briefcase"></i> --><?php //echo $wpjobus_company_fullname; ?><!--</div>-->
-                    <div class="address"><span><i class="fa fa-map-marker" style=""></i> <?php echo $list['job_location'] ?></span>
-                    </div>
-                    <div class="date-time">
+                        <?php
+                        }
+                        if($wpjobus_company_fullname!="") {
+                            ?>
+                            <div class="company"><i
+                                        class="fa fa-briefcase"></i> <?php echo $wpjobus_company_fullname; ?></div>
+                            <?php
+                        }
+                        if($list['job_location']!="") {
+                            ?>
+                            <div class="address"><span><i class="fa fa-map-marker"
+                                                          style=""></i> <?php echo $list['job_location'] ?></span></div>
+                            <?php
+                        }
+                            ?>
+                            <div class="date-time">
                         <span><i class="fa fa-calendar-o"
                                  style=""></i> <?php echo sw_human_time_diff($company_id); ?></span>
-<!--                        <span class="view"><i class="fa fa-eye" aria-hidden="true"></i>-->
-<!--                            --><?php
-//                            if (wpb_get_post_views($company_id) == 0) {
-//                                echo '1';
-//                            } else {
-//                                echo wpb_get_post_views($company_id);
-//                            }
-//
-//                            ?>
-<!--            </span>-->
+                        <span class="view"><i class="fa fa-eye" aria-hidden="true"></i>
+                            <?php
+                            if (wpb_get_post_views($company_id) == 0) {
+                                echo '1';
+                            } else {
+                                echo wpb_get_post_views($company_id);
+                            }
+
+                            ?>
+            </span>
                     </div>
                     <div class="job"><span><i class="fa fa-suitcase"></i><?php echo $job_industry; ?></span></div>
                 </div>

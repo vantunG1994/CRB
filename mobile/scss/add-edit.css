@@ -1,0 +1,255 @@
+.add-edit {
+  width: 100%;
+  height: auto;
+  float: left;
+  background: white;
+  padding: 20px; }
+  .add-edit input {
+    width: 100%;
+    padding-left: 30px;
+    height: 40px;
+    border: 1px solid #e0e0e0;
+    border-left: 2px solid #16a085;
+    border-radius: 4px; }
+
+.title-top {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee; }
+  .title-top h1.resume-section-title {
+    font-size: 25px;
+    margin-top: 0px;
+    color: #16a085; }
+
+.form-input {
+  width: 100%;
+  padding-top: 20px; }
+
+span.two_fifth.first {
+  width: 50%;
+  float: left; }
+
+span.three_fifth {
+  width: 100%;
+  float: left;
+  margin-bottom: 10px; }
+
+span.information-input {
+  margin-left: 0;
+  width: 100%;
+  float: left;
+  position: relative; }
+  span.information-input i.fa {
+    position: absolute;
+    font-size: 18px;
+    padding: 9px;
+    color: #636363; }
+
+.information-input select {
+  padding-left: 32px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e0e0e0;
+  border-left: 2px solid #16a085;
+  border-radius: 4px; }
+
+.information-input h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #636363; }
+
+textarea#postContent {
+  width: 100%; }
+
+span.information-img {
+  margin-left: 0;
+  width: 100%;
+  float: left;
+  position: relative; }
+
+.price-welfare {
+  width: 100%;
+  float: left; }
+
+span.label-title {
+  width: -webkit-calc(100%);
+  width: calc(100%);
+  float: left;
+  position: relative; }
+
+span.price-welfare-day {
+  width: 100%;
+  width: -webkit-calc(100%);
+  width: calc(100%);
+  float: left;
+  position: relative;
+  margin-bottom: 0px; }
+
+.label-title h3 {
+  margin-top: 6px;
+  margin-bottom: 18px;
+  color: #666666;
+  font-size: 16px; }
+
+.price-welfare-1 {
+  width: 100%;
+  float: left;
+  padding-top: 30px; }
+
+.price-welfare-1 select {
+  height: 40px;
+  padding-left: 30px;
+  border: 1px solid #e0e0e0; }
+
+.price-welfare-1 i.fa {
+  position: absolute;
+  font-size: 20px;
+  padding: 7px; }
+
+.welfare {
+  width: 100%;
+  float: left; }
+
+textarea {
+  width: 100%; }
+
+.delete-add {
+  width: 100%;
+  float: left;
+  text-align: center; }
+
+a.delete {
+  margin-right: 20px;
+  color: #F44336; }
+
+.contact {
+  width: 100%;
+  float: left; }
+
+.contact-details i.fa {
+  position: absolute;
+  font-size: 20px;
+  padding: 7px; }
+
+.contact-details {
+  margin-top: 20px; }
+
+input[type="checkbox"] {
+  width: 10px;
+  float: left;
+  height: 15px; }
+
+.Skills-needed {
+  width: 100%;
+  float: left; }
+
+.Skills-needed-1 {
+  width: 100%;
+  float: left;
+  padding-top: 10px; }
+
+span.Skills-needed-2 {
+  width: calc(100%);
+  width: -webkit-calc(calc(100%););
+  width: calc(calc(100%););
+  float: left;
+  position: relative; }
+  span.Skills-needed-2 i.fa {
+    position: absolute;
+    font-size: 20px;
+    padding: 7px; }
+
+.form-input span.label-title {
+  width: -webkit-calc(100%);
+  width: calc(100%);
+  float: left;
+  position: relative;
+  margin-bottom: 0px; }
+
+.button {
+  width: 100%;
+  float: left;
+  text-align: center; }
+
+button.btn.btn-default.color-button {
+  background: #16a085;
+  color: white;
+  font-size: 12px; }
+
+select#resume_year_birth {
+  width: 26%;
+  width: -webkit-calc(37% - 10px);
+  width: calc(37% - 10px);
+  margin-right: 10px;
+  padding: 0px; }
+
+select#resume_month_birth {
+  width: 26%;
+  width: -webkit-calc(30% - 10px);
+  width: calc(30% - 10px);
+  margin-right: 10px; }
+
+select#resume_day_birth {
+  width: 26%;
+  width: -webkit-calc(30% - 10px);
+  width: calc(30% - 10px);
+  margin-right: 10px; }
+
+input.criteria-image-url {
+  max-width: 200px;
+  float: left;
+  margin-top: 10px;
+  display: none; }
+
+input.criteria-image-url-name {
+  float: left;
+  margin-top: 10px;
+  display: none; }
+
+select#resume_career_level {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e0e0e0;
+  border-left: 2px solid #16a085;
+  border-radius: 5px;
+  padding-left: 28px; }
+
+i.fa.fa-paper-plane-o {
+  position: absolute;
+  padding: 8px;
+  font-size: 20px; }
+
+.education {
+  width: 100%;
+  float: left; }
+
+input.input-textarea.wpjobus_resume_education {
+  width: 47%; }
+
+span.check-box {
+  margin-right: 20px;
+  float: left; }
+
+input.price-welfare {
+  width: 14px;
+  margin-right: 5px;
+  float: left;
+  margin-bottom: 10px; }
+
+.personal-project {
+  width: 100%;
+  float: left; }
+
+h3.resume-section-subtitle {
+  margin-top: 0px;
+  font-size: 21px; }
+
+textarea {
+  width: 100%;
+  border: 1px solid #999999; }
+
+.delete-add i.fa {
+  position: relative; }
+
+/*# sourceMappingURL=add-edit.css.map */
